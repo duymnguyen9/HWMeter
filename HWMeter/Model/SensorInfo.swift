@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct SensorInfo {
+    let title : String
+    let value : String
+    let unit : String
+}

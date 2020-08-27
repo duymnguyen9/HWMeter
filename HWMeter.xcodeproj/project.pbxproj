@@ -3,29 +3,59 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072A302024F700CE00753714 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A301F24F700CE00753714 /* HomeViewModel.swift */; };
+		073EE1FC24F723F6004FB6BF /* SensorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073EE1FB24F723F6004FB6BF /* SensorInfo.swift */; };
+		073EE1FE24F7452C004FB6BF /* MiscView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073EE1FD24F7452C004FB6BF /* MiscView.swift */; };
 		079A19A224F5806B007DF984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A124F5806B007DF984 /* AppDelegate.swift */; };
 		079A19A424F5806B007DF984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A324F5806B007DF984 /* SceneDelegate.swift */; };
-		079A19A624F5806B007DF984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A524F5806B007DF984 /* ViewController.swift */; };
+		079A19A624F5806B007DF984 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A524F5806B007DF984 /* HomeViewController.swift */; };
 		079A19A924F5806B007DF984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A19A724F5806B007DF984 /* Main.storyboard */; };
 		079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 079A19AA24F5806B007DF984 /* HWMeter.xcdatamodeld */; };
 		079A19AE24F5806D007DF984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AD24F5806D007DF984 /* Assets.xcassets */; };
 		079A19B124F5806D007DF984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AF24F5806D007DF984 /* LaunchScreen.storyboard */; };
+		07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6584C24F599FE002EA720 /* ThemeColors.swift */; };
+		07C6585024F5A6D2002EA720 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6584F24F5A6D2002EA720 /* CustomCollectionViewCell.swift */; };
+		07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585224F5AADA002EA720 /* GaugeView.swift */; };
+		07C6585524F5AE3D002EA720 /* LayoutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585424F5AE3D002EA720 /* LayoutConfig.swift */; };
+		07C6585824F5B0A2002EA720 /* SensorGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585724F5B0A2002EA720 /* SensorGauge.swift */; };
+		07C6585A24F5B0BE002EA720 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585924F5B0BE002EA720 /* Sensor.swift */; };
+		07C6586024F5BDC3002EA720 /* SensorDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585E24F5BDC3002EA720 /* SensorDataService.swift */; };
+		07C6586224F5BEDB002EA720 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6586124F5BEDB002EA720 /* CollectionCellViewModel.swift */; };
+		07C6586424F5D0F9002EA720 /* hwmonitor.json in Resources */ = {isa = PBXBuildFile; fileRef = 07C6586324F5D0F9002EA720 /* hwmonitor.json */; };
+		07C6586624F5D809002EA720 /* KPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6586524F5D809002EA720 /* KPIView.swift */; };
+		EC725D5324175A60AA23674B /* Pods_HWMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B74042B3F3F543B09AAB7AE2 /* Pods_HWMeter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		072A301F24F700CE00753714 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		073EE1FB24F723F6004FB6BF /* SensorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfo.swift; sourceTree = "<group>"; };
+		073EE1FD24F7452C004FB6BF /* MiscView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscView.swift; sourceTree = "<group>"; };
 		079A199E24F5806B007DF984 /* HWMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		079A19A124F5806B007DF984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		079A19A324F5806B007DF984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		079A19A524F5806B007DF984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		079A19A524F5806B007DF984 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		079A19A824F5806B007DF984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		079A19AB24F5806B007DF984 /* HWMeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HWMeter.xcdatamodel; sourceTree = "<group>"; };
 		079A19AD24F5806D007DF984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		079A19B024F5806D007DF984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		079A19B224F5806D007DF984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07C6584C24F599FE002EA720 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
+		07C6584F24F5A6D2002EA720 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		07C6585224F5AADA002EA720 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
+		07C6585424F5AE3D002EA720 /* LayoutConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConfig.swift; sourceTree = "<group>"; };
+		07C6585724F5B0A2002EA720 /* SensorGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorGauge.swift; sourceTree = "<group>"; };
+		07C6585924F5B0BE002EA720 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
+		07C6585E24F5BDC3002EA720 /* SensorDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorDataService.swift; sourceTree = "<group>"; };
+		07C6586124F5BEDB002EA720 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
+		07C6586324F5D0F9002EA720 /* hwmonitor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hwmonitor.json; sourceTree = "<group>"; };
+		07C6586524F5D809002EA720 /* KPIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPIView.swift; sourceTree = "<group>"; };
+		84707B16B11BE8341F067E43 /* Pods-HWMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWMeter.debug.xcconfig"; path = "Target Support Files/Pods-HWMeter/Pods-HWMeter.debug.xcconfig"; sourceTree = "<group>"; };
+		B74042B3F3F543B09AAB7AE2 /* Pods_HWMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HWMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAFFBF8C4669D9FA83AA45EC /* Pods-HWMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWMeter.release.xcconfig"; path = "Target Support Files/Pods-HWMeter/Pods-HWMeter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +63,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC725D5324175A60AA23674B /* Pods_HWMeter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0458963090E13F7BE590B508 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B74042B3F3F543B09AAB7AE2 /* Pods_HWMeter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		079A199524F5806B007DF984 = {
 			isa = PBXGroup;
 			children = (
 				079A19A024F5806B007DF984 /* HWMeter */,
 				079A199F24F5806B007DF984 /* Products */,
+				65B2503CC4C15C254C29E1F3 /* Pods */,
+				0458963090E13F7BE590B508 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +99,102 @@
 		079A19A024F5806B007DF984 /* HWMeter */ = {
 			isa = PBXGroup;
 			children = (
-				079A19A124F5806B007DF984 /* AppDelegate.swift */,
-				079A19A324F5806B007DF984 /* SceneDelegate.swift */,
-				079A19A524F5806B007DF984 /* ViewController.swift */,
-				079A19A724F5806B007DF984 /* Main.storyboard */,
+				07C6584924F58E04002EA720 /* MainSystem */,
+				07C6584A24F58E31002EA720 /* Home */,
+				07C6584E24F5A6A8002EA720 /* CustomCollectionViewCell */,
+				07C6585124F5AAAA002EA720 /* View */,
+				07C6584B24F59959002EA720 /* Utility */,
 				079A19AD24F5806D007DF984 /* Assets.xcassets */,
+				07C6585624F5B055002EA720 /* Model */,
 				079A19AF24F5806D007DF984 /* LaunchScreen.storyboard */,
+				07C6585B24F5BDC3002EA720 /* Service */,
 				079A19B224F5806D007DF984 /* Info.plist */,
 				079A19AA24F5806B007DF984 /* HWMeter.xcdatamodeld */,
+				07C6586324F5D0F9002EA720 /* hwmonitor.json */,
 			);
 			path = HWMeter;
+			sourceTree = "<group>";
+		};
+		07C6584924F58E04002EA720 /* MainSystem */ = {
+			isa = PBXGroup;
+			children = (
+				079A19A724F5806B007DF984 /* Main.storyboard */,
+				079A19A124F5806B007DF984 /* AppDelegate.swift */,
+				079A19A324F5806B007DF984 /* SceneDelegate.swift */,
+			);
+			path = MainSystem;
+			sourceTree = "<group>";
+		};
+		07C6584A24F58E31002EA720 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				079A19A524F5806B007DF984 /* HomeViewController.swift */,
+				072A301F24F700CE00753714 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		07C6584B24F59959002EA720 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				07C6584C24F599FE002EA720 /* ThemeColors.swift */,
+				07C6585424F5AE3D002EA720 /* LayoutConfig.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		07C6584E24F5A6A8002EA720 /* CustomCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				07C6584F24F5A6D2002EA720 /* CustomCollectionViewCell.swift */,
+				07C6586124F5BEDB002EA720 /* CollectionCellViewModel.swift */,
+			);
+			path = CustomCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		07C6585124F5AAAA002EA720 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07C6586524F5D809002EA720 /* KPIView.swift */,
+				07C6585224F5AADA002EA720 /* GaugeView.swift */,
+				073EE1FD24F7452C004FB6BF /* MiscView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		07C6585624F5B055002EA720 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				07C6585724F5B0A2002EA720 /* SensorGauge.swift */,
+				07C6585924F5B0BE002EA720 /* Sensor.swift */,
+				073EE1FB24F723F6004FB6BF /* SensorInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		07C6585B24F5BDC3002EA720 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				07C6585D24F5BDC3002EA720 /* SensorDataService */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		07C6585D24F5BDC3002EA720 /* SensorDataService */ = {
+			isa = PBXGroup;
+			children = (
+				07C6585E24F5BDC3002EA720 /* SensorDataService.swift */,
+			);
+			path = SensorDataService;
+			sourceTree = "<group>";
+		};
+		65B2503CC4C15C254C29E1F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84707B16B11BE8341F067E43 /* Pods-HWMeter.debug.xcconfig */,
+				BAFFBF8C4669D9FA83AA45EC /* Pods-HWMeter.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 079A19B524F5806D007DF984 /* Build configuration list for PBXNativeTarget "HWMeter" */;
 			buildPhases = (
+				0D44B3AD9B19519E730360F2 /* [CP] Check Pods Manifest.lock */,
 				079A199A24F5806B007DF984 /* Sources */,
 				079A199B24F5806B007DF984 /* Frameworks */,
 				079A199C24F5806B007DF984 /* Resources */,
+				1526027B60920E97BC9E430C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				079A19B124F5806D007DF984 /* LaunchScreen.storyboard in Resources */,
+				07C6586424F5D0F9002EA720 /* hwmonitor.json in Resources */,
 				079A19AE24F5806D007DF984 /* Assets.xcassets in Resources */,
 				079A19A924F5806B007DF984 /* Main.storyboard in Resources */,
 			);
@@ -136,15 +266,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D44B3AD9B19519E730360F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HWMeter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1526027B60920E97BC9E430C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HWMeter/Pods-HWMeter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HWMeter/Pods-HWMeter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HWMeter/Pods-HWMeter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		079A199A24F5806B007DF984 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073EE1FE24F7452C004FB6BF /* MiscView.swift in Sources */,
 				079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */,
-				079A19A624F5806B007DF984 /* ViewController.swift in Sources */,
+				07C6585A24F5B0BE002EA720 /* Sensor.swift in Sources */,
+				07C6586624F5D809002EA720 /* KPIView.swift in Sources */,
+				07C6585524F5AE3D002EA720 /* LayoutConfig.swift in Sources */,
+				07C6585824F5B0A2002EA720 /* SensorGauge.swift in Sources */,
+				07C6585024F5A6D2002EA720 /* CustomCollectionViewCell.swift in Sources */,
+				073EE1FC24F723F6004FB6BF /* SensorInfo.swift in Sources */,
+				079A19A624F5806B007DF984 /* HomeViewController.swift in Sources */,
+				07C6586024F5BDC3002EA720 /* SensorDataService.swift in Sources */,
 				079A19A224F5806B007DF984 /* AppDelegate.swift in Sources */,
+				072A302024F700CE00753714 /* HomeViewModel.swift in Sources */,
+				07C6586224F5BEDB002EA720 /* CollectionCellViewModel.swift in Sources */,
 				079A19A424F5806B007DF984 /* SceneDelegate.swift in Sources */,
+				07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */,
+				07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +470,7 @@
 		};
 		079A19B624F5806D007DF984 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84707B16B11BE8341F067E43 /* Pods-HWMeter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +489,7 @@
 		};
 		079A19B724F5806D007DF984 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAFFBF8C4669D9FA83AA45EC /* Pods-HWMeter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -12,15 +12,19 @@ import RxCocoa
 
 
 class SensorDataService {
+    static let sensorDataService : SensorDataService = SensorDataService()
     
     // TODO: remove this after successfully use stream instead
     var sensorData : [SensorJsonElement] = [SensorJsonElement]()
-    
-    static let sensorDataService : SensorDataService = SensorDataService()
+
     let ip : String = "192.168.1.17"
     let port : String = "55555"
     
-    let sensorDataSubject : BehaviorSubject<CPUInfo> = BehaviorSubject<CPUInfo>(value: CPUInfo())
+    let sensorDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
+    
+    let cpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
+    let gpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
+    
     
     func getSensorDataFromURL() {
         let urlString = "http://" + ip + ":" + port + "/"
@@ -32,7 +36,9 @@ class SensorDataService {
                 print("data count: \(sensorData.count)")
                 
                 DispatchQueue.main.async {
-                    self.sensorDataSubject.asObserver().onNext(CPUInfo(from: self.parseSensorJson(json: data)))
+//                    self.sensorDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
+                    self.cpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
+                    self.gpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .GPU))
                 }
             }
         }
@@ -47,7 +53,25 @@ class SensorDataService {
             let data = try Data(contentsOf: mainurl)
             sensorData = parseSensorJson(json: data)
             DispatchQueue.main.async {
-                self.sensorDataSubject.asObserver().onNext(CPUInfo(from: self.parseSensorJson(json: data)))
+                
+                let cpuInfoList = [
+                    SensorGauge(temp: "65", usage: 0.7, sensorType: .CPU),
+                    SensorGauge(temp: "55", usage: 0.6, sensorType: .CPU),
+                    SensorGauge(temp: "44", usage: 0.4, sensorType: .CPU),
+                    SensorGauge(temp: "70", usage: 0.9, sensorType: .CPU),
+                ]
+                
+                let gpuInfoList = [
+                    SensorGauge(temp: "63", usage: 0.65, sensorType: .GPU),
+                    SensorGauge(temp: "59", usage: 0.43, sensorType: .GPU),
+                    SensorGauge(temp: "38", usage: 0.52, sensorType: .GPU),
+                    SensorGauge(temp: "85", usage: 0.85, sensorType: .GPU),
+                ]
+                
+                self.cpuDataSubject.asObserver().onNext(cpuInfoList.randomElement()!)
+                self.gpuDataSubject.asObserver().onNext(gpuInfoList.randomElement()!)
+                
+                
             }
             
         } catch {
@@ -69,7 +93,7 @@ class SensorDataService {
         }
     }
     
-    func getCpuInfo() -> CPUInfo {
-        return CPUInfo(from: self.sensorData)
+    func getCpuInfo() -> SensorGauge {
+        return SensorGauge(from: self.sensorData, for: .CPU)
     }
 }

@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+import RxSwift
+import RxCocoa
+
+class LayoutConfig {
+    static let sharedConfig = LayoutConfig()
+    
+    let cellSize : BehaviorSubject<CGSize> = BehaviorSubject(value: CGSize(width: 100, height: 100))
+    
+}

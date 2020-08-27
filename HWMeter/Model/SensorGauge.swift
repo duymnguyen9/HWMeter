@@ -10,34 +10,107 @@ import Foundation
 
 
 struct SensorGauge {
-    var cpuTemp : String = "~"
-    var cpuUsage : Float = 0
+    var sensorTemp : String = "~"
+    var sensorUsage : Float = 0
+    var sensorName : String = "XXX"
+    var kpi : [SensorInfo] = []
     
-    init(from sensorJsonList : [SensorJsonElement]) {
-        if let cpuTempJson = sensorJsonList.first(where: { $0.sensorName == "CPU Package"})?.sensorValue {
-            self.cpuTemp = cpuTempJson
-        } else {
-            self.cpuTemp = "~"
+    init(from sensorJsonList : [SensorJsonElement], for sensorType: SensorType) {
+        if sensorType == .CPU {
+            if let cpuTempJson = sensorJsonList.first(where: { $0.sensorName == "CPU Package"})?.sensorValue {
+                self.sensorTemp = cpuTempJson
+            } else {
+                self.sensorTemp = "~"
+            }
+            
+            if let cpuUsageJson = Float(sensorJsonList.first(where: { $0.sensorName == "Max CPU/Thread Usage"})!.sensorValue) {
+                self.sensorUsage = cpuUsageJson / 100
+            } else {
+                self.sensorUsage = 0
+            }
+            
+            self.sensorName = "CPU"
+            
+            var kpiList : [SensorInfo] = []
+            
+            if let cpuClockJson = sensorJsonList.first(where: { $0.sensorName == "Core 0 Clock (perf #1)"})?.sensorValue {
+                
+                let clockValue = Double(cpuClockJson)! / 1000
+
+                kpiList.append(SensorInfo(title: "CORE CLOCK",
+                                          value: String(format: "%.2f", clockValue),
+                                          unit: " GHz")
+                )
+            }
+            
+            if let cpuPower = sensorJsonList.first(where: { $0.sensorName == "CPU Package Power"})?.sensorValue {
+                kpiList.append(SensorInfo(title: "POWER",
+                                          value: String(cpuPower.prefix(4)),
+                                          unit: " W")
+                )
+            }
+            
+            
+            self.kpi = kpiList
         }
-        
-        if let cpuUsageJson = Float(sensorJsonList.first(where: { $0.sensorName == "Core 0 Usage"})!.sensorValue) {
-            self.cpuUsage = cpuUsageJson / 100
-        } else {
-            self.cpuUsage = 0
+        else if sensorType == .GPU{
+            if let gpuTempJson = sensorJsonList.first(where: { $0.sensorName == "GPU Temperature"})?.sensorValue {
+                self.sensorTemp = gpuTempJson
+            } else {
+                self.sensorTemp = "~"
+            }
+            
+            if let gpuUsageJson = Float(sensorJsonList.first(where: { $0.sensorName == "GPU Core Load"})!.sensorValue) {
+                self.sensorUsage = gpuUsageJson / 100
+            } else {
+                self.sensorUsage = 0
+            }
+            
+            self.sensorName = "GPU"
+            
+            var kpiList : [SensorInfo] = []
+            
+            if let gpuVRAMJson = sensorJsonList.first(where: { $0.sensorName == "GPU VRM Temperature"})?.sensorValue {
+                
+                let clockValue = Double(gpuVRAMJson)!
+
+                kpiList.append(SensorInfo(title: "VRM TEMP",
+//                                          value: String(format: "%.2f", clockValue).prefix(4),
+                    value: String(String(clockValue).prefix(4)),
+                                          unit: " °C")
+                )
+            }
+            
+            if let gpuPower = sensorJsonList.first(where: { $0.sensorName == "GPU Memory Usage"})?.sensorValue {
+                kpiList.append(SensorInfo(title: "VRM Usage",
+                                          value: String(gpuPower.prefix(4)),
+                                          unit: " %")
+                )
+            }
+            
+            
+            self.kpi = kpiList
         }
     }
     
     init() {
-        self.cpuTemp = "~"
-        self.cpuUsage = 0
+        self.sensorTemp = "~"
+        self.sensorUsage = 0
     }
     
-    init(temp: String, usage: Float) {
-        self.cpuTemp = temp
-        self.cpuUsage = usage
+    init(temp: String, usage: Float, sensorType: SensorType) {
+        self.sensorTemp = temp
+        self.sensorUsage = usage
+        if sensorType == .CPU {
+            self.sensorName = "CPU"
+        }
+        else {
+            self.sensorName = "GPU"
+        }
     }
 }
 
-struct GPUInfo {
-    
+enum SensorType {
+    case GPU
+    case CPU
 }
