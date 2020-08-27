@@ -1,0 +1,2194 @@
+[
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "System: GIGABYTE Z390 I AORUS PRO WIFI",
+    "SensorName": "Virtual Memory Commited",
+    "SensorValue": "13028",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "System: GIGABYTE Z390 I AORUS PRO WIFI",
+    "SensorName": "Virtual Memory Available",
+    "SensorValue": "24792",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "System: GIGABYTE Z390 I AORUS PRO WIFI",
+    "SensorName": "Virtual Memory Load",
+    "SensorValue": "34.4",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "System: GIGABYTE Z390 I AORUS PRO WIFI",
+    "SensorName": "Physical Memory Used",
+    "SensorValue": "7562",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "System: GIGABYTE Z390 I AORUS PRO WIFI",
+    "SensorName": "Physical Memory Available",
+    "SensorValue": "25138",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "System: GIGABYTE Z390 I AORUS PRO WIFI",
+    "SensorName": "Physical Memory Load",
+    "SensorValue": "23.1",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "System: GIGABYTE Z390 I AORUS PRO WIFI",
+    "SensorName": "Page File Usage",
+    "SensorValue": "0.96160888671875",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 0 VID",
+    "SensorValue": "1.0098876953125",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 1 VID",
+    "SensorValue": "0.961669921875",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 2 VID",
+    "SensorValue": "0.9549560546875",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 3 VID",
+    "SensorValue": "0.9449462890625",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 4 VID",
+    "SensorValue": "0.9049072265625",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 5 VID",
+    "SensorValue": "0.909912109375",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 6 VID",
+    "SensorValue": "0.8699951171875",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 7 VID",
+    "SensorValue": "0.875",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 0 Clock (perf #1)",
+    "SensorValue": "3600",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 1 Clock (perf #2)",
+    "SensorValue": "3300",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 2 Clock (perf #3)",
+    "SensorValue": "3300",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 3 Clock (perf #4)",
+    "SensorValue": "3300",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 4 Clock (perf #5)",
+    "SensorValue": "3000",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 5 Clock (perf #6)",
+    "SensorValue": "3000",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 6 Clock (perf #7)",
+    "SensorValue": "2700",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 7 Clock (perf #8)",
+    "SensorValue": "2700",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Bus Clock",
+    "SensorValue": "100",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Ring/LLC Clock",
+    "SensorValue": "3300",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "System Agent Clock",
+    "SensorValue": "1000",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 0 Effective Clock",
+    "SensorValue": "116.599479164122",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 1 Effective Clock",
+    "SensorValue": "144.515017638396",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 2 Effective Clock",
+    "SensorValue": "70.444189941021",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 3 Effective Clock",
+    "SensorValue": "150.954135422507",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 4 Effective Clock",
+    "SensorValue": "81.1493611871195",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 5 Effective Clock",
+    "SensorValue": "180.773979396058",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 6 Effective Clock",
+    "SensorValue": "56.6092922017203",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 7 Effective Clock",
+    "SensorValue": "45.1689696232628",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Average Effective Clock",
+    "SensorValue": "105.776803071776",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 0 Usage",
+    "SensorValue": "0.7",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 1 Usage",
+    "SensorValue": "5.3",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 2 Usage",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 3 Usage",
+    "SensorValue": "2.3",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 4 Usage",
+    "SensorValue": "3",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 5 Usage",
+    "SensorValue": "3.8",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 6 Usage",
+    "SensorValue": "1.5",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 7 Usage",
+    "SensorValue": "0.7",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Max CPU/Thread Usage",
+    "SensorValue": "5.3",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Total CPU Usage",
+    "SensorValue": "2.1625",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "On-Demand Clock Modulation",
+    "SensorValue": "100",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 0 Ratio",
+    "SensorValue": "36",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 1 Ratio",
+    "SensorValue": "33",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 2 Ratio",
+    "SensorValue": "33",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 3 Ratio",
+    "SensorValue": "33",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 4 Ratio",
+    "SensorValue": "30",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 5 Ratio",
+    "SensorValue": "30",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 6 Ratio",
+    "SensorValue": "27",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Core 7 Ratio",
+    "SensorValue": "27",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K",
+    "SensorName": "Uncore Ratio",
+    "SensorValue": "33",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 0",
+    "SensorValue": "36",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 1",
+    "SensorValue": "39",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 2",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 3",
+    "SensorValue": "36",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 4",
+    "SensorValue": "37",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 5",
+    "SensorValue": "37",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 6",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 7",
+    "SensorValue": "35",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 0 Distance to TjMAX",
+    "SensorValue": "64",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 1 Distance to TjMAX",
+    "SensorValue": "61",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 2 Distance to TjMAX",
+    "SensorValue": "62",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 3 Distance to TjMAX",
+    "SensorValue": "64",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 4 Distance to TjMAX",
+    "SensorValue": "63",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 5 Distance to TjMAX",
+    "SensorValue": "63",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 6 Distance to TjMAX",
+    "SensorValue": "62",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 7 Distance to TjMAX",
+    "SensorValue": "65",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "CPU Package",
+    "SensorValue": "39",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core Max",
+    "SensorValue": "39",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 0 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 1 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 2 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 3 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 4 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 5 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 6 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 7 Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 0 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 1 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 2 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 3 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 4 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 5 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 6 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 7 Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 0 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 1 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 2 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 3 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 4 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 5 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 6 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Core 7 Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Package/Ring Thermal Throttling",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Package/Ring Critical Temperature",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: DTS",
+    "SensorName": "Package/Ring Power Limit Exceeded",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "CPU Package",
+    "SensorValue": "39",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "CPU IA Cores",
+    "SensorValue": "39",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "CPU GT Cores (Graphics)",
+    "SensorValue": "37",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "VR VCC Temperature (SVID)",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "IA Voltage Offset",
+    "SensorValue": "0",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "GT (Slice) Voltage Offset",
+    "SensorValue": "0",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "CLR (CBo/LLC/Ring) Voltage Offset",
+    "SensorValue": "0",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "GT (Unslice) Voltage Offset",
+    "SensorValue": "0",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "Uncore/SA Voltage Offset",
+    "SensorValue": "0",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "CPU Package Power",
+    "SensorValue": "9.12095675248643",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "IA Cores Power",
+    "SensorValue": "2.62817893358721",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "IA OC Ratio Limit",
+    "SensorValue": "49",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Enhanced",
+    "SensorName": "CLR (CBo/LLC/Ring) OC Ratio Limit",
+    "SensorValue": "43",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 0 T0 C0 Residency",
+    "SensorValue": "4.25095142927941",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 1 T0 C0 Residency",
+    "SensorValue": "7.03764707840566",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 2 T0 C0 Residency",
+    "SensorValue": "2.89563735342157",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 3 T0 C0 Residency",
+    "SensorValue": "5.09020583167224",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 4 T0 C0 Residency",
+    "SensorValue": "2.97410048443547",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 5 T0 C0 Residency",
+    "SensorValue": "5.38852236995504",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 6 T0 C0 Residency",
+    "SensorValue": "3.94806265900941",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 7 T0 C0 Residency",
+    "SensorValue": "2.3428664052483",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 0 C3 Residency",
+    "SensorValue": "0.0906394510865531",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 1 C3 Residency",
+    "SensorValue": "0.0514252230152608",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 2 C3 Residency",
+    "SensorValue": "0.0023565134210865",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 3 C3 Residency",
+    "SensorValue": "1.00292944242854",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 4 C3 Residency",
+    "SensorValue": "0.088509185447339",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 5 C3 Residency",
+    "SensorValue": "0.00041989882636358",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 6 C3 Residency",
+    "SensorValue": "0.110312116764926",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 7 C3 Residency",
+    "SensorValue": "0.152919814121486",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 0 C7 Residency",
+    "SensorValue": "92.8494062627037",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 1 C7 Residency",
+    "SensorValue": "90.5438035092258",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 2 C7 Residency",
+    "SensorValue": "94.4203549873401",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 3 C7 Residency",
+    "SensorValue": "91.8519843266518",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 4 C7 Residency",
+    "SensorValue": "95.0963540589528",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 5 C7 Residency",
+    "SensorValue": "91.9846651721124",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 6 C7 Residency",
+    "SensorValue": "93.3934944308976",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: C-State Residency",
+    "SensorName": "Core 7 C7 Residency",
+    "SensorValue": "96.0315184111551",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Memory Clock",
+    "SensorValue": "1066.66666666667",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Memory Clock Ratio",
+    "SensorValue": "10.6666666666667",
+    "SensorUnit": "x",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Tcas",
+    "SensorValue": "15",
+    "SensorUnit": "T",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Trcd",
+    "SensorValue": "15",
+    "SensorUnit": "T",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Trp",
+    "SensorValue": "15",
+    "SensorUnit": "T",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Tras",
+    "SensorValue": "36",
+    "SensorUnit": "T",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Trfc",
+    "SensorValue": "374",
+    "SensorUnit": "T",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Memory Timings",
+    "SensorName": "Command Rate",
+    "SensorValue": "2",
+    "SensorUnit": "T",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: PROCHOT",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Thermal Event",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: DDR RAPL",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: PCS (PECI)",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Residency State Regulation",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Running Average Thermal Limit",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: VR Thermal Alert",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: VR TDC",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Electrical Design Point/Other (ICCmax,PL4,SVID,DDR RAPL)",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Package-Level RAPL/PBM PL1",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Package-Level RAPL/PBM PL2,PL3",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Max Turbo Limit",
+    "SensorValue": "1",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Turbo Attenuation (MCT)",
+    "SensorValue": "1",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Thermal Event",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: DDR RAPL",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "IA: Thermal Velocity Boost",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Residency State Regulation",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Running Average Thermal Limit",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: VR Thermal Alert",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: VR TDC",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Max VR Voltage, ICCmax, PL4",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Domain-Level PBM PLGT",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Package-Level RAPL/PBM PL1",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Package-Level RAPL/PBM PL2,PL3",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Inefficient Operation",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "GT: Fuses limit",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "RING: VR Thermal Alert",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "RING: VR TDC",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "RING: Max VR Voltage, ICCmax, PL4",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "RING: Package-Level RAPL/PBM PL1",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "CPU [#0]: Intel Core i7-9700K: Performance Limit Reasons",
+    "SensorName": "RING: Package-Level RAPL/PBM PL2,PL3",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (Intel PCH)",
+    "SensorName": "PCH Temperature",
+    "SensorValue": "64",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "System1",
+    "SensorValue": "45",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "PCH",
+    "SensorValue": "50",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "CPU",
+    "SensorValue": "28",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "VRM MOS",
+    "SensorValue": "39",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "EC_TEMP1/System2",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "Vcore",
+    "SensorValue": "0.72",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "+3.3V",
+    "SensorValue": "3.324384",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "+12V",
+    "SensorValue": "12.024",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "+5V",
+    "SensorValue": "5.01",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "VCCSA",
+    "SensorValue": "1.044",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "DDR",
+    "SensorValue": "1.212",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "3VSB",
+    "SensorValue": "3.36",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "VBAT",
+    "SensorValue": "3.216",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "AVCC3",
+    "SensorValue": "3.072",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "CPU",
+    "SensorValue": "889",
+    "SensorUnit": "RPM",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "System 1",
+    "SensorValue": "1403",
+    "SensorUnit": "RPM",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (ITE IT8688E)",
+    "SensorName": "Chassis Intrusion",
+    "SensorValue": "16",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR Loop1",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR Loop2",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR VOUT",
+    "SensorValue": "0.849609375",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR VIN",
+    "SensorValue": "12",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "Current (IOUT)",
+    "SensorValue": "3.5",
+    "SensorUnit": "A",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "Current (IIN)",
+    "SensorValue": "0.28125",
+    "SensorUnit": "A",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "Power (POUT)",
+    "SensorValue": "2.5",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "Power (Input)",
+    "SensorValue": "0",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR Loop1",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR Loop2",
+    "SensorValue": "38",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR VOUT",
+    "SensorValue": "0.00390625",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GIGABYTE Z390 I AORUS PRO WIFI-CF (IRF IR35201)",
+    "SensorName": "VR VIN",
+    "SensorValue": "12",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "S.M.A.R.T.: Sabrent (A4490799138900048175)",
+    "SensorName": "Drive Temperature",
+    "SensorValue": "42",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "S.M.A.R.T.: Sabrent (A4490799138900048175)",
+    "SensorName": "Drive Remaining Life",
+    "SensorValue": "100",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "S.M.A.R.T.: Sabrent (A4490799138900048175)",
+    "SensorName": "Drive Failure",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "S.M.A.R.T.: Sabrent (A4490799138900048175)",
+    "SensorName": "Drive Warning",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "S.M.A.R.T.: Sabrent (A4490799138900048175)",
+    "SensorName": "Total Host Writes",
+    "SensorValue": "4391",
+    "SensorUnit": "GB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "S.M.A.R.T.: Sabrent (A4490799138900048175)",
+    "SensorName": "Total Host Reads",
+    "SensorValue": "6901",
+    "SensorUnit": "GB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Drive: Sabrent (A4490799138900048175)",
+    "SensorName": "Read Activity",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Drive: Sabrent (A4490799138900048175)",
+    "SensorName": "Write Activity",
+    "SensorValue": "0.523",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Drive: Sabrent (A4490799138900048175)",
+    "SensorName": "Total Activity",
+    "SensorValue": "0.523",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Drive: Sabrent (A4490799138900048175)",
+    "SensorName": "Read Rate",
+    "SensorValue": "0",
+    "SensorUnit": "MB/s",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Drive: Sabrent (A4490799138900048175)",
+    "SensorName": "Write Rate",
+    "SensorValue": "0.379",
+    "SensorUnit": "MB/s",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Drive: Sabrent (A4490799138900048175)",
+    "SensorName": "Read Total",
+    "SensorValue": "68740",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Drive: Sabrent (A4490799138900048175)",
+    "SensorName": "Write Total",
+    "SensorValue": "52798",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Temperature",
+    "SensorValue": "46",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Core Voltage",
+    "SensorValue": "0.625",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU PCIe +12V Input Voltage",
+    "SensorValue": "12.056",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU 8-pin #2 Input Voltage",
+    "SensorValue": "12.072",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU 6-pin #1 Input Voltage",
+    "SensorValue": "12.08",
+    "SensorUnit": "V",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Fan",
+    "SensorValue": "0",
+    "SensorUnit": "RPM",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Power",
+    "SensorValue": "12.678",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Core (NVVDD) Input Power (sum)",
+    "SensorValue": "6.17984",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU PCIe +12V Input Power",
+    "SensorValue": "5.593984",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU 8-pin #2 Input Power",
+    "SensorValue": "5.31168",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU 6-pin #1 Input Power",
+    "SensorValue": "0.86976",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Input PP Source Power (sum)",
+    "SensorValue": "6.498184",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Core (NVVDD) Output Power",
+    "SensorValue": "2.090625",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Core (NVVDD) Output Power",
+    "SensorValue": "2.094375",
+    "SensorUnit": "W",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Clock",
+    "SensorValue": "139",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Memory Clock",
+    "SensorValue": "101.25",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Video Clock",
+    "SensorValue": "544",
+    "SensorUnit": "MHz",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Core Load",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Memory Controller Load",
+    "SensorValue": "10",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Video Engine Load",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Bus Load",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Memory Usage",
+    "SensorValue": "38.3512020111084",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU D3D Usage",
+    "SensorValue": "0.356453346360528",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Video Decode 0 Usage",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Video Encode 0 Usage",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Video Encode 1 Usage",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Computing (Compute_0) Usage",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Computing (Compute_1) Usage",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU VR Usage",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Fan",
+    "SensorValue": "0",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Performance Limit - Power",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Performance Limit - Thermal",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Performance Limit - Reliability Voltage",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Performance Limit - Max Operating Voltage",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Performance Limit - Utilization",
+    "SensorValue": "16",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Performance Limit - SLI GPUBoost Sync",
+    "SensorValue": "0",
+    "SensorUnit": "Yes/No",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Total GPU Power (normalized) [% of TDP]",
+    "SensorValue": "6.721",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "Total GPU Power [% of TDP]",
+    "SensorValue": "6.403",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU Memory Allocated",
+    "SensorValue": "3141.73046875",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU D3D Memory Dedicated",
+    "SensorValue": "3037.19140625",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "GPU D3D Memory Dynamic",
+    "SensorValue": "142.55859375",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ",
+    "SensorName": "PCIe Link Speed",
+    "SensorValue": "2.5",
+    "SensorUnit": "GT/s",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ITE IT8915FN",
+    "SensorName": "GPU VRM Temperature",
+    "SensorValue": "50",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ITE IT8915FN",
+    "SensorName": "GPU Fan",
+    "SensorValue": "38",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ITE IT8915FN",
+    "SensorName": "GPU VRM Temperature",
+    "SensorValue": "50",
+    "SensorUnit": "Â°C",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "GPU [#0]: NVIDIA GeForce GTX 1080: ITE IT8915FN",
+    "SensorName": "GPU Fan",
+    "SensorValue": "38",
+    "SensorUnit": "%",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Wireless-AC 9560 160MHz",
+    "SensorName": "Total DL",
+    "SensorValue": "0",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Wireless-AC 9560 160MHz",
+    "SensorName": "Total UP",
+    "SensorValue": "0",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Wireless-AC 9560 160MHz",
+    "SensorName": "Current DL rate",
+    "SensorValue": "0",
+    "SensorUnit": "KB/s",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Wireless-AC 9560 160MHz",
+    "SensorName": "Current UP rate",
+    "SensorValue": "0",
+    "SensorUnit": "KB/s",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Ethernet Connection I219-V",
+    "SensorName": "Total DL",
+    "SensorValue": "3808.39722442627",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Ethernet Connection I219-V",
+    "SensorName": "Total UP",
+    "SensorValue": "99.190544128418",
+    "SensorUnit": "MB",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Ethernet Connection I219-V",
+    "SensorName": "Current DL rate",
+    "SensorValue": "1.12898766965584",
+    "SensorUnit": "KB/s",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Network: Intel Ethernet Connection I219-V",
+    "SensorName": "Current UP rate",
+    "SensorValue": "32.0395813136209",
+    "SensorUnit": "KB/s",
+    "SensorUpdateTime": 1597865882
+  },
+  {
+    "SensorApp": "HWiNFO",
+    "SensorClass": "Windows Hardware Errors (WHEA)",
+    "SensorName": "Total Errors",
+    "SensorValue": "0",
+    "SensorUnit": "",
+    "SensorUpdateTime": 1597865882
+  }
+]
