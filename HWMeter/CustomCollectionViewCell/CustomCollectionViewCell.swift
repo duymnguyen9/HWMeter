@@ -11,7 +11,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-let gaugeHeightFactor : CGFloat = 0.65
+let gaugeViewHeightFactor : CGFloat = 0.65
+let barViewHeightFactor : CGFloat = 0.2
 
 enum ViewType {
     case Standard
@@ -41,12 +42,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
         } catch {
             print(error)
         }
-        let sensorSize = CGSize(width: size.width, height: size.height * gaugeHeightFactor)
+        let sensorSize = CGSize(width: size.width, height: size.height * barViewHeightFactor)
         
         let viewFrame = CGRect(origin: .zero, size: sensorSize)
         let view = BarView(frame: viewFrame)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.backgroundColor = UIColor.orange.cgColor
         return view
     }()
             
@@ -58,7 +58,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         } catch {
             print(error)
         }
-        let sensorSize = CGSize(width: size.width, height: size.height * gaugeHeightFactor)
+        let sensorSize = CGSize(width: size.width, height: size.height * gaugeViewHeightFactor)
         
         let viewFrame = CGRect(origin: .zero, size: sensorSize)
         
@@ -78,7 +78,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             print(error)
         }
         let sensorSize = CGSize(width: size.width * 0.8,
-                                height: size.height * (1 - gaugeHeightFactor) / 2)
+                                height: size.height * (1 - gaugeViewHeightFactor) / 2)
         
         let viewFrame = CGRect(origin: .zero, size: sensorSize)
         
@@ -96,9 +96,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         } catch {
             print(error)
         }
-        let sensorSize = CGSize(width: size.width * 0.8, height: size.height * (1 - gaugeHeightFactor) / 2)
+        let sensorSize = CGSize(width: size.width * 0.8, height: size.height * (1 - gaugeViewHeightFactor) / 2)
         
-        let viewFrame = CGRect(origin: CGPoint(x: 0, y: size.height * gaugeHeightFactor / 2), size: sensorSize)
+        let viewFrame = CGRect(origin: CGPoint(x: 0, y: size.height * gaugeViewHeightFactor / 2), size: sensorSize)
         
         let view = KPIView(frame: viewFrame)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -112,15 +112,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: .zero)
-        viewSetup()
-//        secondaryViewSetup()
+//        viewSetup()
+        secondaryViewSetup()
     }
     
     init(isSecondary : Bool) {
         super.init(frame: .zero)
-        if isSecondary {
-            secondaryViewSetup()
-        }
+//        if isSecondary {
+//            secondaryViewSetup()
+//        }
+        secondaryViewSetup()
     }
     
     required init?(coder: NSCoder) {
@@ -138,32 +139,35 @@ class CustomCollectionViewCell: UICollectionViewCell {
                 sensorView.topAnchor.constraint(equalTo: contentView.topAnchor),
                 sensorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 sensorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                sensorView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: gaugeHeightFactor),
+                sensorView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: gaugeViewHeightFactor),
                 
                 kpiView.topAnchor.constraint(equalTo: sensorView.bottomAnchor),
                     kpiView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
                     kpiView.centerXAnchor.constraint(equalTo: centerXAnchor),
                     
-                kpiView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: (1 - gaugeHeightFactor) / 2),
+                kpiView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: (1 - gaugeViewHeightFactor) / 2),
                     
                 secondaryKpiView.topAnchor.constraint(equalTo: kpiView.bottomAnchor),
                     secondaryKpiView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
                     secondaryKpiView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                secondaryKpiView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: (1 - gaugeHeightFactor) / 2),
+                secondaryKpiView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: (1 - gaugeViewHeightFactor) / 2),
                 ])
                 
     }
     
     func secondaryViewSetup() {
         contentView.addSubview(barView)
-        contentView.layer.backgroundColor = UIColor.lightGray.cgColor
+
+        // DEBUG
+        contentView.layer.borderWidth = 3
+        contentView.layer.borderColor = UIColor.orange.cgColor
         
         NSLayoutConstraint.activate([
             barView.topAnchor.constraint(equalTo: contentView.topAnchor),
             barView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             barView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            barView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
         ])
+        
     }
     
     func setSensorInfoRX(observable: Observable<SensorGauge>) {

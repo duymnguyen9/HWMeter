@@ -19,6 +19,9 @@ struct BarViewModel {
 class BarView: UIView {
     var barViewModel : BarViewModel = BarViewModel()
     
+    static let barWidthFactor : CGFloat = 0.55
+    static let barHeightFactor : CGFloat = 0.25
+    
     // MARK: - Properties
     let shapeLayer = CAShapeLayer()
     let valueLabel = UILabel()
@@ -31,21 +34,24 @@ class BarView: UIView {
     let trackColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00)
     let gaugeColor = UIColor.black
     
-//    let shapeView : UIView = UIView(frame: .zero)
+    //    let shapeView : UIView = UIView(frame: .zero)
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        backgroundColor = UIColor.clear
         barSetup()
         setup()
+        
+        layer.borderWidth = 3
+        layer.borderColor = UIColor.red.cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
-        barSetup()
-        setup()
+        
+//        barSetup()
+//        setup()
     }
     
     func setup(){
@@ -62,21 +68,22 @@ class BarView: UIView {
         addSubview(title)
         addSubview(valueLabel)
         
-        let bar = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width * 0.55, height: bounds.width * 0.1))
-        bar.layer.addSublayer(shapeLayer)
-        addSubview(bar)
+        layer.addSublayer(shapeLayer)
         
         NSLayoutConstraint.activate([
+                        valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+                        valueLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+                        valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            //            valueLabel.topAnchor.constraint(equalTo: title.bottomAnchor),
+            
+            
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
             title.trailingAnchor.constraint(equalTo: trailingAnchor),
-            title.topAnchor.constraint(equalTo: topAnchor),
-            valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: bounds.width / 50),
-             valueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant:  -0.05 * bounds.width),
-             valueLabel.topAnchor.constraint(equalTo: title.bottomAnchor),
+//            title.topAnchor.constraint(equalTo: topAnchor),
+
+                
             
-            bar.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor),
-            bar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bar.topAnchor.constraint(equalTo: valueLabel.topAnchor)
+
         ])
         
     }
@@ -92,11 +99,17 @@ class BarView: UIView {
             print(error)
         }
         
+        let xPosition = bounds.width * (0.95 - BarView.barWidthFactor)
+        let yPosition = bounds.height * (0.9 - BarView.barHeightFactor)
         
-        shapeLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.width * 0.55, height: bounds.width * 0.1), cornerRadius: 50).cgPath
+        shapeLayer.path = UIBezierPath(
+            roundedRect: CGRect(x: xPosition,
+                                y: yPosition,
+                                width: bounds.width * BarView.barWidthFactor,
+                                height: bounds.height * BarView.barHeightFactor), cornerRadius: bounds.height * BarView.barHeightFactor / 2).cgPath
         shapeLayer.fillColor = UIColor.red.cgColor
         
-//        addSubview(shapeView)
+        //        addSubview(shapeView)
     }
 }
 

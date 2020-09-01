@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
     }
     
     func collectionViewLayoutSetup(){
-        collectionView.backgroundColor = Theme.backgroundColor
+//        collectionView.backgroundColor = Theme.backgroundColor
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
