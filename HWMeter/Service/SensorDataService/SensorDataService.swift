@@ -25,6 +25,8 @@ class SensorDataService {
     let cpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
     let gpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
     
+    let memoryDataSubject : BehaviorSubject<SensorInfo> = BehaviorSubject<SensorInfo>(value: SensorInfo(title: "memory", value: "43.2", unit: "percent"))
+    
     
     func getSensorDataFromURL() {
         let urlString = "http://" + ip + ":" + port + "/"
@@ -39,6 +41,9 @@ class SensorDataService {
 //                    self.sensorDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
                     self.cpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
                     self.gpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .GPU))
+                    
+                    
+                    self.memoryDataSubject.asObserver().onNext(self.getMemoryInfo(from: self.parseSensorJson(json: data)))
                 }
             }
         }
@@ -68,9 +73,16 @@ class SensorDataService {
                     SensorGauge(temp: "85", usage: 0.85, sensorType: .GPU),
                 ]
                 
+                let memorylist = [
+                SensorInfo(title: "memory", value: "43.2", unit: "percent"),
+                    SensorInfo(title: "memory", value: "67.2", unit: "percent"),
+                    SensorInfo(title: "memory", value: "20.2", unit: "percent"),
+                ]
+                
                 self.cpuDataSubject.asObserver().onNext(cpuInfoList.randomElement()!)
                 self.gpuDataSubject.asObserver().onNext(gpuInfoList.randomElement()!)
                 
+                self.memoryDataSubject.asObserver().onNext(memorylist.randomElement()!)
                 
             }
             
@@ -93,7 +105,11 @@ class SensorDataService {
         }
     }
     
-    func getCpuInfo() -> SensorGauge {
-        return SensorGauge(from: self.sensorData, for: .CPU)
+    func getMemoryInfo(from sensors: [SensorJsonElement]) -> SensorInfo {
+         if let memoryJson = sensors.first(where: { $0.sensorName == "Physical Memory Load"})?.sensorValue {
+             return SensorInfo(title: "Memory Used", value: memoryJson, unit: "%")
+         } else {
+            return SensorInfo(title: "Memory Used", value: "0.0", unit: "%")
+         }
     }
 }

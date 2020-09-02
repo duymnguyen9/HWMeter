@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class CustomGaugeView: UIView {
-    
-    let startAngle : CGFloat = CGFloat.pi * 3 / 4
-    let endAngle : CGFloat = CGFloat.pi / 4
+    let startAngle: CGFloat = CGFloat.pi * 3 / 4
+    let endAngle: CGFloat = CGFloat.pi / 4
     
     // MARK: - Properties
+
     let shapeLayer = CAShapeLayer()
     let valueLabel = UILabel()
     let title = UILabel()
@@ -29,19 +29,18 @@ class CustomGaugeView: UIView {
     
     var gradientColors = Theme.gradientColors2
     
-    var sensorGauge : SensorGauge = SensorGauge(temp: "~", usage: 0.0, sensorType: .CPU) {
+    var sensorGauge: SensorGauge = SensorGauge(temp: "~", usage: 0.0, sensorType: .CPU) {
         didSet {
             valueLabel.text = sensorGauge.sensorTemp + "°"
             title.text = sensorGauge.sensorName
-            
         }
         willSet {
             self.setSensorUsage(to: CGFloat(Float(newValue.sensorUsage)), from: CGFloat(sensorGauge.sensorUsage))
         }
-        
     }
     
     // MARK: - Initialization
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpGauge()
@@ -59,12 +58,9 @@ class CustomGaugeView: UIView {
 //    }
 //
     // Add Setup
-    func setUpContainerView(){
-        
-    }
+    func setUpContainerView() {}
     
     func setUpGauge() {
-        
         let lineWidth = bounds.width / 15
         let centerPoint = CGPoint(x: bounds.width / 2,
                                   y: bounds.width / 2)
@@ -77,17 +73,16 @@ class CustomGaugeView: UIView {
         trackLayer.strokeColor = trackColor.cgColor
         trackLayer.lineWidth = lineWidth * 0.6
         trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap  = .round
+        trackLayer.lineCap = .round
         layer.addSublayer(trackLayer)
         
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = gaugeColor.cgColor
         shapeLayer.lineWidth = lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineCap  = .round
+        shapeLayer.lineCap = .round
         shapeLayer.strokeEnd = 0
 
-        
         gradient.frame = layer.bounds
         gradient.colors = gradientColors
         gradient.locations = [0.2, 0.7]
@@ -120,17 +115,17 @@ class CustomGaugeView: UIView {
         
         NSLayoutConstraint.activate([
             valueLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: bounds.width / 50),
-            valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant:  -0.05 * bounds.width),
+            valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -0.05 * bounds.width),
             
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
-            title.bottomAnchor.constraint(equalTo: bottomAnchor, constant:  -0.1 * bounds.width),
+            title.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -0.1 * bounds.width),
             
             subtitle.centerXAnchor.constraint(equalTo: centerXAnchor),
             subtitle.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: -0.015 * bounds.width)
         ])
     }
     
-    func setSensorUsage(to newValue: CGFloat, from oldValue: CGFloat){
+    func setSensorUsage(to newValue: CGFloat, from oldValue: CGFloat) {
 //        print("to: \(newValue), from: \(oldValue)")
         CATransaction.begin()
         let animation = CABasicAnimation(keyPath: "strokeEnd")
@@ -148,7 +143,7 @@ class CustomGaugeView: UIView {
         CATransaction.commit()
     }
     
-    func animationDuration(to newValue: CGFloat, from oldValue: CGFloat) -> CFTimeInterval{
+    func animationDuration(to newValue: CGFloat, from oldValue: CGFloat) -> CFTimeInterval {
         let difference = abs(newValue - oldValue)
         return CFTimeInterval(difference)
     }

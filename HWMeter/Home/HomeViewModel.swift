@@ -9,5 +9,5 @@
 import Foundation
 
 struct HomeViewModel {
-    var cellViewModels : [CollectionCellViewModel]
+    var cellViewModels: [CollectionCellViewModel]
 }

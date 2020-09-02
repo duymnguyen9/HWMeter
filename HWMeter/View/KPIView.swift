@@ -8,11 +8,10 @@
 
 import UIKit
 
-
 class KPIView: UIView {
-    var kpiViewModel : SensorInfo = SensorInfo(title: "YOUR SPEED",
-                                                   value: "15.24 ",
-                                                   unit: "MBPS") {
+    var kpiViewModel: SensorInfo = SensorInfo(title: "YOUR SPEED",
+                                              value: "15.24 ",
+                                              unit: "MBPS") {
         didSet {
             titleLabel.text = kpiViewModel.title
             valueLabel.text = kpiViewModel.value
@@ -20,15 +19,13 @@ class KPIView: UIView {
         }
     }
     
-    
-    
-    
-    let titleLabel : UILabel = UILabel()
-    let valueLabel : UILabel = UILabel()
+    let titleLabel: UILabel = UILabel()
+    let valueLabel: UILabel = UILabel()
     let unitLabel: UILabel = UILabel()
-    let value : CGFloat = 15
+    let value: CGFloat = 15
 
     // MARK: - Initialization
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpLabel()
@@ -36,17 +33,14 @@ class KPIView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
     }
     
-    func setUpLabel(){
-                
+    func setUpLabel() {
 //        let containerView = UIView(frame: CGRect(x: bounds.width * 1 / 8, y: bounds.width * 1 / 8, width: bounds.width * 6 / 8, height: bounds.width  * 2.5 / 8))
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
 
 //        containerView.backgroundColor = UIColor.yellow
         addSubview(containerView)
-        
         
         let circleView = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width / 16, height: bounds.width / 16))
         circleView.layer.cornerRadius = bounds.width / 50
@@ -67,7 +61,7 @@ class KPIView: UIView {
         unitLabel.text = kpiViewModel.unit
         unitLabel.translatesAutoresizingMaskIntoConstraints = false
         unitLabel.font = UIFont.systemFont(ofSize: bounds.width / 9)
-        unitLabel.textColor =  UIColor(red: 0.50, green: 0.51, blue: 0.52, alpha: 1.00)
+        unitLabel.textColor = UIColor(red: 0.50, green: 0.51, blue: 0.52, alpha: 1.00)
         
         containerView.addSubview(titleLabel)
         containerView.addSubview(valueLabel)
@@ -77,8 +71,6 @@ class KPIView: UIView {
 //        layer.borderColor = Theme.secondaryGreen.cgColor
         
         NSLayoutConstraint.activate([
-            
-            
             circleView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             circleView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: bounds.width / 50),
             
@@ -93,13 +85,12 @@ class KPIView: UIView {
             titleLabel.leftAnchor.constraint(equalTo: circleView.rightAnchor, constant: bounds.width / 50),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-
+            
             valueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             valueLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             unitLabel.leftAnchor.constraint(equalTo: valueLabel.rightAnchor),
             unitLabel.topAnchor.constraint(equalTo: valueLabel.topAnchor),
             
-                        
 //            containerView.leftAnchor.constraint(equalTo: leftAnchor),
 //            containerView.rightAnchor.constraint(equalTo: rightAnchor),
 //            containerView.topAnchor.constraint(equalTo: topAnchor)

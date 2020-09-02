@@ -6,36 +6,36 @@
 //  Copyright © 2020 Duy Nguyen. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 class HomeViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
-    let collectionView : UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 20
-        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return cv
     }()
     
-    var sensorDataCheck : Disposable?
+    var sensorDataCheck: Disposable?
     
-    func homeViewModelRX() -> Observable<HomeViewModel>{
+    func homeViewModelRX() -> Observable<HomeViewModel> {
         return Observable.combineLatest(
             SensorDataService.sensorDataService.cpuDataSubject.asObservable(),
-            SensorDataService.sensorDataService.gpuDataSubject.asObservable()){
-                (cpuData, gpuData) in
+            SensorDataService.sensorDataService.gpuDataSubject.asObservable()) {
+                cpuData, gpuData in
                 
                 print("cpuData : \(cpuData)")
                 print("gpuData : \(gpuData)")
                 
-                var sensorList : [CollectionCellViewModel] = []
+                var sensorList: [CollectionCellViewModel] = []
                 sensorList.append(CollectionCellViewModel(sensorGauge: cpuData))
                 sensorList.append(CollectionCellViewModel(sensorGauge: gpuData))
                 return HomeViewModel(cellViewModels: sensorList)
@@ -45,21 +45,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        sensorDataCheck = Observable<Int>.interval(.seconds(2), scheduler: SerialDispatchQueueScheduler.init(qos: .utility)).subscribe { (target) in
+        sensorDataCheck = Observable<Int>.interval(.seconds(2), scheduler: SerialDispatchQueueScheduler(qos: .utility)).subscribe { _ in
             DispatchQueue.global(qos: .utility).async {
-                print("timer ")
+                print("timer")
                 
-                                SensorDataService.sensorDataService.readLocalFile()
-//                SensorDataService.sensorDataService.getSensorDataFromURL()
+                if GlobalConstants.isDebug {
+                    SensorDataService.sensorDataService.readLocalFile()
+                } else {
+                    SensorDataService.sensorDataService.getSensorDataFromURL()
+                }
             }
         }
-        
-        
-        
-        self.view.backgroundColor = Theme.secondaryBlack
-        
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -68,8 +64,12 @@ class HomeViewController: UIViewController {
         collectionViewLayoutSetup()
     }
     
-    func collectionViewLayoutSetup(){
-//        collectionView.backgroundColor = Theme.backgroundColor
+    func collectionViewLayoutSetup() {
+        if GlobalConstants.isDebug {
+            collectionView.backgroundColor = UIColor.brown
+            
+        }
+        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -77,39 +77,46 @@ class HomeViewController: UIViewController {
             collectionView.heightAnchor.constraint(equalToConstant: view.frame.height)
         ])
     }
-    
-    
 }
 
-extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
-        cell.backgroundColor = Theme.frontColor
-        cell.setSensorInfoRX(
-            observable: SensorDataService.sensorDataService.cpuDataSubject.asObservable())
-        cell.sensorView.gradient.colors = Theme.gradientColors3
-        
-        
-        //        if indexPath.row == 0 {
-        //            print("set observable for CPU View")
-        //            cell.setSensorInfoRX(
-        //            observable: SensorDataService.sensorDataService.cpuDataSubject.asObservable())
-        //            cell.sensorView.gradient.colors = Theme.gradientColors3
-        //        } else if indexPath.row == 1 {
-        //            print("set observable for GPU View")
-        //            cell.setSensorInfoRX(
-        //            observable: SensorDataService.sensorDataService.gpuDataSubject.asObservable())
-        //            cell.sensorView.gradient.colors = Theme.gradientColors2
-        //        }
-        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell = cell as! CustomCollectionViewCell
+        
+        switch indexPath.row {
+        case 0:
+            print("set observable for CPU View")
+            cell.setSensorInfoRX(
+                observable: SensorDataService.sensorDataService.cpuDataSubject.asObservable())
+            cell.sensorView.gradient.colors = Theme.gradientColors3
+            cell.viewSetup()
+            
+        case 1:
+            print("set observable for GPU View")
+            cell.setSensorInfoRX(
+                observable: SensorDataService.sensorDataService.gpuDataSubject.asObservable())
+            cell.sensorView.gradient.colors = Theme.gradientColors2
+            cell.viewSetup()
+        case 2:
+            cell.secondaryViewSetup()
+            cell.setMemoryDataRx(
+                observable: SensorDataService.sensorDataService.memoryDataSubject.asObservable())
+            cell.sensorView.gradient.colors = Theme.gradientColors3
+        default:
+            print("out of index cell")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - 40) / 3
         let cellSize = CGSize(width: width, height: collectionView.frame.height * 0.95)
         LayoutConfig.sharedConfig.cellSize.onNext(cellSize)
@@ -117,7 +124,4 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 
-
-extension HomeViewController : UICollectionViewDelegate {
-    
-}
+extension HomeViewController: UICollectionViewDelegate {}

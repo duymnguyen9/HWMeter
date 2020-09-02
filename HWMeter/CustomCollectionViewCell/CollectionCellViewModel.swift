@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 struct CollectionCellViewModel {
-    var sensorInfo : SensorGauge = SensorGauge(temp: "65", usage: 0.6, sensorType: .CPU)
-    
-    var gradientColor : [CGColor] = Theme.gradientColors1
-    
+    var sensorInfo: SensorGauge = SensorGauge(temp: "65", usage: 0.6, sensorType: .CPU)
+
+    var gradientColor: [CGColor] = Theme.gradientColors1
+
     init(sensorGauge: SensorGauge) {
         if sensorGauge.sensorName == "GPU" {
             self.gradientColor = Theme.gradientColors2
@@ -22,6 +22,5 @@ struct CollectionCellViewModel {
         else {
             self.sensorInfo = sensorGauge
         }
-        
     }
 }
