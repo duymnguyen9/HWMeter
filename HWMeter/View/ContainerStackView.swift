@@ -94,7 +94,7 @@ class ContainerStackView: UIView {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.axis = .vertical
-        stackView.spacing = 10
+        
     }
     
     func configureSensorWidget() {
@@ -145,6 +145,7 @@ class ContainerStackView: UIView {
     }
     
     func generalViewLayout(){
+        
         NSLayoutConstraint.activate([
             spacer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
             spacer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),

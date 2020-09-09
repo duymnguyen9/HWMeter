@@ -28,8 +28,8 @@ class MainViewController: UIViewController {
                 if GlobalConstants.isDebug {
                     SensorDataService.sensorDataService.readLocalFile()
                 } else {
-                    SensorDataService.sensorDataService.getSensorDataFromURL()
-//                    SensorDataService.sensorDataService.readLocalFile()
+//                    SensorDataService.sensorDataService.getSensorDataFromURL()
+                    SensorDataService.sensorDataService.readLocalFile()
                 }
             }
         }
@@ -62,7 +62,10 @@ class MainViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
-        stackView.spacing = 10
+//        stackView.spacing = 10
+        
+        print("bounds width; \(view.bounds.width)")
+        stackView.spacing = view.bounds.width / 30
         
         stackView.addArrangedSubview(cpuView)
         stackView.addArrangedSubview(gpuView)
@@ -78,7 +81,7 @@ class MainViewController: UIViewController {
             observable: SensorDataService.sensorDataService.fanDataSubject.asObservable())
         
         view.setNeedsLayout()
-        print("Main StackView bounds : \(stackView.bounds)")
+
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(
@@ -89,13 +92,6 @@ class MainViewController: UIViewController {
                 equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
-//            cpuView.heightAnchor.constraint(
-//                equalTo: view.safeAreaLayoutGuide.heightAnchor),
-//            gpuView.heightAnchor.constraint(
-//                equalTo: view.safeAreaLayoutGuide.heightAnchor),
-//            generalView.heightAnchor.constraint(
-//                equalTo: view.safeAreaLayoutGuide.heightAnchor),
         ])
     }
 }

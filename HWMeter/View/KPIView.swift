@@ -59,8 +59,8 @@ class KPIView: UIView {
         
         unitLabel.text = kpiViewModel.unit
         unitLabel.translatesAutoresizingMaskIntoConstraints = false
-        unitLabel.font = UIFont.systemFont(ofSize: bounds.height * 0.35)
-        unitLabel.textColor = UIColor.white.withAlphaComponent(0.6)
+        unitLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * 0.35)
+        unitLabel.textColor = Theme.frontColor
         
         containerView.addSubview(titleLabel)
         containerView.addSubview(valueLabel)

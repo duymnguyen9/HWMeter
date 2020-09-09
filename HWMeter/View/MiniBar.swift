@@ -66,7 +66,7 @@ class MiniBar: UIView {
     }
     
     func barLayout() {
-        let lineWidth = bounds.height * GlobalConstants.barValueHeightFactor / 1.5
+        let lineWidth = bounds.height * GlobalConstants.barValueHeightFactor
         
         let startX = bounds.width * (GlobalConstants.miniBarValueWidthFactor) + lineWidth
 
@@ -82,14 +82,14 @@ class MiniBar: UIView {
 //        shapeLayer.strokeColor = gaugeColor.cgColor
         shapeLayer.lineWidth = lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineCap = .round
+//        shapeLayer.lineCap = .round
         shapeLayer.strokeEnd = 0.4
         
         trackLayer.path = barPath.cgPath
         trackLayer.strokeColor = Theme.frontColor.cgColor
-        trackLayer.lineWidth = lineWidth * 0.75
+        trackLayer.lineWidth = lineWidth
         trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap = .round
+//        trackLayer.lineCap = .round
         
         gradient.frame = layer.bounds
         gradient.colors = gradientColors
@@ -102,10 +102,37 @@ class MiniBar: UIView {
                 layer.addSublayer(shapeLayer)
 //        layer.addSublayer(gradient)
         
+        generateTickMark(startX: startX,
+                         yPosition: startY - lineWidth/2,
+                         tickHeight: lineWidth)
+        
         if GlobalConstants.isDebug {
             title.layer.borderWidth = 1
             title.layer.borderColor = UIColor.green.cgColor
         }
+    }
+    
+    func generateTickMark(startX: CGFloat, yPosition: CGFloat, tickHeight: CGFloat){
+        let contentLayer = CALayer()
+        let markWidth = tickHeight * 0.30
+        let fullWidth = bounds.width - startX  - markWidth
+        
+        for item in 0...4{
+            let markLayer = CAShapeLayer()
+            let barPath = UIBezierPath(
+                roundedRect: CGRect(x: (CGFloat(item) * fullWidth/5) + startX - (markWidth/2),
+                                    y: yPosition,
+                                    width: fullWidth/5,
+                                    height: tickHeight),
+                cornerRadius: markWidth * 0.75)
+            markLayer.path = barPath.cgPath
+            markLayer.strokeColor = Theme.secondaryBlack.cgColor
+            markLayer.lineWidth = markWidth
+            markLayer.fillColor = UIColor.clear.cgColor
+            markLayer.strokeEnd = 1
+            contentLayer.addSublayer(markLayer)
+        }
+        layer.addSublayer(contentLayer)
     }
 }
 

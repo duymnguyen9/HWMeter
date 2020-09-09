@@ -46,9 +46,6 @@ class BarView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        setup()
-//        barLayout()
-//        labelLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -72,7 +69,6 @@ class BarView: UIView {
         unitLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * GlobalConstants.barValueHeightFactor * 0.6)
         unitLabel.translatesAutoresizingMaskIntoConstraints = false
         unitLabel.textColor = UIColor.white
-        //        unitLabel.backgroundColor = UIColor.blue
         
         addSubview(title)
         addSubview(valueLabel)
@@ -80,13 +76,14 @@ class BarView: UIView {
         
         barLayout()
         labelLayout()
+        
     }
     
     func barLayout() {
         let lineWidth = bounds.height * GlobalConstants.barValueHeightFactor / 2.5
         
         let startX = bounds.width * (GlobalConstants.barValueWidthFactor + 0.025)
-
+        
         let startY = bounds.height * (1 - GlobalConstants.barPaddingFactor - (GlobalConstants.barValueHeightFactor / 2))
         let endX = bounds.width - (lineWidth / 2)
         let endY = startY
@@ -100,7 +97,7 @@ class BarView: UIView {
         shapeLayer.lineWidth = lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = .round
-        shapeLayer.strokeEnd = 0.4
+        shapeLayer.strokeEnd = 1
         
         trackLayer.path = barPath.cgPath
         trackLayer.strokeColor = Theme.frontColor.cgColor
@@ -118,11 +115,17 @@ class BarView: UIView {
         layer.addSublayer(trackLayer)
         layer.addSublayer(gradient)
         
+        
+        
+        
+        
         if GlobalConstants.isDebug {
             layer.borderWidth = 1
             layer.borderColor = UIColor.green.cgColor
         }
     }
+    
+
     
     func setBarProgress(newValue: String) {
         let barValue: Double = Double(newValue)! / 100
