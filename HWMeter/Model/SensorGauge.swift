@@ -113,4 +113,5 @@ struct SensorGauge {
 enum SensorType {
     case GPU
     case CPU
+    case GEN
 }

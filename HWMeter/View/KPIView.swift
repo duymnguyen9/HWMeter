@@ -28,7 +28,8 @@ class KPIView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpLabel()
+        translatesAutoresizingMaskIntoConstraints = false
+//        setUpLabel()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,52 +37,42 @@ class KPIView: UIView {
     }
     
     func setUpLabel() {
-//        let containerView = UIView(frame: CGRect(x: bounds.width * 1 / 8, y: bounds.width * 1 / 8, width: bounds.width * 6 / 8, height: bounds.width  * 2.5 / 8))
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
 
-//        containerView.backgroundColor = UIColor.yellow
         addSubview(containerView)
         
-        let circleView = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width / 16, height: bounds.width / 16))
-        circleView.layer.cornerRadius = bounds.width / 50
+        let circleView = UIView(frame: CGRect(x: 0, y: 0, width: bounds.height * 0.3, height: bounds.height * 0.3))
+        circleView.layer.cornerRadius = bounds.height * 0.1
         circleView.translatesAutoresizingMaskIntoConstraints = false
-        circleView.backgroundColor = UIColor.red
+        circleView.backgroundColor = Theme.secondaryYellow
         addSubview(circleView)
         
         titleLabel.text = kpiViewModel.title
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.boldSystemFont(ofSize: bounds.width / 14)
-        titleLabel.textColor = UIColor(red: 0.50, green: 0.51, blue: 0.52, alpha: 1.00)
+        titleLabel.font = UIFont.systemFont(ofSize: bounds.height * 0.3)
+        titleLabel.textColor = UIColor.white.withAlphaComponent(0.87)
         
         valueLabel.text = kpiViewModel.value
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
-        valueLabel.font = UIFont.boldSystemFont(ofSize: bounds.width / 9)
+        valueLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * 0.35)
         valueLabel.textColor = UIColor.white
         
         unitLabel.text = kpiViewModel.unit
         unitLabel.translatesAutoresizingMaskIntoConstraints = false
-        unitLabel.font = UIFont.systemFont(ofSize: bounds.width / 9)
-        unitLabel.textColor = UIColor(red: 0.50, green: 0.51, blue: 0.52, alpha: 1.00)
+        unitLabel.font = UIFont.systemFont(ofSize: bounds.height * 0.35)
+        unitLabel.textColor = UIColor.white.withAlphaComponent(0.6)
         
         containerView.addSubview(titleLabel)
         containerView.addSubview(valueLabel)
         containerView.addSubview(unitLabel)
         
-//        layer.borderWidth = 3
-//        layer.borderColor = Theme.secondaryGreen.cgColor
-        
         NSLayoutConstraint.activate([
             circleView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            circleView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: bounds.width / 50),
+            circleView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: bounds.height * 0.1),
             
             circleView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 0.5),
             circleView.widthAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 0.5),
-            
-//            circleView.bottomAnchor.constraint(equalTo: containerView.topAnchor, constant:  bounds.width / 16 ),
-//            circleView.rightAnchor.constraint(equalTo: containerView.leftAnchor, constant: bounds.width / 16),
-//            circleView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 1),
-//            circleView.widthAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 0.5),
-            
+
             titleLabel.leftAnchor.constraint(equalTo: circleView.rightAnchor, constant: bounds.width / 50),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),

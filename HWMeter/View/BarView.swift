@@ -9,10 +9,7 @@
 import Foundation
 import UIKit
 
-let barValueHeightFactor: CGFloat = 0.4
-let barTitleHeightFactor: CGFloat = barValueHeightFactor * 0.7
-let barValueWidthFactor: CGFloat = 0.3
-let barPaddingFactor: CGFloat = 0.1
+
 
 struct BarViewModel {
     var title: String
@@ -30,13 +27,14 @@ class BarView: UIView {
     var barViewModel: BarViewModel = BarViewModel(sensorInfo: SensorInfo(title: "XXXXXX", value: "43.2", unit: "XXXXXX")) {
         didSet {
             let numberInString: String = String(barViewModel.value.prefix(2))
-            valueLabel.text = numberInString + "%"
+            valueLabel.text = numberInString
             setBarProgress(newValue: barViewModel.value)
         }
     }
     
     let valueLabel = UILabel()
     let title = UILabel()
+    let unitLabel = UILabel()
     
     let shapeLayer = CAShapeLayer()
     let trackLayer = CAShapeLayer()
@@ -44,62 +42,52 @@ class BarView: UIView {
     
     let trackColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00)
     let gaugeColor = UIColor.black
-    var gradientColors = Theme.gradientColors2
+    var gradientColors = Theme.gradientColors3
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
-        barLayout()
+//        setup()
+//        barLayout()
+//        labelLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func setup() {
-        print("frame of Barview is: \(frame)")
-        print("bounds of Barview is: \(bounds)")
-        let view = UIView(frame: frame)
-        view.backgroundColor = Theme.secondaryBlack
-        view.layer.borderWidth = 4
-        addSubview(view)
-        
-        valueLabel.text = "43%"
-        valueLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * barValueHeightFactor)
+        valueLabel.text = "43"
+        valueLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * GlobalConstants.barValueHeightFactor)
         valueLabel.textColor = UIColor.white
+        
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         
         title.text = "Memory Used"
-        title.font = UIFont.systemFont(ofSize: bounds.height * barTitleHeightFactor, weight: .regular)
-        title.textColor = UIColor.white
+        title.font = UIFont.systemFont(ofSize: bounds.width * GlobalConstants.barTitleHeightFactor, weight: .regular)
+        title.textColor = UIColor.white.withAlphaComponent(0.87)
         title.translatesAutoresizingMaskIntoConstraints = false
+        
+        unitLabel.text = "%"
+        unitLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * GlobalConstants.barValueHeightFactor * 0.6)
+        unitLabel.translatesAutoresizingMaskIntoConstraints = false
+        unitLabel.textColor = UIColor.white
+        //        unitLabel.backgroundColor = UIColor.blue
         
         addSubview(title)
         addSubview(valueLabel)
+        addSubview(unitLabel)
         
-        NSLayoutConstraint.activate([
-            view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            view.topAnchor.constraint(equalTo: topAnchor),
-            view.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            valueLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -1 * barPaddingFactor * bounds.height),
-            valueLabel.heightAnchor.constraint(equalToConstant: bounds.height * barValueHeightFactor),
-            valueLabel.widthAnchor.constraint(equalToConstant: bounds.width * barValueWidthFactor),
-            
-            title.leadingAnchor.constraint(equalTo: leadingAnchor),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor),
-            title.bottomAnchor.constraint(equalTo: valueLabel.topAnchor),
-            
-        ])
+        barLayout()
+        labelLayout()
     }
     
     func barLayout() {
-        let lineWidth = bounds.height * barValueHeightFactor / 2.5
+        let lineWidth = bounds.height * GlobalConstants.barValueHeightFactor / 2.5
         
-        let startX = bounds.width * (barValueWidthFactor + 0.025) + (lineWidth / 2)
-        let startY = (bounds.height * (1 - barPaddingFactor - (barValueHeightFactor / 2))) + (lineWidth / 2)
+        let startX = bounds.width * (GlobalConstants.barValueWidthFactor + 0.025)
+
+        let startY = bounds.height * (1 - GlobalConstants.barPaddingFactor - (GlobalConstants.barValueHeightFactor / 2))
         let endX = bounds.width - (lineWidth / 2)
         let endY = startY
         
@@ -128,12 +116,34 @@ class BarView: UIView {
         gradient.mask = shapeLayer
         
         layer.addSublayer(trackLayer)
-//        layer.addSublayer(shapeLayer)
         layer.addSublayer(gradient)
+        
+        if GlobalConstants.isDebug {
+            layer.borderWidth = 1
+            layer.borderColor = UIColor.green.cgColor
+        }
     }
     
     func setBarProgress(newValue: String) {
         let barValue: Double = Double(newValue)! / 100
         shapeLayer.strokeEnd = CGFloat(barValue)
+    }
+    
+    func labelLayout() {
+        NSLayoutConstraint.activate([
+            valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor,
+                                               constant: -1 * GlobalConstants.barPaddingFactor * bounds.height),
+            
+            title.leadingAnchor.constraint(equalTo: leadingAnchor),
+            title.trailingAnchor.constraint(equalTo: trailingAnchor),
+            title.bottomAnchor.constraint(equalTo: valueLabel.topAnchor),
+            
+            unitLabel.topAnchor.constraint(equalTo: valueLabel.topAnchor,
+                                           constant: GlobalConstants.barPaddingFactor * bounds.height),
+            unitLabel.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor,
+                                               constant: GlobalConstants.barPaddingFactor * bounds.height)
+            
+        ])
     }
 }

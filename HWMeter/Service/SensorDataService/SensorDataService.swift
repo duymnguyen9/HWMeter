@@ -27,6 +27,8 @@ class SensorDataService {
     
     let memoryDataSubject : BehaviorSubject<SensorInfo> = BehaviorSubject<SensorInfo>(value: SensorInfo(title: "memory", value: "43.2", unit: "percent"))
     
+    let fanDataSubject : BehaviorSubject<FanInfo> = BehaviorSubject<FanInfo>(value: FanInfo(val1: 0.1, val2: 0.1, val3: 0.1, val4: 0.1))
+    
     
     func getSensorDataFromURL() {
         let urlString = "http://" + ip + ":" + port + "/"
@@ -42,6 +44,8 @@ class SensorDataService {
                     self.cpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
                     self.gpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .GPU))
                     
+                    
+                    self.fanDataSubject.asObserver().onNext(FanInfo(from: self.parseSensorJson(json: data)))
                     
                     self.memoryDataSubject.asObserver().onNext(self.getMemoryInfo(from: self.parseSensorJson(json: data)))
                 }
@@ -79,11 +83,16 @@ class SensorDataService {
                     SensorInfo(title: "memory", value: "20.2", unit: "percent"),
                 ]
                 
+                let fanList = [
+                    FanInfo(val1: 0.65, val2: 0.43, val3: 0.52, val4: 0.5),
+                    FanInfo(val1: 0.6, val2: 0.3, val3: 0.2, val4: 0.85),
+                    FanInfo(val1: 0.5, val2: 0.43, val3: 0.52, val4: 0.8),
+                ]
+                
                 self.cpuDataSubject.asObserver().onNext(cpuInfoList.randomElement()!)
                 self.gpuDataSubject.asObserver().onNext(gpuInfoList.randomElement()!)
-                
                 self.memoryDataSubject.asObserver().onNext(memorylist.randomElement()!)
-                
+                self.fanDataSubject.asObserver().onNext(fanList.randomElement()!)
             }
             
         } catch {

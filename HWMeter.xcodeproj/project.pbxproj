@@ -7,56 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0716A028250717F5008785E4 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716A027250717F5008785E4 /* MainViewModel.swift */; };
 		07208A8125002120001589BB /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8025002120001589BB /* GlobalConstants.swift */; };
-		072A302024F700CE00753714 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A301F24F700CE00753714 /* HomeViewModel.swift */; };
+		07208A8325006165001589BB /* MiniBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8225006165001589BB /* MiniBar.swift */; };
+		07208A8525008306001589BB /* FanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8425008306001589BB /* FanInfo.swift */; };
 		073EE1FC24F723F6004FB6BF /* SensorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073EE1FB24F723F6004FB6BF /* SensorInfo.swift */; };
 		079A19A224F5806B007DF984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A124F5806B007DF984 /* AppDelegate.swift */; };
 		079A19A424F5806B007DF984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A324F5806B007DF984 /* SceneDelegate.swift */; };
-		079A19A624F5806B007DF984 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A524F5806B007DF984 /* HomeViewController.swift */; };
 		079A19A924F5806B007DF984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A19A724F5806B007DF984 /* Main.storyboard */; };
 		079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 079A19AA24F5806B007DF984 /* HWMeter.xcdatamodeld */; };
 		079A19AE24F5806D007DF984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AD24F5806D007DF984 /* Assets.xcassets */; };
 		079A19B124F5806D007DF984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AF24F5806D007DF984 /* LaunchScreen.storyboard */; };
 		07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6584C24F599FE002EA720 /* ThemeColors.swift */; };
-		07C6585024F5A6D2002EA720 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6584F24F5A6D2002EA720 /* CustomCollectionViewCell.swift */; };
 		07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585224F5AADA002EA720 /* GaugeView.swift */; };
 		07C6585524F5AE3D002EA720 /* LayoutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585424F5AE3D002EA720 /* LayoutConfig.swift */; };
 		07C6585824F5B0A2002EA720 /* SensorGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585724F5B0A2002EA720 /* SensorGauge.swift */; };
 		07C6585A24F5B0BE002EA720 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585924F5B0BE002EA720 /* Sensor.swift */; };
 		07C6586024F5BDC3002EA720 /* SensorDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585E24F5BDC3002EA720 /* SensorDataService.swift */; };
-		07C6586224F5BEDB002EA720 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6586124F5BEDB002EA720 /* CollectionCellViewModel.swift */; };
 		07C6586424F5D0F9002EA720 /* hwmonitor.json in Resources */ = {isa = PBXBuildFile; fileRef = 07C6586324F5D0F9002EA720 /* hwmonitor.json */; };
 		07C6586624F5D809002EA720 /* KPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6586524F5D809002EA720 /* KPIView.swift */; };
 		07DB119E24FF061C00E0791E /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB119D24FF061C00E0791E /* BarView.swift */; };
 		07DB11A024FF45DC00E0791E /* MiniBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB119F24FF45DC00E0791E /* MiniBarsView.swift */; };
+		07E245CB2501886900F68200 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E245CA2501886900F68200 /* MainViewController.swift */; };
+		07E245CD2501A34E00F68200 /* ContainerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E245CC2501A34E00F68200 /* ContainerStackView.swift */; };
 		EC725D5324175A60AA23674B /* Pods_HWMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B74042B3F3F543B09AAB7AE2 /* Pods_HWMeter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0716A027250717F5008785E4 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		07208A8025002120001589BB /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
-		072A301F24F700CE00753714 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		07208A8225006165001589BB /* MiniBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBar.swift; sourceTree = "<group>"; };
+		07208A8425008306001589BB /* FanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanInfo.swift; sourceTree = "<group>"; };
 		073EE1FB24F723F6004FB6BF /* SensorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfo.swift; sourceTree = "<group>"; };
 		079A199E24F5806B007DF984 /* HWMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		079A19A124F5806B007DF984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		079A19A324F5806B007DF984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		079A19A524F5806B007DF984 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		079A19A824F5806B007DF984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		079A19AB24F5806B007DF984 /* HWMeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HWMeter.xcdatamodel; sourceTree = "<group>"; };
 		079A19AD24F5806D007DF984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		079A19B024F5806D007DF984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		079A19B224F5806D007DF984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C6584C24F599FE002EA720 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
-		07C6584F24F5A6D2002EA720 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		07C6585224F5AADA002EA720 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		07C6585424F5AE3D002EA720 /* LayoutConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConfig.swift; sourceTree = "<group>"; };
 		07C6585724F5B0A2002EA720 /* SensorGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorGauge.swift; sourceTree = "<group>"; };
 		07C6585924F5B0BE002EA720 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		07C6585E24F5BDC3002EA720 /* SensorDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorDataService.swift; sourceTree = "<group>"; };
-		07C6586124F5BEDB002EA720 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
 		07C6586324F5D0F9002EA720 /* hwmonitor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hwmonitor.json; sourceTree = "<group>"; };
 		07C6586524F5D809002EA720 /* KPIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPIView.swift; sourceTree = "<group>"; };
 		07DB119D24FF061C00E0791E /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		07DB119F24FF45DC00E0791E /* MiniBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarsView.swift; sourceTree = "<group>"; };
+		07E245CA2501886900F68200 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		07E245CC2501A34E00F68200 /* ContainerStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerStackView.swift; sourceTree = "<group>"; };
 		84707B16B11BE8341F067E43 /* Pods-HWMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWMeter.debug.xcconfig"; path = "Target Support Files/Pods-HWMeter/Pods-HWMeter.debug.xcconfig"; sourceTree = "<group>"; };
 		B74042B3F3F543B09AAB7AE2 /* Pods_HWMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HWMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFFBF8C4669D9FA83AA45EC /* Pods-HWMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWMeter.release.xcconfig"; path = "Target Support Files/Pods-HWMeter/Pods-HWMeter.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,9 +105,9 @@
 		079A19A024F5806B007DF984 /* HWMeter */ = {
 			isa = PBXGroup;
 			children = (
+				07E245CA2501886900F68200 /* MainViewController.swift */,
+				0716A027250717F5008785E4 /* MainViewModel.swift */,
 				07C6584924F58E04002EA720 /* MainSystem */,
-				07C6584A24F58E31002EA720 /* Home */,
-				07C6584E24F5A6A8002EA720 /* CustomCollectionViewCell */,
 				07C6585124F5AAAA002EA720 /* View */,
 				07C6584B24F59959002EA720 /* Utility */,
 				079A19AD24F5806D007DF984 /* Assets.xcassets */,
@@ -129,15 +131,6 @@
 			path = MainSystem;
 			sourceTree = "<group>";
 		};
-		07C6584A24F58E31002EA720 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				079A19A524F5806B007DF984 /* HomeViewController.swift */,
-				072A301F24F700CE00753714 /* HomeViewModel.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		07C6584B24F59959002EA720 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,15 +141,6 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		07C6584E24F5A6A8002EA720 /* CustomCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				07C6584F24F5A6D2002EA720 /* CustomCollectionViewCell.swift */,
-				07C6586124F5BEDB002EA720 /* CollectionCellViewModel.swift */,
-			);
-			path = CustomCollectionViewCell;
-			sourceTree = "<group>";
-		};
 		07C6585124F5AAAA002EA720 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +148,8 @@
 				07C6585224F5AADA002EA720 /* GaugeView.swift */,
 				07DB119D24FF061C00E0791E /* BarView.swift */,
 				07DB119F24FF45DC00E0791E /* MiniBarsView.swift */,
+				07208A8225006165001589BB /* MiniBar.swift */,
+				07E245CC2501A34E00F68200 /* ContainerStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +160,7 @@
 				07C6585724F5B0A2002EA720 /* SensorGauge.swift */,
 				07C6585924F5B0BE002EA720 /* Sensor.swift */,
 				073EE1FB24F723F6004FB6BF /* SensorInfo.swift */,
+				07208A8425008306001589BB /* FanInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,23 +306,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E245CB2501886900F68200 /* MainViewController.swift in Sources */,
 				07DB11A024FF45DC00E0791E /* MiniBarsView.swift in Sources */,
+				07208A8525008306001589BB /* FanInfo.swift in Sources */,
 				07DB119E24FF061C00E0791E /* BarView.swift in Sources */,
 				079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */,
 				07C6585A24F5B0BE002EA720 /* Sensor.swift in Sources */,
+				07208A8325006165001589BB /* MiniBar.swift in Sources */,
 				07C6586624F5D809002EA720 /* KPIView.swift in Sources */,
 				07208A8125002120001589BB /* GlobalConstants.swift in Sources */,
 				07C6585524F5AE3D002EA720 /* LayoutConfig.swift in Sources */,
 				07C6585824F5B0A2002EA720 /* SensorGauge.swift in Sources */,
-				07C6585024F5A6D2002EA720 /* CustomCollectionViewCell.swift in Sources */,
 				073EE1FC24F723F6004FB6BF /* SensorInfo.swift in Sources */,
-				079A19A624F5806B007DF984 /* HomeViewController.swift in Sources */,
 				07C6586024F5BDC3002EA720 /* SensorDataService.swift in Sources */,
 				079A19A224F5806B007DF984 /* AppDelegate.swift in Sources */,
-				072A302024F700CE00753714 /* HomeViewModel.swift in Sources */,
-				07C6586224F5BEDB002EA720 /* CollectionCellViewModel.swift in Sources */,
 				079A19A424F5806B007DF984 /* SceneDelegate.swift in Sources */,
 				07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */,
+				07E245CD2501A34E00F68200 /* ContainerStackView.swift in Sources */,
+				0716A028250717F5008785E4 /* MainViewModel.swift in Sources */,
 				07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
