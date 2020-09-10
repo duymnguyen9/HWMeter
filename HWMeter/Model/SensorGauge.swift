@@ -75,14 +75,13 @@ struct SensorGauge {
                 let clockValue = Double(gpuVRAMJson)!
 
                 kpiList.append(SensorInfo(title: "VRM TEMP",
-//                                          value: String(format: "%.2f", clockValue).prefix(4),
                     value: String(String(clockValue).prefix(4)),
                                           unit: " °C")
                 )
             }
             
             if let gpuPower = sensorJsonList.first(where: { $0.sensorName == "GPU Memory Usage"})?.sensorValue {
-                kpiList.append(SensorInfo(title: "VRM Usage",
+                kpiList.append(SensorInfo(title: "VRM USAGE",
                                           value: String(gpuPower.prefix(4)),
                                           unit: " %")
                 )

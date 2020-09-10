@@ -52,6 +52,11 @@ class BarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setup()
+    }
+    
     
     func setup() {
         valueLabel.text = "43"
@@ -100,7 +105,7 @@ class BarView: UIView {
         shapeLayer.strokeEnd = 1
         
         trackLayer.path = barPath.cgPath
-        trackLayer.strokeColor = Theme.frontColor.cgColor
+        trackLayer.strokeColor = Theme.secondaryBlack.cgColor
         trackLayer.lineWidth = lineWidth * 0.75
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = .round
@@ -124,7 +129,6 @@ class BarView: UIView {
             layer.borderColor = UIColor.green.cgColor
         }
     }
-    
 
     
     func setBarProgress(newValue: String) {

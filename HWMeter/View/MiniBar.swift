@@ -22,18 +22,19 @@ class MiniBar: UIView {
         }
     }
     
-    let trackColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00)
-    var gaugeColor = UIColor.black
-    var gradientColors = Theme.gradientColors1
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        setup()
+        
         
         if GlobalConstants.isDebug {
             layer.borderWidth = 1
             layer.borderColor = UIColor.red.cgColor
+            
+            title.layer.borderWidth = 1
+            title.layer.borderColor = UIColor.green.cgColor
+            
         }
         title.text = "XXX"
     }
@@ -42,26 +43,30 @@ class MiniBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(barColor: UIColor) {
-        title.font = UIFont.systemFont(ofSize: bounds.height * 0.4, weight: .regular)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        labelLayout()
+        barLayout()
+    }
+    
+    func setup() {
         title.textColor = UIColor.white
         title.textAlignment = .right
         title.translatesAutoresizingMaskIntoConstraints = false
         addSubview(title)
         
-        shapeLayer.strokeColor = barColor.cgColor
-        
-        layoutIfNeeded()
-        labelLayout()
-        barLayout()
+        shapeLayer.strokeColor = Theme.secondaryYellow.cgColor
     }
     
+    
+    
     func labelLayout() {
+        title.font = UIFont.systemFont(ofSize: bounds.height * 0.4, weight: .regular)
+        
         NSLayoutConstraint.activate([
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
             title.trailingAnchor.constraint(equalTo: leadingAnchor, constant: bounds.width * GlobalConstants.miniBarValueWidthFactor),
             title.centerYAnchor.constraint(equalTo: centerYAnchor)
-//            title.topAnchor.constraint(equalTo: bottomAnchor, constant: 40),
         ])
     }
     
@@ -69,7 +74,7 @@ class MiniBar: UIView {
         let lineWidth = bounds.height * GlobalConstants.barValueHeightFactor
         
         let startX = bounds.width * (GlobalConstants.miniBarValueWidthFactor) + lineWidth
-
+        
         let startY = bounds.height / 2
         let endX = bounds.width - (lineWidth / 2) - 0.025
         let endY = startY
@@ -79,37 +84,31 @@ class MiniBar: UIView {
         barPath.addLine(to: CGPoint(x: endX, y: endY))
         
         shapeLayer.path = barPath.cgPath
-//        shapeLayer.strokeColor = gaugeColor.cgColor
         shapeLayer.lineWidth = lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
-//        shapeLayer.lineCap = .round
-        shapeLayer.strokeEnd = 0.4
+        shapeLayer.strokeEnd = 1
         
         trackLayer.path = barPath.cgPath
-        trackLayer.strokeColor = Theme.frontColor.cgColor
+        trackLayer.strokeColor = Theme.secondaryBlack.cgColor
         trackLayer.lineWidth = lineWidth
         trackLayer.fillColor = UIColor.clear.cgColor
-//        trackLayer.lineCap = .round
         
         gradient.frame = layer.bounds
-        gradient.colors = gradientColors
-        gradient.locations = [0.2, 0.7]
+        gradient.colors = Theme.barGradientColors
+        gradient.locations = [0.1, 0.35, 0.65, 0.88]
+        
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 0)
         gradient.mask = shapeLayer
         
         layer.addSublayer(trackLayer)
-                layer.addSublayer(shapeLayer)
-//        layer.addSublayer(gradient)
+        layer.addSublayer(gradient)
         
         generateTickMark(startX: startX,
                          yPosition: startY - lineWidth/2,
                          tickHeight: lineWidth)
         
-        if GlobalConstants.isDebug {
-            title.layer.borderWidth = 1
-            title.layer.borderColor = UIColor.green.cgColor
-        }
+        
     }
     
     func generateTickMark(startX: CGFloat, yPosition: CGFloat, tickHeight: CGFloat){
@@ -126,8 +125,9 @@ class MiniBar: UIView {
                                     height: tickHeight),
                 cornerRadius: markWidth * 0.75)
             markLayer.path = barPath.cgPath
-            markLayer.strokeColor = Theme.secondaryBlack.cgColor
+            markLayer.strokeColor = Theme.backgroundColor.cgColor
             markLayer.lineWidth = markWidth
+            
             markLayer.fillColor = UIColor.clear.cgColor
             markLayer.strokeEnd = 1
             contentLayer.addSublayer(markLayer)

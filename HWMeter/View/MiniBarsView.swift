@@ -16,7 +16,6 @@ class MiniBarsView: UIView {
     
     var miniBarViewModel : FanInfo = FanInfo(val1: 0.1, val2: 0.1, val3: 0.1, val4: 0.1) {
         didSet {
-//            print(miniBarViewModel)
             cpuFan.value = miniBarViewModel.cpuFan
             gpuFan.value = miniBarViewModel.gpuFan
             exhaustFan.value = miniBarViewModel.exhaustFan
@@ -32,6 +31,8 @@ class MiniBarsView: UIView {
         
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
+        
         if GlobalConstants.isDebug {
             layer.borderWidth = 1
             layer.borderColor = UIColor.blue.cgColor
@@ -43,16 +44,15 @@ class MiniBarsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
-
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        title.font = UIFont.systemFont(ofSize: bounds.width * GlobalConstants.barTitleHeightFactor, weight: .regular)
     }
     
     func setup() {
         
-        title.text = "Fan Speed (%)"
+        title.text = "Fan Speed"
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont.systemFont(ofSize: bounds.width * GlobalConstants.barTitleHeightFactor, weight: .regular)
         title.textColor = UIColor.white
         
         
@@ -78,7 +78,6 @@ class MiniBarsView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 5
         
-//        stackView.addArrangedSubview(title)
         stackView.addArrangedSubview(cpuFan)
         stackView.addArrangedSubview(gpuFan)
         stackView.addArrangedSubview(exhaustFan)
@@ -89,7 +88,7 @@ class MiniBarsView: UIView {
         
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: topAnchor),
-            title.bottomAnchor.constraint(equalTo: topAnchor, constant: bounds.height / 4),
+            title.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25),
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
             title.trailingAnchor.constraint( equalTo: trailingAnchor),
             
@@ -99,46 +98,5 @@ class MiniBarsView: UIView {
             stackView.trailingAnchor.constraint( equalTo: trailingAnchor),
         ])
         
-        layoutIfNeeded()
-        
-        cpuFan.setup(barColor: Theme.secondaryBirches)
-        gpuFan.setup(barColor: Theme.secondaryYellow)
-        exhaustFan.setup(barColor: Theme.secondaryPurple)
-        intakeFan.setup(barColor: Theme.secondaryGreen)
     }
-    
-    func labelLayout() {
-        NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: leadingAnchor),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor),
-            title.topAnchor.constraint(equalTo: topAnchor),
-            title.bottomAnchor.constraint(equalTo: topAnchor,
-                                          constant: bounds.height / 5),
-            
-            cpuFan.leadingAnchor.constraint(equalTo: leadingAnchor),
-            cpuFan.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cpuFan.topAnchor.constraint(equalTo: title.bottomAnchor),
-            cpuFan.bottomAnchor.constraint(equalTo: cpuFan.topAnchor,
-                                           constant: bounds.height / 5),
-            
-            gpuFan.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gpuFan.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gpuFan.topAnchor.constraint(equalTo: cpuFan.bottomAnchor),
-            gpuFan.bottomAnchor.constraint(equalTo: gpuFan.topAnchor,
-                                           constant: bounds.height / 5),
-            
-            exhaustFan.leadingAnchor.constraint(equalTo: leadingAnchor),
-            exhaustFan.trailingAnchor.constraint(equalTo: trailingAnchor),
-            exhaustFan.topAnchor.constraint(equalTo: gpuFan.bottomAnchor),
-            exhaustFan.bottomAnchor.constraint(equalTo: exhaustFan.topAnchor,
-                                           constant: bounds.height / 5),
-            
-            intakeFan.leadingAnchor.constraint(equalTo: leadingAnchor),
-            intakeFan.trailingAnchor.constraint(equalTo: trailingAnchor),
-            intakeFan.topAnchor.constraint(equalTo: exhaustFan.bottomAnchor),
-            intakeFan.bottomAnchor.constraint(equalTo: intakeFan.topAnchor,
-                                           constant: bounds.height / 5),
-        ])
-    }
-    
 }

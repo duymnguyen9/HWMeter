@@ -26,21 +26,14 @@ class ContainerStackView: UIView {
     let spacer = UIView()
     
     var sensorType: SensorType = .CPU
+    let containerView = UIView(frame: .zero)
     
-//    var initialLoad: Bool = false {
-//        didSet {
-//            if initialLoad == true {
-//                print("initialLoad is trigger")
-//                configureSensorWidget()
-//            }
-//        }
-//    }
+    let paddingFactor : CGFloat = 0.85
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-//        print("ContainerStackView bounds Init: \(bounds)")
-        
         configureStackView()
         
         if GlobalConstants.isDebug {
@@ -67,10 +60,27 @@ class ContainerStackView: UIView {
         super.init(frame: .zero)
         self.sensorType = sensorType
         
+        
         translatesAutoresizingMaskIntoConstraints = false
-//        print("ContainerStackView bounds Init: \(bounds)")
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         configureStackView()
+        
+        containerView.addSubview(stackView)
+        addSubview(containerView)
+        
+        NSLayoutConstraint.activate([
+            containerView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            containerView.leftAnchor.constraint(equalTo: leftAnchor),
+            containerView.rightAnchor.constraint(equalTo: rightAnchor),
+        ])
+        
+        if sensorType != .GEN {
+            containerView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        } else {
+            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ).isActive = true
+        }
         
         if GlobalConstants.isDebug {
             layer.borderColor = UIColor.red.cgColor
@@ -89,38 +99,37 @@ class ContainerStackView: UIView {
         
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configureSensorWidget()
+    }
+    
+    
     func configureStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.axis = .vertical
-        
+        stackView.spacing = 10
     }
     
     func configureSensorWidget() {
-        addSubview(stackView)
-        
         if sensorType != .GEN {
             stackView.addArrangedSubview(gaugeView)
             stackView.addArrangedSubview(firstKPIView)
             stackView.addArrangedSubview(secondKPIView)
-            setupGaugeKPIView()
+            gaugeKPIViewLayout()
         } else {
-            stackView.addArrangedSubview(spacer)
+            containerView.backgroundColor = Theme.backgroundColor
+            containerView.layer.cornerRadius = 10
             stackView.addArrangedSubview(memoryView)
             stackView.addArrangedSubview(fanView)
-            setupGeneralView()
+            generalViewLayout()
         }
     }
     
-    func setupGaugeKPIView() {
-        gaugeKPIViewLayout()
-        gaugeView.setup()
-        firstKPIView.setUpLabel()
-        secondKPIView.setUpLabel()
-    }
-    
     func gaugeKPIViewLayout() {
+        
         NSLayoutConstraint.activate([
             gaugeView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: GlobalConstants.gaugeViewHeightFactor),
             firstKPIView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: (0.95 - GlobalConstants.gaugeViewHeightFactor)/2),
@@ -134,30 +143,22 @@ class ContainerStackView: UIView {
                                                  multiplier: GlobalConstants.kpiViewWidthFactor),
             
         ])
-        
-        layoutIfNeeded()
     }
     
-    func setupGeneralView() {
-        generalViewLayout()
-        memoryView.setup()
-        fanView.setup()
-    }
     
     func generalViewLayout(){
-        
         NSLayoutConstraint.activate([
-            spacer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
-            spacer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
-            
-            memoryView.heightAnchor.constraint(equalTo: heightAnchor,
+            stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            stackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+
+            memoryView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
                                                multiplier: GlobalConstants.barViewHeightFactor),
-            memoryView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
-            fanView.heightAnchor.constraint(equalTo: heightAnchor,
+            memoryView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
+            fanView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
                                             multiplier: 0.9 - GlobalConstants.barViewHeightFactor),
-            fanView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
+            fanView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
         ])
-        layoutIfNeeded()
     }
     
     func setSensorInfoRX(observable: Observable<SensorGauge>) {

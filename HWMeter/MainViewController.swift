@@ -25,11 +25,10 @@ class MainViewController: UIViewController {
         print("Started Timer")
         return Observable<Int>.interval(.seconds(2), scheduler: SerialDispatchQueueScheduler(qos: .utility)).subscribe { _ in
             DispatchQueue.global(qos: .utility).async {
-                if GlobalConstants.isDebug {
+                if GlobalConstants.useTestData {
                     SensorDataService.sensorDataService.readLocalFile()
                 } else {
-//                    SensorDataService.sensorDataService.getSensorDataFromURL()
-                    SensorDataService.sensorDataService.readLocalFile()
+                    SensorDataService.sensorDataService.getSensorDataFromURL()
                 }
             }
         }
@@ -40,33 +39,25 @@ class MainViewController: UIViewController {
         
         UIApplication.shared.isIdleTimerDisabled = true
         
-        view.backgroundColor = Theme.backgroundColor
+        view.backgroundColor = Theme.blackBackGroundColor
         view.addSubview(stackView)
         configureStackView()
-        
+                
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        if initialLayout {
-            initialLayout = false
-            cpuView.configureSensorWidget()
-            gpuView.configureSensorWidget()
-            generalView.configureSensorWidget()
-        }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
+        stackView.frame = view.safeAreaLayoutGuide.layoutFrame
+
     }
+    
     
     func configureStackView() {
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
-//        stackView.spacing = 10
-        
-        print("bounds width; \(view.bounds.width)")
-        stackView.spacing = view.bounds.width / 30
-        
+            
         stackView.addArrangedSubview(cpuView)
         stackView.addArrangedSubview(gpuView)
         stackView.addArrangedSubview(generalView)
@@ -79,19 +70,5 @@ class MainViewController: UIViewController {
             observable: SensorDataService.sensorDataService.memoryDataSubject.asObservable())
         generalView.setFanDataRx(
             observable: SensorDataService.sensorDataService.fanDataSubject.asObservable())
-        
-        view.setNeedsLayout()
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            stackView.leadingAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-        ])
     }
 }

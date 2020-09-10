@@ -15,6 +15,7 @@ class CustomGaugeView: UIView {
     // MARK: - Properties
 
     let shapeLayer = CAShapeLayer()
+    let trackLayer = CAShapeLayer()
     let valueLabel = UILabel()
     let title = UILabel()
     let subtitle = UILabel()
@@ -52,42 +53,31 @@ class CustomGaugeView: UIView {
         title.text = "CPU"
         subtitle.text = "Temp"
         unitLabel.text = "°"
+        
+        setUpLabel()
+        setUpGauge()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    func setup(){
-        setUpLabel()
-        setUpGauge()
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gaugeViewLayout()
     }
     
     func setUpGauge() {
-        let lineWidth = bounds.width / 15
-        let centerPoint = CGPoint(x: bounds.width / 2,
-                                  y: bounds.width / 2)
-        let radius = (bounds.width / 2) - (lineWidth * 2)
-
-        let circularPath = UIBezierPath(arcCenter: centerPoint, radius: radius, startAngle: startAngle, endAngle: CGFloat.pi - startAngle, clockwise: true)
-
-        let trackLayer = CAShapeLayer()
-        trackLayer.path = circularPath.cgPath
         trackLayer.strokeColor = Theme.frontColor.cgColor
-        trackLayer.lineWidth = lineWidth * 0.6
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = .round
         layer.addSublayer(trackLayer)
 
-        shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = gaugeColor.cgColor
-        shapeLayer.lineWidth = lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = .round
         shapeLayer.strokeEnd = 0
 
-        gradient.frame = layer.bounds
-//        gradient.colors = gradientColors
         gradient.locations = [0.2, 0.7]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 0)
@@ -97,22 +87,15 @@ class CustomGaugeView: UIView {
     }
     
     func setUpLabel() {
-        
-        let valueLabelfontHeight = bounds.width * 0.225
-        
-        valueLabel.font = UIFont.boldSystemFont(ofSize: valueLabelfontHeight)
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         valueLabel.textColor = valueLabelColor
         
-        title.font = UIFont.boldSystemFont(ofSize: bounds.width / 8)
         title.translatesAutoresizingMaskIntoConstraints = false
         title.textColor = titleColor
         
-        subtitle.font = UIFont.systemFont(ofSize: bounds.width / 12)
         subtitle.translatesAutoresizingMaskIntoConstraints = false
         subtitle.textColor = subtitleColor
         
-        unitLabel.font = UIFont.boldSystemFont(ofSize: valueLabelfontHeight * 0.75)
         unitLabel.translatesAutoresizingMaskIntoConstraints = false
         unitLabel.textColor = valueLabelColor
         
@@ -121,6 +104,31 @@ class CustomGaugeView: UIView {
         addSubview(subtitle)
         addSubview(unitLabel)
         
+    }
+    
+    func gaugeViewLayout() {
+        let valueLabelfontHeight = bounds.width * 0.225
+        
+        valueLabel.font = UIFont.boldSystemFont(ofSize: valueLabelfontHeight)
+        title.font = UIFont.boldSystemFont(ofSize: valueLabelfontHeight * 0.7)
+        subtitle.font = UIFont.systemFont(ofSize: bounds.width / 12)
+        unitLabel.font = UIFont.boldSystemFont(ofSize: valueLabelfontHeight * 0.75)
+
+        let lineWidth = bounds.width / 15
+        let centerPoint = CGPoint(x: bounds.width / 2,
+                                  y: bounds.width / 2)
+        let radius = (bounds.width / 2) - (lineWidth * 2)
+
+        let circularPath = UIBezierPath(arcCenter: centerPoint, radius: radius, startAngle: startAngle, endAngle: CGFloat.pi - startAngle, clockwise: true)
+        
+        trackLayer.path = circularPath.cgPath
+        trackLayer.lineWidth = lineWidth * 0.6
+        shapeLayer.lineWidth = lineWidth
+        shapeLayer.path = circularPath.cgPath
+        shapeLayer.lineWidth = lineWidth
+        
+        gradient.frame = layer.bounds
+
         
         NSLayoutConstraint.activate([
             valueLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -bounds.width / 50),
@@ -140,7 +148,6 @@ class CustomGaugeView: UIView {
     }
     
     func setSensorUsage(to newValue: CGFloat, from oldValue: CGFloat) {
-//        print("to: \(newValue), from: \(oldValue)")
         CATransaction.begin()
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = animationDuration(to: newValue, from: oldValue)

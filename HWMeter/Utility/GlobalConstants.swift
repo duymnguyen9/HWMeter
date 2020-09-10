@@ -10,6 +10,7 @@ import UIKit
 
 enum GlobalConstants {
     static let isDebug = false
+    static let useTestData = true
     
     static let gaugeViewHeightFactor : CGFloat = 0.6
     static let barViewHeightFactor : CGFloat = 0.25
@@ -26,8 +27,4 @@ enum GlobalConstants {
     static let miniBarValueWidthFactor: CGFloat = 0.22
     
     static let widgetTypeList : [SensorType] = [.CPU, .GPU, .GEN]
-}
-
-extension GlobalConstants {
-    
 }
