@@ -11,8 +11,6 @@ import RxSwift
 import UIKit
 
 class ContainerStackView: UIView {
-    let viewmodel: ContainerStackViewModel = ContainerStackViewModel()
-    
     let disposedBag: DisposeBag = DisposeBag()
     
     let stackView: UIStackView = UIStackView()
@@ -20,6 +18,7 @@ class ContainerStackView: UIView {
     let gaugeView: CustomGaugeView = CustomGaugeView(frame: .zero)
     let firstKPIView: KPIView = KPIView(frame: .zero)
     let secondKPIView: KPIView = KPIView(frame: .zero)
+    let kpiStackView : KPIStackView = KPIStackView(frame: .zero)
     
     let memoryView: BarView = BarView(frame: .zero)
     let fanView: MiniBarsView = MiniBarsView(frame: .zero)
@@ -29,13 +28,14 @@ class ContainerStackView: UIView {
     let containerView = UIView(frame: .zero)
     
     let paddingFactor : CGFloat = 0.85
-
+    
+    var gaugeViewConstraints : [NSLayoutConstraint] = [NSLayoutConstraint]()
+    var generalViewConstraints: [NSLayoutConstraint] = [NSLayoutConstraint]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         configureStackView()
-        
         if GlobalConstants.isDebug {
             layer.borderColor = UIColor.red.cgColor
             layer.borderWidth = 1
@@ -72,21 +72,31 @@ class ContainerStackView: UIView {
         
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            containerView.leftAnchor.constraint(equalTo: leftAnchor),
-            containerView.rightAnchor.constraint(equalTo: rightAnchor),
+//            containerView.leftAnchor.constraint(equalTo: leftAnchor),
+//            containerView.rightAnchor.constraint(equalTo: rightAnchor),
         ])
         
         if sensorType != .GEN {
             containerView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+//            gaugeViewConstraints = configureGaugeConstraintPortrait()
+//            NSLayoutConstraint.activate(gaugeViewConstraints)
+            stackView.addArrangedSubview(gaugeView)
+            stackView.addArrangedSubview(kpiStackView)
         } else {
-            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ).isActive = true
+            //            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ).isActive = true
+            stackView.axis = .horizontal
+//            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ).isActive = true
+            stackView.addArrangedSubview(memoryView)
+            stackView.addArrangedSubview(fanView)
+            generalViewConstraints = getGeneralViewConstraintsPortrait()
+            NSLayoutConstraint.activate(generalViewConstraints)
         }
         
         if GlobalConstants.isDebug {
-            layer.borderColor = UIColor.red.cgColor
+            layer.borderColor = UIColor.yellow.cgColor
             layer.borderWidth = 1
             
-            gaugeView.layer.borderColor = UIColor.red.cgColor
+            gaugeView.layer.borderColor = UIColor.blue.cgColor
             gaugeView.layer.borderWidth = 1
             
             firstKPIView.layer.borderColor = UIColor.red.cgColor
@@ -99,67 +109,131 @@ class ContainerStackView: UIView {
         
     }
     
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         configureSensorWidget()
     }
     
+    func getGaugeConstraintPortrait() -> [NSLayoutConstraint] {
+        return [
+            containerView.leftAnchor.constraint(equalTo: leftAnchor),
+            containerView.rightAnchor.constraint(equalTo: rightAnchor),
+            
+            gaugeView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: GlobalConstants.gaugeViewHeightFactor),
+            gaugeView.widthAnchor.constraint(equalTo: widthAnchor),
+            kpiStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: GlobalConstants.kpiViewWidthFactor),
+            kpiStackView.heightAnchor.constraint(equalTo: heightAnchor,
+                                                 multiplier: (0.95 - GlobalConstants.gaugeViewHeightFactor)),
+
+        ]
+    }
+    
+    func getGaugeConstraintsLandscape() -> [NSLayoutConstraint] {
+        return [
+            containerView.leftAnchor.constraint(equalTo: leftAnchor),
+            containerView.rightAnchor.constraint(equalTo: rightAnchor),
+            
+            gaugeView.heightAnchor.constraint(equalTo: heightAnchor),
+            gaugeView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: GlobalConstants.gaugeViewHeightFactor),
+            kpiStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            kpiStackView.widthAnchor.constraint(equalTo: widthAnchor,
+                                                multiplier: GlobalConstants.kpiViewWidthFactor),
+            
+        ]
+    }
     
     func configureStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.axis = .horizontal
+//        stackView.spacing = 10
+        
     }
     
     func configureSensorWidget() {
         if sensorType != .GEN {
-            stackView.addArrangedSubview(gaugeView)
-            stackView.addArrangedSubview(firstKPIView)
-            stackView.addArrangedSubview(secondKPIView)
+
             gaugeKPIViewLayout()
         } else {
             containerView.backgroundColor = Theme.backgroundColor
             containerView.layer.cornerRadius = 10
-            stackView.addArrangedSubview(memoryView)
-            stackView.addArrangedSubview(fanView)
+
             generalViewLayout()
         }
     }
     
     func gaugeKPIViewLayout() {
-        
-        NSLayoutConstraint.activate([
-            gaugeView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: GlobalConstants.gaugeViewHeightFactor),
-            firstKPIView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: (0.95 - GlobalConstants.gaugeViewHeightFactor)/2),
-            gaugeView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
-            firstKPIView.widthAnchor.constraint(equalTo: widthAnchor,
-                                                multiplier: GlobalConstants.kpiViewWidthFactor),
+        if UIDevice.current.orientation.isLandscape {
+            stackView.axis = .vertical
+            NSLayoutConstraint.deactivate(gaugeViewConstraints)
+            gaugeViewConstraints = getGaugeConstraintPortrait()
+            NSLayoutConstraint.activate(gaugeViewConstraints)
+        } else {
+            stackView.axis = .horizontal
             
-            secondKPIView.heightAnchor.constraint(equalTo: heightAnchor,
-                                                  multiplier: (0.95 - GlobalConstants.gaugeViewHeightFactor)/2),
-            secondKPIView.widthAnchor.constraint(equalTo: widthAnchor,
-                                                 multiplier: GlobalConstants.kpiViewWidthFactor),
-            
-        ])
+            NSLayoutConstraint.deactivate(gaugeViewConstraints)
+            gaugeViewConstraints = getGaugeConstraintsLandscape()
+            NSLayoutConstraint.activate(gaugeViewConstraints)
+        }
     }
     
-    
     func generalViewLayout(){
-        NSLayoutConstraint.activate([
+        if UIDevice.current.orientation.isLandscape {
+            stackView.axis = .vertical
+            NSLayoutConstraint.deactivate(generalViewConstraints)
+            generalViewConstraints = getGeneralViewConstraintsLandscape()
+            NSLayoutConstraint.activate(generalViewConstraints)
+        } else {
+            stackView.axis = .vertical
+            NSLayoutConstraint.deactivate(generalViewConstraints)
+            generalViewConstraints = getGeneralViewConstraintsPortrait()
+            NSLayoutConstraint.activate(generalViewConstraints)
+        }
+    }
+    
+    func getGeneralViewConstraintsLandscape() -> [NSLayoutConstraint]{
+        return [
+            containerView.leftAnchor.constraint(equalTo: leftAnchor),
+            containerView.rightAnchor.constraint(equalTo: rightAnchor),
+            
+            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ),
             stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             stackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-
+            
             memoryView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
                                                multiplier: GlobalConstants.barViewHeightFactor),
             memoryView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
             fanView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
                                             multiplier: 0.9 - GlobalConstants.barViewHeightFactor),
             fanView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
-        ])
+        ]
     }
+    
+    func getGeneralViewConstraintsPortrait() -> [NSLayoutConstraint]{
+        return [
+            containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
+            
+            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1),
+            
+            
+            stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            stackView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.95),
+            stackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            
+            memoryView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
+                                               multiplier: GlobalConstants.barViewHeightFactor),
+            memoryView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
+            fanView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
+                                            multiplier: 0.95 - GlobalConstants.barViewHeightFactor),
+            fanView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
+        ]
+    }
+    
     
     func setSensorInfoRX(observable: Observable<SensorGauge>) {
         observable.subscribe(onNext: { sensorInfo in
@@ -168,7 +242,7 @@ class ContainerStackView: UIView {
                 self.firstKPIView.kpiViewModel = sensorInfo.kpi[0]
                 self.secondKPIView.kpiViewModel = sensorInfo.kpi[1]
             } else {
-//                print(" sensorInfo is count is less than 2")
+                //                print(" sensorInfo is count is less than 2")
             }
         }).disposed(by: disposedBag)
     }
@@ -184,4 +258,5 @@ class ContainerStackView: UIView {
             self.fanView.miniBarViewModel = fanInfoList
         }).disposed(by: disposedBag)
     }
+    
 }

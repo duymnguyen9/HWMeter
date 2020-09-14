@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0716A028250717F5008785E4 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716A027250717F5008785E4 /* MainViewModel.swift */; };
 		07208A8125002120001589BB /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8025002120001589BB /* GlobalConstants.swift */; };
 		07208A8325006165001589BB /* MiniBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8225006165001589BB /* MiniBar.swift */; };
 		07208A8525008306001589BB /* FanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8425008306001589BB /* FanInfo.swift */; };
@@ -25,6 +24,9 @@
 		07C6586024F5BDC3002EA720 /* SensorDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585E24F5BDC3002EA720 /* SensorDataService.swift */; };
 		07C6586424F5D0F9002EA720 /* hwmonitor.json in Resources */ = {isa = PBXBuildFile; fileRef = 07C6586324F5D0F9002EA720 /* hwmonitor.json */; };
 		07C6586624F5D809002EA720 /* KPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6586524F5D809002EA720 /* KPIView.swift */; };
+		07C6E1D6250AF22C000BFC5D /* viewcontrollerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6E1D5250AF22C000BFC5D /* viewcontrollerBackup.swift */; };
+		07C6E1D8250AF5F5000BFC5D /* KPIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6E1D7250AF5F5000BFC5D /* KPIStackView.swift */; };
+		07C6E1DA250B0864000BFC5D /* LayoutConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6E1D9250B0864000BFC5D /* LayoutConfig.swift */; };
 		07DB119E24FF061C00E0791E /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB119D24FF061C00E0791E /* BarView.swift */; };
 		07DB11A024FF45DC00E0791E /* MiniBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB119F24FF45DC00E0791E /* MiniBarsView.swift */; };
 		07E245CB2501886900F68200 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E245CA2501886900F68200 /* MainViewController.swift */; };
@@ -33,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0716A027250717F5008785E4 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		07208A8025002120001589BB /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		07208A8225006165001589BB /* MiniBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBar.swift; sourceTree = "<group>"; };
 		07208A8425008306001589BB /* FanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanInfo.swift; sourceTree = "<group>"; };
@@ -53,6 +54,9 @@
 		07C6585E24F5BDC3002EA720 /* SensorDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorDataService.swift; sourceTree = "<group>"; };
 		07C6586324F5D0F9002EA720 /* hwmonitor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hwmonitor.json; sourceTree = "<group>"; };
 		07C6586524F5D809002EA720 /* KPIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPIView.swift; sourceTree = "<group>"; };
+		07C6E1D5250AF22C000BFC5D /* viewcontrollerBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewcontrollerBackup.swift; sourceTree = "<group>"; };
+		07C6E1D7250AF5F5000BFC5D /* KPIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPIStackView.swift; sourceTree = "<group>"; };
+		07C6E1D9250B0864000BFC5D /* LayoutConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConfig.swift; sourceTree = "<group>"; };
 		07DB119D24FF061C00E0791E /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		07DB119F24FF45DC00E0791E /* MiniBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarsView.swift; sourceTree = "<group>"; };
 		07E245CA2501886900F68200 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				07E245CA2501886900F68200 /* MainViewController.swift */,
-				0716A027250717F5008785E4 /* MainViewModel.swift */,
+				07C6E1D5250AF22C000BFC5D /* viewcontrollerBackup.swift */,
 				07C6584924F58E04002EA720 /* MainSystem */,
 				07C6585124F5AAAA002EA720 /* View */,
 				07C6584B24F59959002EA720 /* Utility */,
@@ -134,6 +138,7 @@
 			children = (
 				07C6584C24F599FE002EA720 /* ThemeColors.swift */,
 				07208A8025002120001589BB /* GlobalConstants.swift */,
+				07C6E1D9250B0864000BFC5D /* LayoutConfig.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				07DB119F24FF45DC00E0791E /* MiniBarsView.swift */,
 				07208A8225006165001589BB /* MiniBar.swift */,
 				07E245CC2501A34E00F68200 /* ContainerStackView.swift */,
+				07C6E1D7250AF5F5000BFC5D /* KPIStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,18 +314,20 @@
 				07208A8525008306001589BB /* FanInfo.swift in Sources */,
 				07DB119E24FF061C00E0791E /* BarView.swift in Sources */,
 				079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */,
+				07C6E1DA250B0864000BFC5D /* LayoutConfig.swift in Sources */,
 				07C6585A24F5B0BE002EA720 /* Sensor.swift in Sources */,
+				07C6E1D6250AF22C000BFC5D /* viewcontrollerBackup.swift in Sources */,
 				07208A8325006165001589BB /* MiniBar.swift in Sources */,
 				07C6586624F5D809002EA720 /* KPIView.swift in Sources */,
 				07208A8125002120001589BB /* GlobalConstants.swift in Sources */,
 				07C6585824F5B0A2002EA720 /* SensorGauge.swift in Sources */,
 				073EE1FC24F723F6004FB6BF /* SensorInfo.swift in Sources */,
+				07C6E1D8250AF5F5000BFC5D /* KPIStackView.swift in Sources */,
 				07C6586024F5BDC3002EA720 /* SensorDataService.swift in Sources */,
 				079A19A224F5806B007DF984 /* AppDelegate.swift in Sources */,
 				079A19A424F5806B007DF984 /* SceneDelegate.swift in Sources */,
 				07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */,
 				07E245CD2501A34E00F68200 /* ContainerStackView.swift in Sources */,
-				0716A028250717F5008785E4 /* MainViewModel.swift in Sources */,
 				07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

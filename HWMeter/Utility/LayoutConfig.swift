@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import UIKit
+import RxSwift
+
+class LayoutConfig {
+    static let sharedConfig : LayoutConfig = LayoutConfig()
+    
+    let isLandscapeSubject : BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+}

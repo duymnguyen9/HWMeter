@@ -37,13 +37,35 @@ class KPIView: UIView {
     let value: CGFloat = 15
     
     let accentBar : UIView = UIView(frame: .zero)
+    let containerView = UIView(frame: .zero)
     
+    var landscapeContainerConstraint : NSLayoutConstraint?
+    var landscapeAccentBarConstraint : NSLayoutConstraint?
+    var portraitContainerConstraint : NSLayoutConstraint?
+    var portraitAccentBarConstraint : NSLayoutConstraint?
     // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         accentBar.backgroundColor = Theme.secondaryBirches
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(containerView)
+
+        accentBar.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(accentBar)
+        
+        landscapeContainerConstraint = containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85)
+        landscapeAccentBarConstraint = accentBar.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.075)
+        portraitContainerConstraint = containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95)
+        portraitAccentBarConstraint = accentBar.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.025)
+        
+        if GlobalConstants.isDebug {
+            layer.borderColor = UIColor.orange.cgColor
+            layer.borderWidth = 1
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,13 +78,6 @@ class KPIView: UIView {
     }
     
     func setUpLabel() {
-        let containerView = UIView(frame: .zero)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(containerView)
-
-        accentBar.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(accentBar)
         
         titleLabel.text = kpiViewModel.title
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -83,6 +98,19 @@ class KPIView: UIView {
         containerView.addSubview(valueLabel)
         containerView.addSubview(unitLabel)
         
+        if UIDevice.current.orientation.isLandscape {
+            portraitContainerConstraint?.isActive = false
+            portraitAccentBarConstraint?.isActive = false
+            landscapeContainerConstraint?.isActive = true
+            landscapeAccentBarConstraint?.isActive = true
+         } else {
+                
+            landscapeContainerConstraint?.isActive = false
+             landscapeAccentBarConstraint?.isActive = false
+             portraitContainerConstraint?.isActive = true
+             portraitAccentBarConstraint?.isActive = true
+         }
+        
         NSLayoutConstraint.activate([
             titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
@@ -94,12 +122,15 @@ class KPIView: UIView {
             unitLabel.topAnchor.constraint(equalTo: valueLabel.topAnchor),
             
             containerView.rightAnchor.constraint(equalTo: rightAnchor),
-            containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
+//            containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95),
+//            containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
+
             containerView.topAnchor.constraint(equalTo: topAnchor),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             accentBar.leftAnchor.constraint(equalTo: leftAnchor),
-            accentBar.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.075),
+//            accentBar.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.025),
+//            accentBar.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.075),
             accentBar.topAnchor.constraint(equalTo: topAnchor),
             accentBar.bottomAnchor.constraint(equalTo: valueLabel.bottomAnchor),
         ])

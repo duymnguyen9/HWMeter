@@ -10,7 +10,7 @@ import UIKit
 
 enum GlobalConstants {
     static let isDebug = false
-    static let useTestData = true
+    static let useTestData = false
     
     static let gaugeViewHeightFactor : CGFloat = 0.6
     static let barViewHeightFactor : CGFloat = 0.25
