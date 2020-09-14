@@ -26,7 +26,9 @@ struct BarViewModel {
 class BarView: UIView {
     var barViewModel: BarViewModel = BarViewModel(sensorInfo: SensorInfo(title: "XXXXXX", value: "43.2", unit: "XXXXXX")) {
         didSet {
+            
             let numberInString: String = String(barViewModel.value.prefix(2))
+            print("numberInString: \(numberInString)")
             valueLabel.text = numberInString
             setBarProgress(newValue: barViewModel.value)
         }
@@ -46,6 +48,8 @@ class BarView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        valueLabel.text = "XX"
+        shapeLayer.strokeEnd = 1
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +63,6 @@ class BarView: UIView {
     
     
     func setup() {
-        valueLabel.text = "43"
         valueLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * GlobalConstants.barValueHeightFactor)
         valueLabel.textColor = UIColor.white
         
@@ -102,7 +105,6 @@ class BarView: UIView {
         shapeLayer.lineWidth = lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = .round
-        shapeLayer.strokeEnd = 1
         
         trackLayer.path = barPath.cgPath
         trackLayer.strokeColor = Theme.secondaryBlack.cgColor
@@ -133,6 +135,7 @@ class BarView: UIView {
     
     func setBarProgress(newValue: String) {
         let barValue: Double = Double(newValue)! / 100
+        print("barValue: \(barValue)")
         shapeLayer.strokeEnd = CGFloat(barValue)
     }
     

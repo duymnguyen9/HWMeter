@@ -1,0 +1,3 @@
+#HWMeter
+
+IOS App written in Swift to connect to a PC for display and monitor system health such as CPU Temperature, Usage, Memory...

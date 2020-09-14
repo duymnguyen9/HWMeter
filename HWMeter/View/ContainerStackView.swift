@@ -239,8 +239,9 @@ class ContainerStackView: UIView {
         observable.subscribe(onNext: { sensorInfo in
             self.gaugeView.sensorGauge = sensorInfo
             if sensorInfo.kpi.count > 1 {
-                self.firstKPIView.kpiViewModel = sensorInfo.kpi[0]
-                self.secondKPIView.kpiViewModel = sensorInfo.kpi[1]
+//                self.firstKPIView.kpiViewModel = sensorInfo.kpi[0]
+//                self.secondKPIView.kpiViewModel = sensorInfo.kpi[1]
+                self.kpiStackView.KPIStackViewSensors = sensorInfo.kpi
             } else {
                 //                print(" sensorInfo is count is less than 2")
             }

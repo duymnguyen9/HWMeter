@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 
 class KPIStackView : UIView {
-    var KPIStackViewSensors : [SensorInfo] = [SensorInfo]()
+    var KPIStackViewSensors : [SensorInfo] = [SensorInfo]() {
+        didSet {
+            firstKPIView.kpiViewModel = KPIStackViewSensors[0]
+            secondKPIView.kpiViewModel = KPIStackViewSensors[1]
+        }
+    }
     
     let stackView = UIStackView()
     
