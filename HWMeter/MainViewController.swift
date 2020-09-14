@@ -18,9 +18,7 @@ class MainViewController: UIViewController {
     let cpuView: ContainerStackView = ContainerStackView(sensorType: .CPU)
     let gpuView: ContainerStackView = ContainerStackView(sensorType: .GPU)
     let generalView: ContainerStackView = ContainerStackView(sensorType: .GEN)
-//    let gpuView = UIView()
-//    let generalView = UIView()
-    
+
     var stackViewContraints : [NSLayoutConstraint] = [NSLayoutConstraint]()
         
     var sensorDataCheck: Disposable = {
@@ -43,18 +41,23 @@ class MainViewController: UIViewController {
     
         UIApplication.shared.isIdleTimerDisabled = true
         
+        cpuView.accessibilityIdentifier = "CPU_View"
+        gpuView.accessibilityIdentifier = "GPU_View"
+        generalView.accessibilityIdentifier = "GEN_View"
+        stackView.accessibilityIdentifier = "Main_StackView"
+
+        
         view.backgroundColor = Theme.blackBackGroundColor
         view.addSubview(stackView)
-        stackViewContraints = getConstraintListPortrait()
-        stackView.axis = .vertical
         configureStackView()
-        NSLayoutConstraint.activate(stackViewContraints)
+
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         stackView.frame = view.safeAreaLayoutGuide.layoutFrame
-        
+        layoutWhenRotate()
+
     }
     
     
@@ -67,6 +70,10 @@ class MainViewController: UIViewController {
     
     func configureStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -74,12 +81,14 @@ class MainViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
         
-        
-        stackView.alignment = .fill
             
         stackView.addArrangedSubview(cpuView)
         stackView.addArrangedSubview(gpuView)
         stackView.addArrangedSubview(generalView)
+        
+        stackViewContraints = getConstraintListPortrait()
+        NSLayoutConstraint.activate(stackViewContraints)
+
         
         cpuView.setSensorInfoRX(observable: SensorDataService.sensorDataService.cpuDataSubject.asObservable())
         
@@ -96,17 +105,15 @@ class MainViewController: UIViewController {
         if UIDevice.current.orientation.isLandscape {
             stackView.axis = .horizontal
             stackView.distribution = .fillEqually
+            stackView.alignment = .fill
 
             NSLayoutConstraint.deactivate(stackViewContraints)
             
-//            stackViewContraints = getConstraintListLandscape()
-//            NSLayoutConstraint.activate(stackViewContraints)
         } else {
             stackView.axis = .vertical
+            stackView.alignment = .fill
             stackView.distribution = .equalSpacing
-            NSLayoutConstraint.deactivate(stackViewContraints)
-            stackViewContraints = getConstraintListPortrait()
-            NSLayoutConstraint.activate(stackViewContraints)
+
         }
     }
     
@@ -114,7 +121,7 @@ class MainViewController: UIViewController {
         return [
             
             cpuView.heightAnchor.constraint(equalTo: stackView.heightAnchor,
-                                            multiplier: 0.3),
+                                            multiplier: 0.28),
             gpuView.heightAnchor.constraint(equalTo: cpuView.heightAnchor),
             generalView.heightAnchor.constraint(equalTo: stackView.heightAnchor,
             multiplier: 0.4)
@@ -131,4 +138,13 @@ class MainViewController: UIViewController {
             multiplier: 1/3)
         ]
     }
+    
+    func layoutWhenRotate() {
+        if UIDevice.current.orientation.isPortrait && stackView.bounds.height >= stackView.bounds.width {
+            NSLayoutConstraint.deactivate(stackViewContraints)
+            stackViewContraints = getConstraintListPortrait()
+            NSLayoutConstraint.activate(stackViewContraints)
+        }
+    }
+
 }

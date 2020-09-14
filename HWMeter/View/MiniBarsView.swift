@@ -47,14 +47,13 @@ class MiniBarsView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         title.font = UIFont.systemFont(ofSize: bounds.width * GlobalConstants.barTitleHeightFactor, weight: .regular)
+        title.textColor = UIColor.white.withAlphaComponent(0.87)
     }
     
     func setup() {
         
         title.text = "Fan Speed"
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.textColor = UIColor.white
-        
+        title.translatesAutoresizingMaskIntoConstraints = false        
         
         cpuFan.translatesAutoresizingMaskIntoConstraints = false
         gpuFan.translatesAutoresizingMaskIntoConstraints = false

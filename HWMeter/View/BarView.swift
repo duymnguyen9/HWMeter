@@ -28,7 +28,6 @@ class BarView: UIView {
         didSet {
             
             let numberInString: String = String(barViewModel.value.prefix(2))
-            print("numberInString: \(numberInString)")
             valueLabel.text = numberInString
             setBarProgress(newValue: barViewModel.value)
         }
@@ -45,11 +44,13 @@ class BarView: UIView {
     let trackColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00)
     let gaugeColor = UIColor.black
     var gradientColors = Theme.gradientColors3
-    
+    var constraintsList : [NSLayoutConstraint] = [NSLayoutConstraint]()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         valueLabel.text = "XX"
         shapeLayer.strokeEnd = 1
+        constraintsList = getConstraintList()
     }
     
     required init?(coder: NSCoder) {
@@ -135,12 +136,32 @@ class BarView: UIView {
     
     func setBarProgress(newValue: String) {
         let barValue: Double = Double(newValue)! / 100
-        print("barValue: \(barValue)")
         shapeLayer.strokeEnd = CGFloat(barValue)
     }
     
     func labelLayout() {
-        NSLayoutConstraint.activate([
+//        NSLayoutConstraint.activate([
+//            valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor,
+//                                               constant: -1 * GlobalConstants.barPaddingFactor * bounds.height),
+//
+//            title.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            title.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            title.bottomAnchor.constraint(equalTo: valueLabel.topAnchor),
+//
+//            unitLabel.topAnchor.constraint(equalTo: valueLabel.topAnchor,
+//                                           constant: GlobalConstants.barPaddingFactor * bounds.height),
+//            unitLabel.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor,
+//                                               constant: GlobalConstants.barPaddingFactor * bounds.height)
+//
+//        ])
+        NSLayoutConstraint.deactivate(constraintsList)
+        constraintsList = getConstraintList()
+        NSLayoutConstraint.activate(constraintsList)
+    }
+    
+    func getConstraintList() -> [NSLayoutConstraint]{
+        return [
             valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor,
                                                constant: -1 * GlobalConstants.barPaddingFactor * bounds.height),
@@ -154,6 +175,6 @@ class BarView: UIView {
             unitLabel.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor,
                                                constant: GlobalConstants.barPaddingFactor * bounds.height)
             
-        ])
+        ]
     }
 }

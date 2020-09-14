@@ -4,4 +4,4 @@ IOS App written in Swift to connect to a PC for display and monitor system healt
 
 
 ## Demo
-![](HWMeterDemonstration.gif)
+![](hwmeter_demo.gif){:height="50%" width="50%"}

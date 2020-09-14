@@ -40,12 +40,8 @@ class KPIStackView : UIView {
     }
     
     override func layoutSubviews() {
-//        stackView.frame = bounds
-        print("kpi stackview bounds: \(stackView.frame)")
         super.layoutSubviews()
-//        kpi stackview bounds: (0.0, 0.0, 269.0, 136.5)
         stackView.frame = bounds
-        print("kpi stackview bounds: \(stackView.frame)")
         
     }
     

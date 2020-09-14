@@ -16,13 +16,10 @@ class ContainerStackView: UIView {
     let stackView: UIStackView = UIStackView()
     
     let gaugeView: CustomGaugeView = CustomGaugeView(frame: .zero)
-    let firstKPIView: KPIView = KPIView(frame: .zero)
-    let secondKPIView: KPIView = KPIView(frame: .zero)
     let kpiStackView : KPIStackView = KPIStackView(frame: .zero)
     
     let memoryView: BarView = BarView(frame: .zero)
     let fanView: MiniBarsView = MiniBarsView(frame: .zero)
-    let spacer = UIView()
     
     var sensorType: SensorType = .CPU
     let containerView = UIView(frame: .zero)
@@ -42,13 +39,7 @@ class ContainerStackView: UIView {
             
             gaugeView.layer.borderColor = UIColor.red.cgColor
             gaugeView.layer.borderWidth = 1
-            
-            firstKPIView.layer.borderColor = UIColor.red.cgColor
-            firstKPIView.layer.borderWidth = 1
-            
-            secondKPIView.layer.borderColor = UIColor.orange.cgColor
-            secondKPIView.layer.borderWidth = 1
-            //            secondaryWidget.backgroundColor = UIColor.green
+
         }
     }
     
@@ -78,18 +69,20 @@ class ContainerStackView: UIView {
         
         if sensorType != .GEN {
             containerView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+            containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            containerView.rightAnchor.constraint(equalTo: rightAnchor)
 //            gaugeViewConstraints = configureGaugeConstraintPortrait()
 //            NSLayoutConstraint.activate(gaugeViewConstraints)
             stackView.addArrangedSubview(gaugeView)
             stackView.addArrangedSubview(kpiStackView)
         } else {
             //            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ).isActive = true
-            stackView.axis = .horizontal
+            stackView.axis = .vertical
 //            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ).isActive = true
             stackView.addArrangedSubview(memoryView)
             stackView.addArrangedSubview(fanView)
-            generalViewConstraints = getGeneralViewConstraintsPortrait()
-            NSLayoutConstraint.activate(generalViewConstraints)
+//            generalViewConstraints = getGeneralViewConstraintsPortrait()
+//            NSLayoutConstraint.activate(generalViewConstraints)
         }
         
         if GlobalConstants.isDebug {
@@ -99,12 +92,6 @@ class ContainerStackView: UIView {
             gaugeView.layer.borderColor = UIColor.blue.cgColor
             gaugeView.layer.borderWidth = 1
             
-            firstKPIView.layer.borderColor = UIColor.red.cgColor
-            firstKPIView.layer.borderWidth = 1
-            
-            secondKPIView.layer.borderColor = UIColor.orange.cgColor
-            secondKPIView.layer.borderWidth = 1
-            //            secondaryWidget.backgroundColor = UIColor.green
         }
         
     }
@@ -115,11 +102,40 @@ class ContainerStackView: UIView {
         configureSensorWidget()
     }
     
-    func getGaugeConstraintPortrait() -> [NSLayoutConstraint] {
-        return [
-            containerView.leftAnchor.constraint(equalTo: leftAnchor),
-            containerView.rightAnchor.constraint(equalTo: rightAnchor),
+    func configureSensorWidget() {
+        if bounds.height == 0 && bounds.width == 0 {
+            return
+        }
+        
+        if sensorType != .GEN {
+            gaugeKPIViewLayout()
+        } else {
+            containerView.backgroundColor = Theme.backgroundColor
+            containerView.layer.cornerRadius = 10
+
+            generalViewLayout()
+
+        }
+        
+    }
+    
+    func gaugeKPIViewLayout() {
+        if UIDevice.current.orientation.isLandscape {
+            stackView.axis = .vertical
+            NSLayoutConstraint.deactivate(gaugeViewConstraints)
+            gaugeViewConstraints = getGaugeConstraintsLandscape()
+            NSLayoutConstraint.activate(gaugeViewConstraints)
+        } else {
+            stackView.axis = .horizontal
             
+            NSLayoutConstraint.deactivate(gaugeViewConstraints)
+            gaugeViewConstraints = getGaugeConstraintPortrait()
+            NSLayoutConstraint.activate(gaugeViewConstraints)
+        }
+    }
+    
+    func getGaugeConstraintsLandscape() -> [NSLayoutConstraint] {
+        return [
             gaugeView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: GlobalConstants.gaugeViewHeightFactor),
             gaugeView.widthAnchor.constraint(equalTo: widthAnchor),
             kpiStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: GlobalConstants.kpiViewWidthFactor),
@@ -129,14 +145,11 @@ class ContainerStackView: UIView {
         ]
     }
     
-    func getGaugeConstraintsLandscape() -> [NSLayoutConstraint] {
+    func getGaugeConstraintPortrait() -> [NSLayoutConstraint] {
         return [
-            containerView.leftAnchor.constraint(equalTo: leftAnchor),
-            containerView.rightAnchor.constraint(equalTo: rightAnchor),
-            
             gaugeView.heightAnchor.constraint(equalTo: heightAnchor),
             gaugeView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: GlobalConstants.gaugeViewHeightFactor),
-            kpiStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            kpiStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.65),
             kpiStackView.widthAnchor.constraint(equalTo: widthAnchor,
                                                 multiplier: GlobalConstants.kpiViewWidthFactor),
             
@@ -152,32 +165,9 @@ class ContainerStackView: UIView {
         
     }
     
-    func configureSensorWidget() {
-        if sensorType != .GEN {
 
-            gaugeKPIViewLayout()
-        } else {
-            containerView.backgroundColor = Theme.backgroundColor
-            containerView.layer.cornerRadius = 10
-
-            generalViewLayout()
-        }
-    }
     
-    func gaugeKPIViewLayout() {
-        if UIDevice.current.orientation.isLandscape {
-            stackView.axis = .vertical
-            NSLayoutConstraint.deactivate(gaugeViewConstraints)
-            gaugeViewConstraints = getGaugeConstraintPortrait()
-            NSLayoutConstraint.activate(gaugeViewConstraints)
-        } else {
-            stackView.axis = .horizontal
-            
-            NSLayoutConstraint.deactivate(gaugeViewConstraints)
-            gaugeViewConstraints = getGaugeConstraintsLandscape()
-            NSLayoutConstraint.activate(gaugeViewConstraints)
-        }
-    }
+
     
     func generalViewLayout(){
         if UIDevice.current.orientation.isLandscape {
@@ -213,6 +203,8 @@ class ContainerStackView: UIView {
     }
     
     func getGeneralViewConstraintsPortrait() -> [NSLayoutConstraint]{
+        let portraitBarViewHeightFactor = GlobalConstants.barViewHeightFactor + 0.1
+        
         return [
             containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
             containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
@@ -226,10 +218,10 @@ class ContainerStackView: UIView {
             stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
             
             memoryView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
-                                               multiplier: GlobalConstants.barViewHeightFactor),
+                                               multiplier: portraitBarViewHeightFactor),
             memoryView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
             fanView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
-                                            multiplier: 0.95 - GlobalConstants.barViewHeightFactor),
+                                            multiplier: 0.95 - portraitBarViewHeightFactor),
             fanView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
         ]
     }

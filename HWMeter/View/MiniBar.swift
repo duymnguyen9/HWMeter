@@ -15,6 +15,9 @@ class MiniBar: UIView {
     let shapeLayer = CAShapeLayer()
     let trackLayer = CAShapeLayer()
     let gradient = CAGradientLayer()
+    var tickMarkLayer = CAShapeLayer()
+    
+    var constraintsList : [NSLayoutConstraint] = [NSLayoutConstraint]()
     
     var value : CGFloat = CGFloat(0.5) {
         didSet {
@@ -56,6 +59,25 @@ class MiniBar: UIView {
         addSubview(title)
         
         shapeLayer.strokeColor = Theme.secondaryYellow.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeEnd = 1
+        
+        trackLayer.strokeColor = Theme.secondaryBlack.cgColor
+        trackLayer.fillColor = UIColor.clear.cgColor
+        
+        gradient.colors = Theme.barGradientColors
+        gradient.locations = [0.1, 0.35, 0.65, 0.88]
+        
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 0)
+        gradient.mask = shapeLayer
+        
+        layer.addSublayer(trackLayer)
+        layer.addSublayer(gradient)
+        layer.addSublayer(tickMarkLayer)
+        
+        constraintsList = getConstraints()
+        
     }
     
     
@@ -63,11 +85,22 @@ class MiniBar: UIView {
     func labelLayout() {
         title.font = UIFont.systemFont(ofSize: bounds.height * 0.4, weight: .regular)
         
-        NSLayoutConstraint.activate([
+//        NSLayoutConstraint.activate([
+//            title.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            title.trailingAnchor.constraint(equalTo: leadingAnchor, constant: bounds.width * GlobalConstants.miniBarValueWidthFactor),
+//            title.centerYAnchor.constraint(equalTo: centerYAnchor)
+//        ])
+        NSLayoutConstraint.deactivate(constraintsList)
+        constraintsList = getConstraints()
+        NSLayoutConstraint.activate(constraintsList)
+    }
+    
+    func getConstraints() -> [NSLayoutConstraint] {
+        return [
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
             title.trailingAnchor.constraint(equalTo: leadingAnchor, constant: bounds.width * GlobalConstants.miniBarValueWidthFactor),
             title.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        ]
     }
     
     func barLayout() {
@@ -85,25 +118,11 @@ class MiniBar: UIView {
         
         shapeLayer.path = barPath.cgPath
         shapeLayer.lineWidth = lineWidth
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeEnd = 1
-        
         trackLayer.path = barPath.cgPath
-        trackLayer.strokeColor = Theme.secondaryBlack.cgColor
         trackLayer.lineWidth = lineWidth
-        trackLayer.fillColor = UIColor.clear.cgColor
-        
+
         gradient.frame = layer.bounds
-        gradient.colors = Theme.barGradientColors
-        gradient.locations = [0.1, 0.35, 0.65, 0.88]
-        
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 0)
-        gradient.mask = shapeLayer
-        
-        layer.addSublayer(trackLayer)
-        layer.addSublayer(gradient)
-        
+
         generateTickMark(startX: startX,
                          yPosition: startY - lineWidth/2,
                          tickHeight: lineWidth)
@@ -112,9 +131,13 @@ class MiniBar: UIView {
     }
     
     func generateTickMark(startX: CGFloat, yPosition: CGFloat, tickHeight: CGFloat){
-        let contentLayer = CALayer()
+        
         let markWidth = tickHeight * 0.30
         let fullWidth = bounds.width - startX  - markWidth
+
+        self.tickMarkLayer.sublayers?.forEach {
+            $0.removeFromSuperlayer()
+        }
         
         for item in 0...4{
             let markLayer = CAShapeLayer()
@@ -126,13 +149,14 @@ class MiniBar: UIView {
                 cornerRadius: markWidth * 0.75)
             markLayer.path = barPath.cgPath
             markLayer.strokeColor = Theme.backgroundColor.cgColor
+
             markLayer.lineWidth = markWidth
             
             markLayer.fillColor = UIColor.clear.cgColor
             markLayer.strokeEnd = 1
-            contentLayer.addSublayer(markLayer)
+            tickMarkLayer.addSublayer(markLayer)
         }
-        layer.addSublayer(contentLayer)
+        
     }
 }
 
