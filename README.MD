@@ -5,7 +5,7 @@ IOS App written in Swift to connect to a PC for display and monitor system healt
 
 ## Demo
 ### Portrait
- <img src="https://raw.githubusercontent.com/duymnguyen9/HWMeter/master/hwmeter_demo.gif" width="50%">
+ <img src="https://raw.githubusercontent.com/duymnguyen9/HWMeter/master/hwmeter_demo.gif" width="35%">
 
 ### Landscape
 ![](hwmeter_demo2.gif)
