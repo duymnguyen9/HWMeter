@@ -16,7 +16,7 @@ class SensorDataService {
     
     // TODO: remove this after successfully use stream instead
     var sensorData : [SensorJsonElement] = [SensorJsonElement]()
-
+    
     let ip : String = "192.168.1.17"
     let port : String = "55555"
     
@@ -40,7 +40,7 @@ class SensorDataService {
                 print("data count: \(sensorData.count)")
                 
                 DispatchQueue.main.async {
-//                    self.sensorDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
+                    //                    self.sensorDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
                     self.cpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
                     self.gpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .GPU))
                     
@@ -78,7 +78,7 @@ class SensorDataService {
                 ]
                 
                 let memorylist = [
-                SensorInfo(title: "memory", value: "43.2", unit: "percent"),
+                    SensorInfo(title: "memory", value: "43.2", unit: "percent"),
                     SensorInfo(title: "memory", value: "67.2", unit: "percent"),
                     SensorInfo(title: "memory", value: "20.2", unit: "percent"),
                 ]
@@ -106,7 +106,7 @@ class SensorDataService {
         
         if let sensorJsonList = try?
             decoder.decode([SensorJsonElement].self, from: json){
-//            print("done decoding")
+            //            print("done decoding")
             return sensorJsonList
         } else {
             print("fail decoding")
@@ -115,10 +115,30 @@ class SensorDataService {
     }
     
     func getMemoryInfo(from sensors: [SensorJsonElement]) -> SensorInfo {
-         if let memoryJson = sensors.first(where: { $0.sensorName == "Physical Memory Load"})?.sensorValue {
-             return SensorInfo(title: "Memory Used", value: memoryJson, unit: "%")
-         } else {
+        if let memoryJson = sensors.first(where: { $0.sensorName == "Physical Memory Load"})?.sensorValue {
+            return SensorInfo(title: "Memory Used", value: memoryJson, unit: "%")
+        } else {
             return SensorInfo(title: "Memory Used", value: "0.0", unit: "%")
-         }
+        }
     }
+    
+    func verifyHost(_ host: String, _ portNum: String) -> Bool{
+        let urlString = "http://" + host + ":" + portNum + "/"
+        if let url = URL(string: urlString){
+            if let data = try? Data(contentsOf: url){
+                sensorData = parseSensorJson(json: data)
+                if sensorData.count > 1 {
+                    return true
+                }
+                
+            }
+        }
+        return false
+    }
+}
+
+enum ConnectionCheck {
+    case fail
+    case success
+    case checking
 }

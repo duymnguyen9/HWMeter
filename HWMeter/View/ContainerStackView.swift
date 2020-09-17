@@ -70,7 +70,7 @@ class ContainerStackView: UIView {
         if sensorType != .GEN {
             containerView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
             containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-            containerView.rightAnchor.constraint(equalTo: rightAnchor)
+            containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
 //            gaugeViewConstraints = configureGaugeConstraintPortrait()
 //            NSLayoutConstraint.activate(gaugeViewConstraints)
             stackView.addArrangedSubview(gaugeView)
