@@ -6,7 +6,6 @@
 //  Copyright © 2020 Duy Nguyen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 
@@ -16,10 +15,27 @@ class MiniBarsView: UIView {
     
     var miniBarViewModel : FanInfo = FanInfo(val1: 0.1, val2: 0.1, val3: 0.1, val4: 0.1) {
         didSet {
-            cpuFan.value = miniBarViewModel.cpuFan
-            gpuFan.value = miniBarViewModel.gpuFan
-            exhaustFan.value = miniBarViewModel.exhaustFan
-            intakeFan.value = miniBarViewModel.intakeFan
+            if miniBarViewModel.cpuFan == 0.0 {
+                title.text = " "
+                cpuFan.title.text = " "
+                gpuFan.title.text = " "
+                exhaustFan.title.text = " "
+                intakeFan.title.text = " "
+                cpuFan.value = 0.0
+                gpuFan.value = 0.0
+                exhaustFan.value = 0.0
+                intakeFan.value = 0.0
+            } else {
+                cpuFan.value = miniBarViewModel.cpuFan
+                gpuFan.value = miniBarViewModel.gpuFan
+                exhaustFan.value = miniBarViewModel.exhaustFan
+                intakeFan.value = miniBarViewModel.intakeFan
+                title.text = "Fan Speed"
+                cpuFan.title.text = "CPU"
+                gpuFan.title.text = "GPU"
+                exhaustFan.title.text = "EXH"
+                intakeFan.title.text = "INT"
+            }
         }
     }
     let stackView = UIStackView()
@@ -52,7 +68,6 @@ class MiniBarsView: UIView {
     
     func setup() {
         
-        title.text = "Fan Speed"
         title.translatesAutoresizingMaskIntoConstraints = false        
         
         cpuFan.translatesAutoresizingMaskIntoConstraints = false
@@ -60,10 +75,7 @@ class MiniBarsView: UIView {
         exhaustFan.translatesAutoresizingMaskIntoConstraints = false
         intakeFan.translatesAutoresizingMaskIntoConstraints = false
         
-        cpuFan.title.text = "CPU"
-        gpuFan.title.text = "GPU"
-        exhaustFan.title.text = "EXH"
-        intakeFan.title.text = "INT"
+
 
         
         if GlobalConstants.isDebug{

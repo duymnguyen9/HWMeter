@@ -12,7 +12,7 @@ import RxCocoa
 
 
 class SensorDataService {
-    static let sensorDataService : SensorDataService = SensorDataService()
+    static let service : SensorDataService = SensorDataService()
     
     // TODO: remove this after successfully use stream instead
     var sensorData : [SensorJsonElement] = [SensorJsonElement]()
@@ -20,20 +20,40 @@ class SensorDataService {
     let ip : String = "192.168.1.17"
     let port : String = "55555"
     
+    
     let sensorDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
     
     let cpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
     let gpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
     
-    let memoryDataSubject : BehaviorSubject<SensorInfo> = BehaviorSubject<SensorInfo>(value: SensorInfo(title: "memory", value: "43.2", unit: "percent"))
+    let memoryDataSubject : BehaviorSubject<SensorInfo> = BehaviorSubject<SensorInfo>(value: SensorInfo(title: "memory", value: " ", unit: "percent"))
     
-    let fanDataSubject : BehaviorSubject<FanInfo> = BehaviorSubject<FanInfo>(value: FanInfo(val1: 0.1, val2: 0.1, val3: 0.1, val4: 0.1))
+    let fanDataSubject : BehaviorSubject<FanInfo> = BehaviorSubject<FanInfo>(value: FanInfo(val1: 0.0, val2: 0.0, val3: 0.0, val4: 0.0))
+    
+    let ipAddressSubject : BehaviorSubject<String> = BehaviorSubject<String>(value: "xxx")
+    
+    let useTestDataSubject : BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+    
+
+    let disposeBag = DisposeBag()
+    
+    func retrieveDataFromHost() {
+        Observable.combineLatest(self.ipAddressSubject.asObservable(), self.useTestDataSubject.asObservable()){ (urlString, isTestData) in
+                            if isTestData {
+                                SensorDataService.service.readLocalFile()
+                            } else {
+                                SensorDataService.service.getSensorDataFromURL(urlString)
+                            }
+            }.observeOn(MainScheduler.init()).subscribe().disposed(by: disposeBag)
+    }
     
     
-    func getSensorDataFromURL() {
-        let urlString = "http://" + ip + ":" + port + "/"
-        print("urlString: \(urlString)")
+    func getSensorDataFromURL(_ urlString : String) {
+//        let urlString = "http://" + ip + ":" + port + "/"
+//        print("urlString: \(urlString)")
         
+        
+                
         if let url = URL(string: urlString){
             if let data = try? Data(contentsOf: url){
                 sensorData = parseSensorJson(json: data)
@@ -122,18 +142,24 @@ class SensorDataService {
         }
     }
     
-    func verifyHost(_ host: String, _ portNum: String) -> Bool{
+    func verifyHost(_ host: String, _ portNum: String) {
+        
         let urlString = "http://" + host + ":" + portNum + "/"
         if let url = URL(string: urlString){
             if let data = try? Data(contentsOf: url){
                 sensorData = parseSensorJson(json: data)
                 if sensorData.count > 1 {
-                    return true
+                    let urlString = "http://" + host + ":" + portNum + "/"
+                    
+                    self.ipAddressSubject.asObserver().onNext(urlString)
                 }
                 
             }
         }
-        return false
+    }
+    
+    func setTestData() {
+        self.useTestDataSubject.asObserver().onNext(true)
     }
 }
 

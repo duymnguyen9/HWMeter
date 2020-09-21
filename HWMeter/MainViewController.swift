@@ -10,7 +10,9 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Storyboarded {
+    weak var coordinator: MainCoordinator?
+    
     let stackView = UIStackView()
     
     let sensorView: ContainerStackView = ContainerStackView(frame: .zero)
@@ -24,17 +26,15 @@ class MainViewController: UIViewController {
     var sensorDataCheck: Disposable = {
         print("Started Timer")
         return Observable<Int>.interval(.seconds(2), scheduler: SerialDispatchQueueScheduler(qos: .utility)).subscribe { _ in
-            DispatchQueue.global(qos: .utility).async {
-                if GlobalConstants.useTestData {
-                    SensorDataService.sensorDataService.readLocalFile()
-                } else {
-                    SensorDataService.sensorDataService.getSensorDataFromURL()
-                }
+            DispatchQueue.global(qos: .utility).async {      
+                SensorDataService.service.retrieveDataFromHost()
             }
         }
     }()
     
-
+    
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,14 +90,14 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate(stackViewContraints)
 
         
-        cpuView.setSensorInfoRX(observable: SensorDataService.sensorDataService.cpuDataSubject.asObservable())
+        cpuView.setSensorInfoRX(observable: SensorDataService.service.cpuDataSubject.asObservable())
         
-        gpuView.setSensorInfoRX(observable: SensorDataService.sensorDataService.gpuDataSubject.asObservable())
+        gpuView.setSensorInfoRX(observable: SensorDataService.service.gpuDataSubject.asObservable())
         
         generalView.setMemoryDataRx(
-            observable: SensorDataService.sensorDataService.memoryDataSubject.asObservable())
+            observable: SensorDataService.service.memoryDataSubject.asObservable())
         generalView.setFanDataRx(
-            observable: SensorDataService.sensorDataService.fanDataSubject.asObservable())
+            observable: SensorDataService.service.fanDataSubject.asObservable())
         
     }
     

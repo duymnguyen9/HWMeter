@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ConfigurationViewController: UIViewController, UITextFieldDelegate {
+class ConfigurationViewController: UIViewController, UITextFieldDelegate, Storyboarded {
     
     let pageTitle : UILabel = UILabel()
     let ipTextField : UITextField = UITextField()
     let portTextField : UITextField = UITextField()
-    let connectButton : UIButton = HMButton()
-    let useTestDataButton : UIButton = HMButton()
+    let connectButton : HMButton = HMButton()
+    let useTestDataButton : HMButton = HMButton()
     let contentView : UIView = UIView()
     var keyboardPadding : CGFloat = 0
+    let disposeBag = DisposeBag()
+        
+    weak var coordinator: MainCoordinator?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,21 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
         configureUseTestDataButton()
         
         configureDebug()
+        
+        ipTextField.text = "192.168.1.17"
+        portTextField.text = "55555"
+        
+        SensorDataService.service.ipAddressSubject.asObservable().subscribe(onNext: { (urlString) in
+            if urlString.count > 10 || urlString == "testData" {
+                self.coordinator?.connectToMainController()
+            }
+        }).disposed(by: disposeBag)
+        
+        SensorDataService.service.useTestDataSubject.asObservable().subscribe(onNext: {(isTestData) in
+            if isTestData {
+                self.coordinator?.connectToMainController()
+            }
+            }).disposed(by: disposeBag)
     }
     
     
@@ -110,12 +130,15 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
     func configureConnectButton() {
         connectButton.accessibilityIdentifier = "connectButton"
         connectButton.setTitle("CONNECT", for: .normal)
+        connectButton.setTitle("VERIFYING", for: .disabled)
+        connectButton.setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .disabled)
+
         connectButton.backgroundColor = Theme.highlightColor
         connectButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
         connectButton.translatesAutoresizingMaskIntoConstraints = false
         connectButton.setTitleColor(.white, for: .normal)
         
-        connectButton.addTarget(self, action: #selector(connectToHost), for: .touchUpInside)
+        connectButton.addTarget(self, action: #selector(connectButtonPressed), for: .touchUpInside)
     }
     
     func configureUseTestDataButton() {
@@ -128,18 +151,88 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
         useTestDataButton.layer.borderColor = Theme.highlightColor.cgColor
         useTestDataButton.translatesAutoresizingMaskIntoConstraints = false
         
+        useTestDataButton.addTarget(self, action: #selector(testDataButtonPressed), for: .touchUpInside)
     }
     
-    @objc func connectToHost(){
+    @objc func connectButtonPressed(){
         if ipTextField.canResignFirstResponder {
             ipTextField.resignFirstResponder()
         } else {
             portTextField.resignFirstResponder()
         }
+        
+        connectButton.setBackgroundAlpha(0.5)
+        connectButton.isEnabled = false
+        if verifyTextField() {
+                    if let ipText = ipTextField.text, let portText = portTextField.text {
+                        DispatchQueue.global(qos: .utility).async {
+                            SensorDataService.service.verifyHost(ipText, portText)
+                        }
+            }
+        } else {
+            
+            
+            connectButton.backgroundColor = Theme.secondaryPurple
+            connectButton.isEnabled = true
+            showFailedToConnectAlert()
+        }
+        
     }
     
-    func verifyConnection(url: String){
+    @objc func testDataButtonPressed(){
+        if ipTextField.canResignFirstResponder {
+            ipTextField.resignFirstResponder()
+        } else {
+            portTextField.resignFirstResponder()
+        }
         
+        SensorDataService.service.setTestData()
+    }
+    
+    func showFailedToConnectAlert() {
+        print("showFailedToConnectAlert")
+        
+        let message = "\n IP Host or Port are not correct \n example: \n Host: 192.168.1.99 \n Port: 55555"
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.left
+        
+        let messageText = NSMutableAttributedString(
+            string: message,
+            attributes: [
+                NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20.0)
+            ]
+        )
+        
+        let alertTitle = "Failed to Connect"
+        
+        let titleText = NSMutableAttributedString(
+            string: alertTitle,
+            attributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22.0)
+            ]
+        )
+        
+        
+        let alert = UIAlertController(title: alertTitle,
+                                      message: message,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.setValue(messageText, forKey: "attributedMessage")
+        alert.setValue(titleText, forKey: "attributedTitle")
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func verifyTextField() -> Bool {
+        if let ipText = ipTextField.text, let portText = portTextField.text {
+            if ipText.count < 12 && portText.count != 5 {
+                return false
+            }
+        }
+        return true
     }
     
 

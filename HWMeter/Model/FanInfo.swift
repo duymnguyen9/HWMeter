@@ -6,7 +6,6 @@
 //  Copyright © 2020 Duy Nguyen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct FanInfo {

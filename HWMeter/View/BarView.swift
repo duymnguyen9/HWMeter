@@ -6,7 +6,6 @@
 //  Copyright © 2020 Duy Nguyen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 
@@ -24,12 +23,22 @@ struct BarViewModel {
 }
 
 class BarView: UIView {
-    var barViewModel: BarViewModel = BarViewModel(sensorInfo: SensorInfo(title: "XXXXXX", value: "43.2", unit: "XXXXXX")) {
+    var barViewModel: BarViewModel = BarViewModel(sensorInfo: SensorInfo(title: " ", value: " ", unit: " ")) {
         didSet {
+            if barViewModel.value == " " {
+                print("value is empty")
+                title.text = " "
+                unitLabel.text = " "
+            }
+            else {
+                title.text = "Memory Used"
+                unitLabel.text = "%"
+                let numberInString: String = String(barViewModel.value.prefix(2))
+                valueLabel.text = numberInString
+                setBarProgress(newValue: barViewModel.value)
+            }
             
-            let numberInString: String = String(barViewModel.value.prefix(2))
-            valueLabel.text = numberInString
-            setBarProgress(newValue: barViewModel.value)
+
         }
     }
     
@@ -48,8 +57,8 @@ class BarView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        valueLabel.text = "XX"
-        shapeLayer.strokeEnd = 1
+        valueLabel.text = " "
+        shapeLayer.strokeEnd = 0
         constraintsList = getConstraintList()
     }
     
@@ -69,12 +78,11 @@ class BarView: UIView {
         
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        title.text = "Memory Used"
+
         title.font = UIFont.systemFont(ofSize: bounds.width * GlobalConstants.barTitleHeightFactor, weight: .regular)
         title.textColor = UIColor.white.withAlphaComponent(0.87)
         title.translatesAutoresizingMaskIntoConstraints = false
         
-        unitLabel.text = "%"
         unitLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * GlobalConstants.barValueHeightFactor * 0.6)
         unitLabel.translatesAutoresizingMaskIntoConstraints = false
         unitLabel.textColor = UIColor.white

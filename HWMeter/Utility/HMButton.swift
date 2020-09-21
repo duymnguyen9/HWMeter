@@ -11,6 +11,8 @@ import UIKit
 class HMButton: UIButton {
     let cardHighlightedFactor: CGFloat = 0.95
     
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -43,7 +45,7 @@ extension HMButton {
         
         let animationOptions: UIView.AnimationOptions = [.allowUserInteraction]
         
-        if isHighlighted {
+        if isHighlighted && !isSelected {
             UIView.animate(withDuration: 0.5,
                            delay: 0,
                            usingSpringWithDamping: 1,
@@ -65,5 +67,9 @@ extension HMButton {
         }
         
 
+    }
+    
+    open func setBackgroundAlpha(_ alpha: CGFloat) {
+        self.backgroundColor = self.backgroundColor?.withAlphaComponent(alpha)
     }
 }

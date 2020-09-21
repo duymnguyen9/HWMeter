@@ -10,9 +10,9 @@ import Foundation
 
 
 struct SensorGauge {
-    var sensorTemp : String = "~"
+    var sensorTemp : String = " "
     var sensorUsage : Float = 0
-    var sensorName : String = "XXX"
+    var sensorName : String = " "
     var kpi : [SensorInfo] = []
     
     init(from sensorJsonList : [SensorJsonElement], for sensorType: SensorType) {
@@ -20,7 +20,7 @@ struct SensorGauge {
             if let cpuTempJson = sensorJsonList.first(where: { $0.sensorName == "CPU Package"})?.sensorValue {
                 self.sensorTemp = cpuTempJson
             } else {
-                self.sensorTemp = "~"
+                self.sensorTemp = " "
             }
             
             if let cpuUsageJson = Float(sensorJsonList.first(where: { $0.sensorName == "Max CPU/Thread Usage"})!.sensorValue) {
@@ -57,7 +57,7 @@ struct SensorGauge {
             if let gpuTempJson = sensorJsonList.first(where: { $0.sensorName == "GPU Temperature"})?.sensorValue {
                 self.sensorTemp = gpuTempJson
             } else {
-                self.sensorTemp = "~"
+                self.sensorTemp = " "
             }
             
             if let gpuUsageJson = Float(sensorJsonList.first(where: { $0.sensorName == "GPU Core Load"})!.sensorValue) {
@@ -93,7 +93,7 @@ struct SensorGauge {
     }
     
     init() {
-        self.sensorTemp = "~"
+        self.sensorTemp = " "
         self.sensorUsage = 0
     }
     
@@ -102,9 +102,21 @@ struct SensorGauge {
         self.sensorUsage = usage
         if sensorType == .CPU {
             self.sensorName = "CPU"
+            self.kpi.append(SensorInfo(title: "CPU KPI 1",
+            value: "xxx",
+            unit: " Unit"))
+            self.kpi.append(SensorInfo(title: "CPU KPI 2",
+            value: "xxx",
+            unit: " Unit"))
         }
         else {
             self.sensorName = "GPU"
+            self.kpi.append(SensorInfo(title: "GPU KPI 1",
+            value: "xxx",
+            unit: " Unit"))
+            self.kpi.append(SensorInfo(title: "GPU KPI 2",
+            value: "xxx",
+            unit: " Unit"))
         }
     }
 }

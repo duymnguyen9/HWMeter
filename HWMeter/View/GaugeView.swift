@@ -6,7 +6,6 @@
 //  Copyright © 2020 Duy Nguyen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class CustomGaugeView: UIView {
@@ -51,10 +50,10 @@ class CustomGaugeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        valueLabel.text = "°"
-        title.text = "CPU"
-        subtitle.text = "Temp"
-        unitLabel.text = "°"
+        valueLabel.text = " "
+        title.text = " "
+        subtitle.text = " "
+        unitLabel.text = " "
         
         setUpLabel()
         setUpGauge()

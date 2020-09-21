@@ -9,9 +9,9 @@
 import UIKit
 
 class KPIView: UIView {
-    var kpiViewModel: SensorInfo = SensorInfo(title: "YOUR SPEED",
-                                              value: "15.24 ",
-                                              unit: "MBPS") {
+    var kpiViewModel: SensorInfo = SensorInfo(title: " ",
+                                              value: " ",
+                                              unit: " ") {
         didSet {
             switch kpiViewModel.title {
             case "CORE CLOCK":
@@ -48,7 +48,7 @@ class KPIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        accentBar.backgroundColor = Theme.secondaryBirches
+        accentBar.backgroundColor = Theme.frontColor
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         

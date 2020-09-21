@@ -18,6 +18,9 @@
 		079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 079A19AA24F5806B007DF984 /* HWMeter.xcdatamodeld */; };
 		079A19AE24F5806D007DF984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AD24F5806D007DF984 /* Assets.xcassets */; };
 		079A19B124F5806D007DF984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AF24F5806D007DF984 /* LaunchScreen.storyboard */; };
+		07ACF5BA251599DB00C63593 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACF5B9251599DB00C63593 /* Coordinator.swift */; };
+		07ACF5BC25159AA500C63593 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACF5BB25159AA500C63593 /* MainCoordinator.swift */; };
+		07ACF5BE25159CA200C63593 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACF5BD25159CA200C63593 /* Storyboarded.swift */; };
 		07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6584C24F599FE002EA720 /* ThemeColors.swift */; };
 		07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585224F5AADA002EA720 /* GaugeView.swift */; };
 		07C6585824F5B0A2002EA720 /* SensorGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6585724F5B0A2002EA720 /* SensorGauge.swift */; };
@@ -49,6 +52,9 @@
 		079A19AD24F5806D007DF984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		079A19B024F5806D007DF984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		079A19B224F5806D007DF984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07ACF5B9251599DB00C63593 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		07ACF5BB25159AA500C63593 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		07ACF5BD25159CA200C63593 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		07C6584C24F599FE002EA720 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		07C6585224F5AADA002EA720 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		07C6585724F5B0A2002EA720 /* SensorGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorGauge.swift; sourceTree = "<group>"; };
@@ -88,6 +94,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0708B9992514292300494324 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				07ACF5B9251599DB00C63593 /* Coordinator.swift */,
+				07ACF5BB25159AA500C63593 /* MainCoordinator.swift */,
+				07ACF5BD25159CA200C63593 /* Storyboarded.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		0717EF342512F226007B177F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +132,15 @@
 		079A19A024F5806B007DF984 /* HWMeter */ = {
 			isa = PBXGroup;
 			children = (
+				07C6584924F58E04002EA720 /* MainSystem */,
 				07E245CA2501886900F68200 /* MainViewController.swift */,
+				0708B9992514292300494324 /* Coordinator */,
 				0717EF342512F226007B177F /* Extension */,
 				07DDB28225117AB90028FEEE /* ConfigurationPage */,
-				07C6584924F58E04002EA720 /* MainSystem */,
 				07C6585124F5AAAA002EA720 /* View */,
 				07C6584B24F59959002EA720 /* Utility */,
 				079A19AD24F5806D007DF984 /* Assets.xcassets */,
+				079A19A724F5806B007DF984 /* Main.storyboard */,
 				07C6585624F5B055002EA720 /* Model */,
 				079A19AF24F5806D007DF984 /* LaunchScreen.storyboard */,
 				07C6585B24F5BDC3002EA720 /* Service */,
@@ -136,7 +154,6 @@
 		07C6584924F58E04002EA720 /* MainSystem */ = {
 			isa = PBXGroup;
 			children = (
-				079A19A724F5806B007DF984 /* Main.storyboard */,
 				079A19A124F5806B007DF984 /* AppDelegate.swift */,
 				079A19A324F5806B007DF984 /* SceneDelegate.swift */,
 			);
@@ -334,7 +351,9 @@
 				07DB119E24FF061C00E0791E /* BarView.swift in Sources */,
 				079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */,
 				07C6E1DA250B0864000BFC5D /* LayoutConfig.swift in Sources */,
+				07ACF5BA251599DB00C63593 /* Coordinator.swift in Sources */,
 				07C6585A24F5B0BE002EA720 /* Sensor.swift in Sources */,
+				07ACF5BC25159AA500C63593 /* MainCoordinator.swift in Sources */,
 				07208A8325006165001589BB /* MiniBar.swift in Sources */,
 				07C6586624F5D809002EA720 /* KPIView.swift in Sources */,
 				07208A8125002120001589BB /* GlobalConstants.swift in Sources */,
@@ -349,6 +368,7 @@
 				07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */,
 				07E245CD2501A34E00F68200 /* ContainerStackView.swift in Sources */,
 				07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */,
+				07ACF5BE25159CA200C63593 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuidn.HWMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -522,7 +542,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuidn.HWMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

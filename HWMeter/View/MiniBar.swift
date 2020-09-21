@@ -6,7 +6,6 @@
 //  Copyright © 2020 Duy Nguyen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MiniBar: UIView {
@@ -19,7 +18,7 @@ class MiniBar: UIView {
     
     var constraintsList : [NSLayoutConstraint] = [NSLayoutConstraint]()
     
-    var value : CGFloat = CGFloat(0.5) {
+    var value : CGFloat = CGFloat(0.0) {
         didSet {
             shapeLayer.strokeEnd = value
         }
@@ -39,7 +38,7 @@ class MiniBar: UIView {
             title.layer.borderColor = UIColor.green.cgColor
             
         }
-        title.text = "XXX"
+        title.text = " "
     }
     
     required init?(coder: NSCoder) {
