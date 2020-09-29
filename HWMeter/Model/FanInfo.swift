@@ -43,7 +43,7 @@ struct FanInfo {
             {$0.sensorClass == "GPU [#0]: NVIDIA GeForce GTX 1080: ITE IT8915FN" && $0.sensorName == "GPU Fan"})!.sensorValue) {
             self.intakeFan = CGFloat(intakeFanJson / 100)
         } else {
-            self.intakeFan = CGFloat(0.1)
+            self.intakeFan = CGFloat(0.0)
         }
     }
     

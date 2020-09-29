@@ -150,8 +150,10 @@ class SensorDataService {
                 sensorData = parseSensorJson(json: data)
                 if sensorData.count > 1 {
                     let urlString = "http://" + host + ":" + portNum + "/"
+                    DispatchQueue.main.async {
+                        self.ipAddressSubject.asObserver().onNext(urlString)
+                    }
                     
-                    self.ipAddressSubject.asObserver().onNext(urlString)
                 }
                 
             }
