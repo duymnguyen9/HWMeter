@@ -7,17 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0717DD82252D8CB5004EF39C /* ContainerStackView+Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717DD81252D8CB5004EF39C /* ContainerStackView+Gauge.swift */; };
+		0717DD88252D8CE8004EF39C /* ContainerStackView+GEN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717DD87252D8CE8004EF39C /* ContainerStackView+GEN.swift */; };
+		0717DD8B252D8D03004EF39C /* ContainerStackView+POWER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717DD8A252D8D03004EF39C /* ContainerStackView+POWER.swift */; };
 		0717EF3A2512F5B1007B177F /* HMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717EF392512F5B1007B177F /* HMButton.swift */; };
 		07208A8125002120001589BB /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8025002120001589BB /* GlobalConstants.swift */; };
 		07208A8325006165001589BB /* MiniBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8225006165001589BB /* MiniBar.swift */; };
 		07208A8525008306001589BB /* FanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07208A8425008306001589BB /* FanInfo.swift */; };
+		073826BE252FA05E0004A319 /* SwipeableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073826BD252FA05E0004A319 /* SwipeableCollectionView.swift */; };
+		073826C1252FE1720004A319 /* PowerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073826C0252FE1720004A319 /* PowerInfo.swift */; };
+		073826C4252FEA700004A319 /* StackBarKPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073826C3252FEA700004A319 /* StackBarKPIView.swift */; };
+		073826CB25300ABD0004A319 /* KPIRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073826CA25300ABC0004A319 /* KPIRowView.swift */; };
+		073826D2253012410004A319 /* KPITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073826D1253012410004A319 /* KPITableView.swift */; };
 		073EE1FC24F723F6004FB6BF /* SensorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073EE1FB24F723F6004FB6BF /* SensorInfo.swift */; };
+		07402567252E77A7001F3ADC /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07402566252E77A7001F3ADC /* SnappingCollectionViewLayout.swift */; };
 		079A19A224F5806B007DF984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A124F5806B007DF984 /* AppDelegate.swift */; };
 		079A19A424F5806B007DF984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A19A324F5806B007DF984 /* SceneDelegate.swift */; };
 		079A19A924F5806B007DF984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A19A724F5806B007DF984 /* Main.storyboard */; };
 		079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 079A19AA24F5806B007DF984 /* HWMeter.xcdatamodeld */; };
 		079A19AE24F5806D007DF984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AD24F5806D007DF984 /* Assets.xcassets */; };
 		079A19B124F5806D007DF984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A19AF24F5806D007DF984 /* LaunchScreen.storyboard */; };
+		07ABB9BC252D284C002B224A /* StackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ABB9BB252D284C002B224A /* StackBarView.swift */; };
+		07ABB9C1252D40E6002B224A /* StackBarSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ABB9C0252D40E6002B224A /* StackBarSegment.swift */; };
 		07ACF5BA251599DB00C63593 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACF5B9251599DB00C63593 /* Coordinator.swift */; };
 		07ACF5BC25159AA500C63593 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACF5BB25159AA500C63593 /* MainCoordinator.swift */; };
 		07ACF5BE25159CA200C63593 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ACF5BD25159CA200C63593 /* Storyboarded.swift */; };
@@ -35,15 +46,26 @@
 		07DDB28125117A410028FEEE /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDB28025117A410028FEEE /* ConfigurationViewController.swift */; };
 		07E245CB2501886900F68200 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E245CA2501886900F68200 /* MainViewController.swift */; };
 		07E245CD2501A34E00F68200 /* ContainerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E245CC2501A34E00F68200 /* ContainerStackView.swift */; };
+		07F5A2A4252E5C8700C9D917 /* SwipeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5A2A3252E5C8700C9D917 /* SwipeableViewController.swift */; };
+		07FCDA70252E565200A98C75 /* SwipeableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FCDA6F252E565200A98C75 /* SwipeableViewCell.swift */; };
 		EC725D5324175A60AA23674B /* Pods_HWMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B74042B3F3F543B09AAB7AE2 /* Pods_HWMeter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0717DD81252D8CB5004EF39C /* ContainerStackView+Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerStackView+Gauge.swift"; sourceTree = "<group>"; };
+		0717DD87252D8CE8004EF39C /* ContainerStackView+GEN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerStackView+GEN.swift"; sourceTree = "<group>"; };
+		0717DD8A252D8D03004EF39C /* ContainerStackView+POWER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerStackView+POWER.swift"; sourceTree = "<group>"; };
 		0717EF392512F5B1007B177F /* HMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMButton.swift; sourceTree = "<group>"; };
 		07208A8025002120001589BB /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		07208A8225006165001589BB /* MiniBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBar.swift; sourceTree = "<group>"; };
 		07208A8425008306001589BB /* FanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanInfo.swift; sourceTree = "<group>"; };
+		073826BD252FA05E0004A319 /* SwipeableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCollectionView.swift; sourceTree = "<group>"; };
+		073826C0252FE1720004A319 /* PowerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerInfo.swift; sourceTree = "<group>"; };
+		073826C3252FEA700004A319 /* StackBarKPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBarKPIView.swift; sourceTree = "<group>"; };
+		073826CA25300ABC0004A319 /* KPIRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPIRowView.swift; sourceTree = "<group>"; };
+		073826D1253012410004A319 /* KPITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPITableView.swift; sourceTree = "<group>"; };
 		073EE1FB24F723F6004FB6BF /* SensorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfo.swift; sourceTree = "<group>"; };
+		07402566252E77A7001F3ADC /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		079A199E24F5806B007DF984 /* HWMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		079A19A124F5806B007DF984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		079A19A324F5806B007DF984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +74,8 @@
 		079A19AD24F5806D007DF984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		079A19B024F5806D007DF984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		079A19B224F5806D007DF984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07ABB9BB252D284C002B224A /* StackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBarView.swift; sourceTree = "<group>"; };
+		07ABB9C0252D40E6002B224A /* StackBarSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBarSegment.swift; sourceTree = "<group>"; };
 		07ACF5B9251599DB00C63593 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		07ACF5BB25159AA500C63593 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		07ACF5BD25159CA200C63593 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -69,6 +93,8 @@
 		07DDB28025117A410028FEEE /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		07E245CA2501886900F68200 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		07E245CC2501A34E00F68200 /* ContainerStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerStackView.swift; sourceTree = "<group>"; };
+		07F5A2A3252E5C8700C9D917 /* SwipeableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableViewController.swift; sourceTree = "<group>"; };
+		07FCDA6F252E565200A98C75 /* SwipeableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableViewCell.swift; sourceTree = "<group>"; };
 		84707B16B11BE8341F067E43 /* Pods-HWMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWMeter.debug.xcconfig"; path = "Target Support Files/Pods-HWMeter/Pods-HWMeter.debug.xcconfig"; sourceTree = "<group>"; };
 		B74042B3F3F543B09AAB7AE2 /* Pods_HWMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HWMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFFBF8C4669D9FA83AA45EC /* Pods-HWMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWMeter.release.xcconfig"; path = "Target Support Files/Pods-HWMeter/Pods-HWMeter.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +160,7 @@
 			children = (
 				07C6584924F58E04002EA720 /* MainSystem */,
 				07E245CA2501886900F68200 /* MainViewController.swift */,
+				07F5A2A2252E5C6A00C9D917 /* AdditionalViewController */,
 				0708B9992514292300494324 /* Coordinator */,
 				0717EF342512F226007B177F /* Extension */,
 				07DDB28225117AB90028FEEE /* ConfigurationPage */,
@@ -174,13 +201,18 @@
 		07C6585124F5AAAA002EA720 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				07FCDA6E252E55EF00A98C75 /* ContainerStackView */,
 				07C6586524F5D809002EA720 /* KPIView.swift */,
+				073826CA25300ABC0004A319 /* KPIRowView.swift */,
+				073826D1253012410004A319 /* KPITableView.swift */,
 				07C6585224F5AADA002EA720 /* GaugeView.swift */,
 				07DB119D24FF061C00E0791E /* BarView.swift */,
 				07DB119F24FF45DC00E0791E /* MiniBarsView.swift */,
 				07208A8225006165001589BB /* MiniBar.swift */,
-				07E245CC2501A34E00F68200 /* ContainerStackView.swift */,
 				07C6E1D7250AF5F5000BFC5D /* KPIStackView.swift */,
+				07ABB9BB252D284C002B224A /* StackBarView.swift */,
+				07ABB9C0252D40E6002B224A /* StackBarSegment.swift */,
+				073826C3252FEA700004A319 /* StackBarKPIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +224,7 @@
 				07C6585924F5B0BE002EA720 /* Sensor.swift */,
 				073EE1FB24F723F6004FB6BF /* SensorInfo.swift */,
 				07208A8425008306001589BB /* FanInfo.swift */,
+				073826C0252FE1720004A319 /* PowerInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +251,28 @@
 				07DDB28025117A410028FEEE /* ConfigurationViewController.swift */,
 			);
 			path = ConfigurationPage;
+			sourceTree = "<group>";
+		};
+		07F5A2A2252E5C6A00C9D917 /* AdditionalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				07F5A2A3252E5C8700C9D917 /* SwipeableViewController.swift */,
+				07FCDA6F252E565200A98C75 /* SwipeableViewCell.swift */,
+				07402566252E77A7001F3ADC /* SnappingCollectionViewLayout.swift */,
+				073826BD252FA05E0004A319 /* SwipeableCollectionView.swift */,
+			);
+			path = AdditionalViewController;
+			sourceTree = "<group>";
+		};
+		07FCDA6E252E55EF00A98C75 /* ContainerStackView */ = {
+			isa = PBXGroup;
+			children = (
+				07E245CC2501A34E00F68200 /* ContainerStackView.swift */,
+				0717DD81252D8CB5004EF39C /* ContainerStackView+Gauge.swift */,
+				0717DD87252D8CE8004EF39C /* ContainerStackView+GEN.swift */,
+				0717DD8A252D8D03004EF39C /* ContainerStackView+POWER.swift */,
+			);
+			path = ContainerStackView;
 			sourceTree = "<group>";
 		};
 		65B2503CC4C15C254C29E1F3 /* Pods */ = {
@@ -258,7 +313,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Duy Nguyen";
 				TargetAttributes = {
 					079A199D24F5806B007DF984 = {
@@ -345,30 +400,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07ABB9BC252D284C002B224A /* StackBarView.swift in Sources */,
 				07E245CB2501886900F68200 /* MainViewController.swift in Sources */,
+				073826CB25300ABD0004A319 /* KPIRowView.swift in Sources */,
+				07ABB9C1252D40E6002B224A /* StackBarSegment.swift in Sources */,
 				07DB11A024FF45DC00E0791E /* MiniBarsView.swift in Sources */,
 				07208A8525008306001589BB /* FanInfo.swift in Sources */,
 				07DB119E24FF061C00E0791E /* BarView.swift in Sources */,
 				079A19AC24F5806B007DF984 /* HWMeter.xcdatamodeld in Sources */,
 				07C6E1DA250B0864000BFC5D /* LayoutConfig.swift in Sources */,
 				07ACF5BA251599DB00C63593 /* Coordinator.swift in Sources */,
+				073826C1252FE1720004A319 /* PowerInfo.swift in Sources */,
 				07C6585A24F5B0BE002EA720 /* Sensor.swift in Sources */,
+				07402567252E77A7001F3ADC /* SnappingCollectionViewLayout.swift in Sources */,
 				07ACF5BC25159AA500C63593 /* MainCoordinator.swift in Sources */,
 				07208A8325006165001589BB /* MiniBar.swift in Sources */,
 				07C6586624F5D809002EA720 /* KPIView.swift in Sources */,
+				07FCDA70252E565200A98C75 /* SwipeableViewCell.swift in Sources */,
 				07208A8125002120001589BB /* GlobalConstants.swift in Sources */,
 				0717EF3A2512F5B1007B177F /* HMButton.swift in Sources */,
 				07DDB28125117A410028FEEE /* ConfigurationViewController.swift in Sources */,
 				07C6585824F5B0A2002EA720 /* SensorGauge.swift in Sources */,
 				073EE1FC24F723F6004FB6BF /* SensorInfo.swift in Sources */,
 				07C6E1D8250AF5F5000BFC5D /* KPIStackView.swift in Sources */,
+				07F5A2A4252E5C8700C9D917 /* SwipeableViewController.swift in Sources */,
 				07C6586024F5BDC3002EA720 /* SensorDataService.swift in Sources */,
 				079A19A224F5806B007DF984 /* AppDelegate.swift in Sources */,
+				0717DD82252D8CB5004EF39C /* ContainerStackView+Gauge.swift in Sources */,
 				079A19A424F5806B007DF984 /* SceneDelegate.swift in Sources */,
 				07C6584D24F599FE002EA720 /* ThemeColors.swift in Sources */,
+				073826C4252FEA700004A319 /* StackBarKPIView.swift in Sources */,
+				073826BE252FA05E0004A319 /* SwipeableCollectionView.swift in Sources */,
 				07E245CD2501A34E00F68200 /* ContainerStackView.swift in Sources */,
 				07C6585324F5AADA002EA720 /* GaugeView.swift in Sources */,
+				0717DD88252D8CE8004EF39C /* ContainerStackView+GEN.swift in Sources */,
 				07ACF5BE25159CA200C63593 /* Storyboarded.swift in Sources */,
+				073826D2253012410004A319 /* KPITableView.swift in Sources */,
+				0717DD8B252D8D03004EF39C /* ContainerStackView+POWER.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +488,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -480,6 +549,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -556,7 +626,7 @@
 				079A19B424F5806D007DF984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		079A19B524F5806D007DF984 /* Build configuration list for PBXNativeTarget "HWMeter" */ = {
 			isa = XCConfigurationList;
@@ -565,7 +635,7 @@
 				079A19B724F5806D007DF984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

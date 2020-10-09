@@ -62,6 +62,10 @@ class KPIView: UIView {
         portraitContainerConstraint = containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95)
         portraitAccentBarConstraint = accentBar.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.025)
         
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(valueLabel)
+        containerView.addSubview(unitLabel)
+        
         if GlobalConstants.isDebug {
             layer.borderColor = UIColor.orange.cgColor
             layer.borderWidth = 1
@@ -94,9 +98,7 @@ class KPIView: UIView {
         unitLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * 0.3)
         unitLabel.textColor = Theme.frontColor
         
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(valueLabel)
-        containerView.addSubview(unitLabel)
+
         
         if UIDevice.current.orientation.isLandscape {
             portraitContainerConstraint?.isActive = false

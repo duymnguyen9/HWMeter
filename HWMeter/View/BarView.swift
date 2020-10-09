@@ -26,7 +26,6 @@ class BarView: UIView {
     var barViewModel: BarViewModel = BarViewModel(sensorInfo: SensorInfo(title: " ", value: " ", unit: " ")) {
         didSet {
             if barViewModel.value == " " {
-                print("value is empty")
                 title.text = " "
                 unitLabel.text = " "
             }
@@ -148,21 +147,6 @@ class BarView: UIView {
     }
     
     func labelLayout() {
-//        NSLayoutConstraint.activate([
-//            valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor,
-//                                               constant: -1 * GlobalConstants.barPaddingFactor * bounds.height),
-//
-//            title.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            title.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            title.bottomAnchor.constraint(equalTo: valueLabel.topAnchor),
-//
-//            unitLabel.topAnchor.constraint(equalTo: valueLabel.topAnchor,
-//                                           constant: GlobalConstants.barPaddingFactor * bounds.height),
-//            unitLabel.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor,
-//                                               constant: GlobalConstants.barPaddingFactor * bounds.height)
-//
-//        ])
         NSLayoutConstraint.deactivate(constraintsList)
         constraintsList = getConstraintList()
         NSLayoutConstraint.activate(constraintsList)

@@ -10,11 +10,11 @@ import UIKit
 
 
 extension ContainerStackView {
-    
     func powerViewLayout() {
         stackView.axis = .vertical
         
         if UIDevice.current.orientation.isLandscape {
+            
             NSLayoutConstraint.deactivate(powerViewConstraints)
             powerViewConstraints = getPowerViewConstraintsLandscape()
             NSLayoutConstraint.activate(powerViewConstraints)
@@ -27,21 +27,26 @@ extension ContainerStackView {
     }
     
     func getPowerViewConstraintsLandscape() -> [NSLayoutConstraint]{
+        
+        let landscapeFactor : CGFloat = 0.35
+        
         return [
             containerView.leftAnchor.constraint(equalTo: leftAnchor),
             containerView.rightAnchor.constraint(equalTo: rightAnchor),
-            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ),
+            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.92 ),
             
-            stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            
+            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            stackView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.95),
             
-            totalPowerView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
-                                               multiplier: GlobalConstants.barViewHeightFactor),
+            totalPowerView.heightAnchor.constraint(equalTo: stackView.heightAnchor,
+                                                   multiplier: landscapeFactor),
             totalPowerView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
-            powerKPIView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
-                                            multiplier: 0.9 - GlobalConstants.barViewHeightFactor),
-            powerKPIView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
+            powerKPIView.heightAnchor.constraint(equalTo: stackView.heightAnchor,
+                                                 multiplier: 1 - landscapeFactor),
+            powerKPIView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8),
         ]
     }
     
@@ -50,12 +55,12 @@ extension ContainerStackView {
         
         return [
             containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
+            containerView.widthAnchor.constraint(equalTo: widthAnchor),
+            containerView.heightAnchor.constraint(equalTo: heightAnchor),
+            containerView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1),
             
-            
-            stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             stackView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.95),
             stackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
@@ -65,7 +70,7 @@ extension ContainerStackView {
             totalPowerView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
             powerKPIView.heightAnchor.constraint(equalTo: containerView.heightAnchor,
                                             multiplier: 0.95 - portraitBarViewHeightFactor),
-            powerKPIView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: paddingFactor),
+            powerKPIView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8),
         ]
     }
     

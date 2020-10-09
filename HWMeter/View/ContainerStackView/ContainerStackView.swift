@@ -22,7 +22,7 @@ class ContainerStackView: UIView {
     
     // PowerView Views
     let totalPowerView: StackBarView = StackBarView(frame: .zero)
-    let powerKPIView: UIView = UIView(frame: .zero)
+    let powerKPIView: KPITableView = KPITableView(frame: .zero)
     
     var sensorType: SensorType = .CPU
     let containerView = UIView(frame: .zero)
@@ -88,6 +88,8 @@ class ContainerStackView: UIView {
             stackView.addArrangedSubview(kpiStackView)
         }
         
+        setRXData(sensorType)
+        
         if GlobalConstants.isDebug {
             layer.borderColor = UIColor.yellow.cgColor
             layer.borderWidth = 1
@@ -130,24 +132,38 @@ class ContainerStackView: UIView {
 // MARK: - RX Setup
 
 extension ContainerStackView {
-    func setSensorInfoRX(observable: Observable<SensorGauge>) {
-        observable.subscribe(onNext: { sensorInfo in
-            self.gaugeView.sensorGauge = sensorInfo
-            if sensorInfo.kpi.count > 1 {
-                self.kpiStackView.KPIStackViewSensors = sensorInfo.kpi
-            }
-        }).disposed(by: disposedBag)
+    
+    func setRXData(_ sensorType: SensorType){
+        let service = SensorDataService.service
+        switch sensorType {
+        case .CPU:
+            service.cpuDataOuput().subscribe(onNext: { sensorInfo in
+                self.gaugeView.sensorGauge = sensorInfo
+                if sensorInfo.kpi.count > 1 {
+                    self.kpiStackView.KPIStackViewSensors = sensorInfo.kpi
+                }
+            }).disposed(by: disposedBag)
+            
+        case .GPU:
+            service.gpuDataOutput().subscribe(onNext: { sensorInfo in
+                self.gaugeView.sensorGauge = sensorInfo
+                if sensorInfo.kpi.count > 1 {
+                    self.kpiStackView.KPIStackViewSensors = sensorInfo.kpi
+                }
+            }).disposed(by: disposedBag)
+        case .GEN:
+            service.memoryDataOutput().subscribe(onNext: { memoInfo in
+                self.memoryView.barViewModel = BarViewModel(sensorInfo: memoInfo)
+            }).disposed(by: disposedBag)
+            service.fanDataOutput().subscribe(onNext: { fanInfoList in
+                self.fanView.miniBarViewModel = fanInfoList
+            }).disposed(by: disposedBag)
+        case .POWER:
+            service.powerDataOutput().subscribe(onNext: { power in
+                self.totalPowerView.viewModel = StackBarViewModel(data: power, psuRating: 650)
+                self.powerKPIView.viewmodel = power
+            }).disposed(by: disposedBag)
+        }
     }
     
-    func setMemoryDataRx(observable: Observable<SensorInfo>) {
-        observable.subscribe(onNext: { memoInfo in
-            self.memoryView.barViewModel = BarViewModel(sensorInfo: memoInfo)
-        }).disposed(by: disposedBag)
-    }
-    
-    func setFanDataRx(observable: Observable<FanInfo>) {
-        observable.subscribe(onNext: { fanInfoList in
-            self.fanView.miniBarViewModel = fanInfoList
-        }).disposed(by: disposedBag)
-    }
 }

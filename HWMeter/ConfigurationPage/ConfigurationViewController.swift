@@ -71,9 +71,7 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate, Storyb
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        print(view.bounds)
-//        print(pageTitle.bounds)
-//        print(contentView.frame)
+
     }
     
     func configurePageTitle() {
@@ -170,8 +168,6 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate, Storyb
                         }
             }
         } else {
-            
-            
             connectButton.backgroundColor = Theme.secondaryPurple
             connectButton.isEnabled = true
             showFailedToConnectAlert()

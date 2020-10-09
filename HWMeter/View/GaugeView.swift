@@ -34,6 +34,7 @@ class CustomGaugeView: UIView {
         didSet {
             valueLabel.text = sensorGauge.sensorTemp
             title.text = sensorGauge.sensorName
+            unitLabel.text = "°"
             if sensorGauge.sensorName == "GPU" {
                 gradient.colors = Theme.gradientColors1
             } else {

@@ -7,67 +7,62 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
-
+import RxSwift
 
 class SensorDataService {
-    static let service : SensorDataService = SensorDataService()
+    static let service: SensorDataService = SensorDataService()
     
     // TODO: remove this after successfully use stream instead
-    var sensorData : [SensorJsonElement] = [SensorJsonElement]()
+    var sensorData: [SensorJsonElement] = [SensorJsonElement]()
     
-    let ip : String = "192.168.1.17"
-    let port : String = "55555"
+    let ip: String = "192.168.1.17"
+    let port: String = "55555"
     
+    let sensorDataSubject: BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
     
-    let sensorDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
+    let cpuDataSubject: BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
+    let gpuDataSubject: BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
     
-    let cpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
-    let gpuDataSubject : BehaviorSubject<SensorGauge> = BehaviorSubject<SensorGauge>(value: SensorGauge())
+    let memoryDataSubject: BehaviorSubject<SensorInfo> = BehaviorSubject<SensorInfo>(value: SensorInfo(title: "memory", value: " ", unit: "percent"))
     
-    let memoryDataSubject : BehaviorSubject<SensorInfo> = BehaviorSubject<SensorInfo>(value: SensorInfo(title: "memory", value: " ", unit: "percent"))
+    let fanDataSubject: BehaviorSubject<FanInfo> = BehaviorSubject<FanInfo>(value: FanInfo(val1: 0.0, val2: 0.0, val3: 0.0, val4: 0.0))
     
-    let fanDataSubject : BehaviorSubject<FanInfo> = BehaviorSubject<FanInfo>(value: FanInfo(val1: 0.0, val2: 0.0, val3: 0.0, val4: 0.0))
+    let powerDataSubject: BehaviorSubject<PowerInfo> = BehaviorSubject<PowerInfo>(value: PowerInfo(val1: 100, val2: 100, val3: 100, val4: 100))
     
-    let ipAddressSubject : BehaviorSubject<String> = BehaviorSubject<String>(value: "xxx")
+    let ipAddressSubject: BehaviorSubject<String> = BehaviorSubject<String>(value: "xxx")
     
-    let useTestDataSubject : BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+    let useTestDataSubject: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
     
-
     let disposeBag = DisposeBag()
     
     func retrieveDataFromHost() {
-        Observable.combineLatest(self.ipAddressSubject.asObservable(), self.useTestDataSubject.asObservable()){ (urlString, isTestData) in
-                            if isTestData {
-                                SensorDataService.service.readLocalFile()
-                            } else {
-                                SensorDataService.service.getSensorDataFromURL(urlString)
-                            }
-            }.observeOn(MainScheduler.init()).subscribe().disposed(by: disposeBag)
+        Observable.combineLatest(ipAddressSubject.asObservable(), useTestDataSubject.asObservable()) { urlString, isTestData in
+            if isTestData {
+                SensorDataService.service.readLocalFile()
+            } else {
+                SensorDataService.service.getSensorDataFromURL(urlString)
+            }
+        }.observeOn(MainScheduler()).subscribe().disposed(by: disposeBag)
     }
     
-    
-    func getSensorDataFromURL(_ urlString : String) {
-//        let urlString = "http://" + ip + ":" + port + "/"
-//        print("urlString: \(urlString)")
-        
-        
-                
-        if let url = URL(string: urlString){
-            if let data = try? Data(contentsOf: url){
+    func getSensorDataFromURL(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url) {
                 sensorData = parseSensorJson(json: data)
                 print("data count: \(sensorData.count)")
                 
+                let sensorData = parseSensorJson(json: data)
+                
                 DispatchQueue.main.async {
-                    //                    self.sensorDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
-                    self.cpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .CPU))
-                    self.gpuDataSubject.asObserver().onNext(SensorGauge(from: self.parseSensorJson(json: data), for: .GPU))
+                    self.cpuDataSubject.asObserver().onNext(SensorGauge(from: sensorData, for: .CPU))
+                    self.gpuDataSubject.asObserver().onNext(SensorGauge(from: sensorData, for: .GPU))
                     
+                    self.fanDataSubject.asObserver().onNext(FanInfo(from: sensorData))
                     
-                    self.fanDataSubject.asObserver().onNext(FanInfo(from: self.parseSensorJson(json: data)))
+                    self.memoryDataSubject.asObserver().onNext(self.getMemoryInfo(from: sensorData))
                     
-                    self.memoryDataSubject.asObserver().onNext(self.getMemoryInfo(from: self.parseSensorJson(json: data)))
+                    self.powerDataSubject.asObserver().onNext(PowerInfo(from: sensorData))
                 }
             }
         }
@@ -82,7 +77,6 @@ class SensorDataService {
             let data = try Data(contentsOf: mainurl)
             sensorData = parseSensorJson(json: data)
             DispatchQueue.main.async {
-                
                 let cpuInfoList = [
                     SensorGauge(temp: "65", usage: 0.7, sensorType: .CPU),
                     SensorGauge(temp: "55", usage: 0.6, sensorType: .CPU),
@@ -109,10 +103,19 @@ class SensorDataService {
                     FanInfo(val1: 0.5, val2: 0.43, val3: 0.52, val4: 0.8),
                 ]
                 
+                let powerList = [
+                    PowerInfo(val1: 200, val2: 150, val3: 100, val4: 25),
+                    PowerInfo(val1: 50, val2: 100, val3: 100, val4: 100),
+                    PowerInfo(val1: 300, val2: 100, val3: 50, val4: 50),
+                    PowerInfo(val1: 75, val2: 300, val3: 100, val4: 50),
+
+                ]
+                
                 self.cpuDataSubject.asObserver().onNext(cpuInfoList.randomElement()!)
                 self.gpuDataSubject.asObserver().onNext(gpuInfoList.randomElement()!)
                 self.memoryDataSubject.asObserver().onNext(memorylist.randomElement()!)
                 self.fanDataSubject.asObserver().onNext(fanList.randomElement()!)
+                self.powerDataSubject.asObserver().onNext(powerList.randomElement()!)
             }
             
         } catch {
@@ -120,12 +123,12 @@ class SensorDataService {
         }
     }
     
-    
-    func parseSensorJson(json: Data) -> [SensorJsonElement]{
+    func parseSensorJson(json: Data) -> [SensorJsonElement] {
         let decoder = JSONDecoder()
         
         if let sensorJsonList = try?
-            decoder.decode([SensorJsonElement].self, from: json){
+            decoder.decode([SensorJsonElement].self, from: json)
+        {
             //            print("done decoding")
             return sensorJsonList
         } else {
@@ -135,7 +138,7 @@ class SensorDataService {
     }
     
     func getMemoryInfo(from sensors: [SensorJsonElement]) -> SensorInfo {
-        if let memoryJson = sensors.first(where: { $0.sensorName == "Physical Memory Load"})?.sensorValue {
+        if let memoryJson = sensors.first(where: { $0.sensorName == "Physical Memory Load" })?.sensorValue {
             return SensorInfo(title: "Memory Used", value: memoryJson, unit: "%")
         } else {
             return SensorInfo(title: "Memory Used", value: "0.0", unit: "%")
@@ -143,25 +146,42 @@ class SensorDataService {
     }
     
     func verifyHost(_ host: String, _ portNum: String) {
-        
         let urlString = "http://" + host + ":" + portNum + "/"
-        if let url = URL(string: urlString){
-            if let data = try? Data(contentsOf: url){
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url) {
                 sensorData = parseSensorJson(json: data)
                 if sensorData.count > 1 {
                     let urlString = "http://" + host + ":" + portNum + "/"
                     DispatchQueue.main.async {
                         self.ipAddressSubject.asObserver().onNext(urlString)
                     }
-                    
                 }
-                
             }
         }
     }
     
     func setTestData() {
-        self.useTestDataSubject.asObserver().onNext(true)
+        useTestDataSubject.asObserver().onNext(true)
+    }
+    
+    func memoryDataOutput() -> Observable<SensorInfo> {
+        return SensorDataService.service.memoryDataSubject.asObservable()
+    }
+    
+    func fanDataOutput() -> Observable<FanInfo> {
+        return SensorDataService.service.fanDataSubject.asObservable()
+    }
+    
+    func cpuDataOuput() -> Observable<SensorGauge> {
+        return SensorDataService.service.cpuDataSubject.asObservable()
+    }
+
+    func gpuDataOutput() -> Observable<SensorGauge> {
+        return SensorDataService.service.gpuDataSubject.asObservable()
+    }
+
+    func powerDataOutput() -> Observable<PowerInfo> {
+        return SensorDataService.service.powerDataSubject.asObservable()
     }
 }
 

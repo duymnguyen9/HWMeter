@@ -7,16 +7,15 @@
 //
 
 import UIKit
+import Gemini
 
-class SwipeableViewCell: UICollectionViewCell {
-    let generalView = UIView()
-    let powerView = UIView()
-    let collectionView = UICollectionView()
+class SwipeableViewCell: GeminiCell {
     
+    var cardView : ContainerStackView = ContainerStackView()
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        backgroundColor = .lightGray
+        contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {
@@ -25,10 +24,24 @@ class SwipeableViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        setLayout()
     }
     
     func setLayout(){
-        
+        NSLayoutConstraint.activate([
+            contentView.heightAnchor.constraint(equalTo: heightAnchor),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+            contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
+        ])
+    }
+    
+    func setCardView(_ card: ContainerStackView) {
+        self.cardView = card
+        self.contentView.addSubview(self.cardView)
+        NSLayoutConstraint.activate([
+            cardView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            cardView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            cardView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+        ])
     }
 }

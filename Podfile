@@ -8,5 +8,6 @@ target 'HWMeter' do
   # Pods for HWMeter
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
+  pod 'Gemini'
 
 end

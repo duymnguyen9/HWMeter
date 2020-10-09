@@ -11,8 +11,6 @@ import UIKit
 extension ContainerStackView {
     
     func generalViewLayout(){
-        backgroundColor = Theme.backgroundColor
-        layer.cornerRadius = 10
         if UIDevice.current.orientation.isLandscape {
             
             stackView.axis = .vertical
@@ -30,10 +28,13 @@ extension ContainerStackView {
     
     func getGeneralViewConstraintsLandscape() -> [NSLayoutConstraint]{
         return [
-            containerView.leftAnchor.constraint(equalTo: leftAnchor),
-            containerView.rightAnchor.constraint(equalTo: rightAnchor),
+//            containerView.leftAnchor.constraint(equalTo: leftAnchor),
+//            containerView.rightAnchor.constraint(equalTo: rightAnchor),
             
-            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: paddingFactor ),
+            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.95),
+            containerView.widthAnchor.constraint(equalTo: widthAnchor),
+            
+            
             stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             stackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
@@ -52,9 +53,9 @@ extension ContainerStackView {
         
         return [
             containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85),
-            
-            containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1),
+            containerView.widthAnchor.constraint(equalTo: widthAnchor),
+            containerView.heightAnchor.constraint(equalTo: heightAnchor),
+            containerView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             
             stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),

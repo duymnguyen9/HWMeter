@@ -14,17 +14,16 @@ class MainViewController: UIViewController, Storyboarded {
     weak var coordinator: MainCoordinator?
     
     let stackView = UIStackView()
-    
-    let sensorView: ContainerStackView = ContainerStackView(frame: .zero)
-    
+        
     let cpuView: ContainerStackView = ContainerStackView(sensorType: .CPU)
     let gpuView: ContainerStackView = ContainerStackView(sensorType: .GPU)
-    let generalView: ContainerStackView = ContainerStackView(sensorType: .GEN)
-
     var stackViewContraints : [NSLayoutConstraint] = [NSLayoutConstraint]()
-        
+            
     var sensorDataCheck: Disposable = {
         print("Started Timer")
+        DispatchQueue.global(qos: .utility).async {
+            SensorDataService.service.retrieveDataFromHost()
+        }
         return Observable<Int>.interval(.seconds(2), scheduler: SerialDispatchQueueScheduler(qos: .utility)).subscribe { _ in
             DispatchQueue.global(qos: .utility).async {      
                 SensorDataService.service.retrieveDataFromHost()
@@ -32,7 +31,7 @@ class MainViewController: UIViewController, Storyboarded {
         }
     }()
     
-    
+    let swipableViewController : SwipeableViewController = SwipeableViewController()
     
     let disposeBag = DisposeBag()
     
@@ -43,21 +42,22 @@ class MainViewController: UIViewController, Storyboarded {
         
         cpuView.accessibilityIdentifier = "CPU_View"
         gpuView.accessibilityIdentifier = "GPU_View"
-        generalView.accessibilityIdentifier = "GEN_View"
         stackView.accessibilityIdentifier = "Main_StackView"
-
         
         view.backgroundColor = Theme.blackBackGroundColor
         view.addSubview(stackView)
         configureStackView()
-
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         stackView.frame = view.safeAreaLayoutGuide.layoutFrame
         layoutWhenRotate()
-
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     
     
@@ -72,7 +72,7 @@ class MainViewController: UIViewController, Storyboarded {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fill
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -80,39 +80,31 @@ class MainViewController: UIViewController, Storyboarded {
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
+        addChild(swipableViewController)
             
         stackView.addArrangedSubview(cpuView)
         stackView.addArrangedSubview(gpuView)
-        stackView.addArrangedSubview(generalView)
+        stackView.addArrangedSubview(swipableViewController.view)
         
         stackViewContraints = getConstraintListPortrait()
         NSLayoutConstraint.activate(stackViewContraints)
 
-        
-        cpuView.setSensorInfoRX(observable: SensorDataService.service.cpuDataSubject.asObservable())
-        
-        gpuView.setSensorInfoRX(observable: SensorDataService.service.gpuDataSubject.asObservable())
-        
-        generalView.setMemoryDataRx(
-            observable: SensorDataService.service.memoryDataSubject.asObservable())
-        generalView.setFanDataRx(
-            observable: SensorDataService.service.fanDataSubject.asObservable())
         
     }
     
     func screenOrientationLayout(){
         if UIDevice.current.orientation.isLandscape {
             stackView.axis = .horizontal
-            stackView.distribution = .fillEqually
+            stackView.distribution = .fill
             stackView.alignment = .fill
 
             NSLayoutConstraint.deactivate(stackViewContraints)
             
         } else {
+            
             stackView.axis = .vertical
             stackView.alignment = .fill
-            stackView.distribution = .equalSpacing
+            stackView.distribution = .fill
 
         }
     }
@@ -121,21 +113,17 @@ class MainViewController: UIViewController, Storyboarded {
         return [
             
             cpuView.heightAnchor.constraint(equalTo: stackView.heightAnchor,
-                                            multiplier: 0.28),
+                                            multiplier: 0.3),
             gpuView.heightAnchor.constraint(equalTo: cpuView.heightAnchor),
-            generalView.heightAnchor.constraint(equalTo: stackView.heightAnchor,
-            multiplier: 0.4)
         ]
     }
     
     func getConstraintListLandscape() -> [NSLayoutConstraint] {
         return [
             cpuView.widthAnchor.constraint(equalTo: stackView.widthAnchor,
-                                            multiplier: 1/3),
+                                           multiplier: 0.30),
             gpuView.widthAnchor.constraint(equalTo: stackView.widthAnchor,
-                                            multiplier: 1/3),
-            generalView.widthAnchor.constraint(equalTo: stackView.widthAnchor,
-            multiplier: 1/3)
+                                           multiplier: 0.30),
         ]
     }
     
@@ -143,6 +131,10 @@ class MainViewController: UIViewController, Storyboarded {
         if UIDevice.current.orientation.isPortrait && stackView.bounds.height >= stackView.bounds.width {
             NSLayoutConstraint.deactivate(stackViewContraints)
             stackViewContraints = getConstraintListPortrait()
+            NSLayoutConstraint.activate(stackViewContraints)
+        } else if UIDevice.current.orientation.isLandscape {
+            NSLayoutConstraint.deactivate(stackViewContraints)
+            stackViewContraints = getConstraintListLandscape()
             NSLayoutConstraint.activate(stackViewContraints)
         }
     }

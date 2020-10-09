@@ -125,4 +125,5 @@ enum SensorType {
     case GPU
     case CPU
     case GEN
+    case POWER
 }
