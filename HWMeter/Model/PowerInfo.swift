@@ -17,23 +17,16 @@ struct PowerInfo {
     var totalPower : CGFloat = CGFloat(50.3)
     
     init(from sensorJsonList: [SensorJsonElement]) {
-        var miscDiff : CGFloat = 0
-        var total : CGFloat = 0
-        
         if let cpuPowerJson = Float(sensorJsonList.first(where:
             { $0.sensorName == "CPU Package Power" && $0.sensorUnit == "W"})!.sensorValue)
         {
             self.cpuPower = CGFloat(cpuPowerJson)
-            miscDiff -= CGFloat(cpuPowerJson)
-            total += CGFloat(cpuPowerJson)
         } else {
             self.cpuPower = CGFloat(0.1)
         }
-        
         if let gpuPowerJson = Float(sensorJsonList.first(where:
-        { $0.sensorClass == "GPU Power" && $0.sensorUnit == "W"})!.sensorValue) {
+        { $0.sensorName == "GPU Power"})!.sensorValue) {
             self.gpuPower = CGFloat(gpuPowerJson)
-            total += CGFloat(gpuPowerJson)
         } else {
             self.gpuPower = CGFloat(0.1)
         }
@@ -41,19 +34,24 @@ struct PowerInfo {
         if let motherboardPowerJson = Float(sensorJsonList.first(where:
         { $0.sensorName == "Power (Input)"})!.sensorValue) {
             self.motherboardPower = CGFloat(motherboardPowerJson)
-            miscDiff += CGFloat(motherboardPowerJson)
             } else {
                 self.motherboardPower = CGFloat(0.1)
             }
         
+        var gpuPCLe : CGFloat = 0
         if let pcleGPUjson = Float(sensorJsonList.first(where:
         { $0.sensorName == "GPU Input PP Source Power (sum)"})!.sensorValue) {
-        self.miscPower = miscDiff - CGFloat(pcleGPUjson)
-            self.totalPower = self.miscPower + total
+            gpuPCLe = CGFloat(pcleGPUjson)
             } else {
                 self.miscPower = CGFloat(0.1)
             }
         
+        self.miscPower = motherboardPower - cpuPower - gpuPCLe
+        self.totalPower = miscPower + gpuPower + cpuPower
+        if self.miscPower < 0 {
+            self.miscPower = 0
+            self.totalPower = gpuPower + cpuPower
+        }
     }
     
     init(val1: CGFloat, val2: CGFloat, val3: CGFloat, val4: CGFloat) {

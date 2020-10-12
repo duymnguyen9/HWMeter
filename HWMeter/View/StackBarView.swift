@@ -39,13 +39,11 @@ class StackBarView: UIView {
         }
         willSet {
             self.cpuSegmentWidth.constant = self.bounds.width * newValue.cpuPower
-            
             self.gpuSegmentWidth.constant = self.bounds.width * newValue.gpuPower
-            
             self.miscSegmentWidth.constant = self.bounds.width * newValue.miscPower
-            UIView.animate(withDuration: 0.5,
+            UIView.animate(withDuration: 1,
                            delay: 0.0,
-                           options: [.curveEaseOut],
+                           options: [.curveEaseInOut],
                            animations: {
                             self.segmentStackView.setNeedsLayout()
                             self.segmentStackView.layoutIfNeeded()
@@ -115,6 +113,10 @@ class StackBarView: UIView {
         
         freeSegment.backgroundColor = Theme.frontColor
         freeSegment.accessibilityIdentifier = "freeSegment"
+        
+        cpuSegmentWidth = cpuSegment.widthAnchor.constraint(equalToConstant: bounds.width * 0.3)
+        gpuSegmentWidth = gpuSegment.widthAnchor.constraint(equalToConstant: bounds.width * 0.3)
+        miscSegmentWidth = miscSegment.widthAnchor.constraint(equalToConstant: bounds.width * 0.3)
     }
     
     required init?(coder: NSCoder) {
@@ -123,23 +125,19 @@ class StackBarView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-                
         setLayout()
-        
-        
         if segmentStackView.frame.height != 0 && segmentStackView.frame.width != 0 {
             deactivateSegmentWidths()
             activateSegmentWidths()
         }
+        
+
     }
     
     func setLayout() {
         title.font = UIFont.systemFont(ofSize: bounds.width * GlobalConstants.barTitleHeightFactor, weight: .regular)
         valueLabel.font = UIFont.boldSystemFont(ofSize: bounds.height * GlobalConstants.barValueHeightFactor * 0.75)
         unitLabel.font = UIFont.systemFont(ofSize: bounds.height * GlobalConstants.barValueHeightFactor * 0.75)
-        cpuSegmentWidth = cpuSegment.widthAnchor.constraint(equalToConstant: bounds.width * 0.4)
-        gpuSegmentWidth = gpuSegment.widthAnchor.constraint(equalToConstant: bounds.width * 0.3)
-        miscSegmentWidth = miscSegment.widthAnchor.constraint(equalToConstant: bounds.width * 0.1)
         
         labelLayout()
 
@@ -179,7 +177,8 @@ class StackBarView: UIView {
         miscSegment.deactivateWidth()
     }
     
-    func activateSegmentWidths(){        cpuSegmentWidth.isActive = true
+    func activateSegmentWidths(){
+        cpuSegmentWidth.isActive = true
         gpuSegmentWidth.isActive = true
         miscSegmentWidth.isActive = true
     }
